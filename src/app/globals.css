@@ -2,32 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(248, 248, 248);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.progress-purple::-webkit-progress-value {
+  background-color: #9c27b0;
+}
+
+.progress-purple::-moz-progress-bar {
+  background-color: #9c27b0;
+}
+
+.progress-purple::-ms-fill {
+  background-color: #9c27b0;
+}
+
+.progress-blue::-webkit-progress-value {
+  background-color: #2196f3;
+}
+
+.progress-blue::-moz-progress-bar {
+  background-color: #2196f3;
+}
+
+.progress-blue::-ms-fill {
+  background-color: #2196f3;
+}
+
+.progress-green::-webkit-progress-value {
+  background-color: #4caf50;
+}
+
+.progress-green::-moz-progress-bar {
+  background-color: #4caf50;
+}
+
+.progress-green::-ms-fill {
+  background-color: #4caf50;
+}
+
+.progress-yellow::-webkit-progress-value {
+  background-color: #ffeb3b;
+}
+
+.progress-yellow::-moz-progress-bar {
+  background-color: #ffeb3b;
+}
+
+.progress-yellow::-ms-fill {
+  background-color: #ffeb3b;
+}
+
+.progress-orange::-webkit-progress-value {
+  background-color: #ff9800;
+}
+
+.progress-orange::-moz-progress-bar {
+  background-color: #ff9800;
+}
+
+.progress-orange::-ms-fill {
+  background-color: #ff9800;
+}
+
+.progress-red::-webkit-progress-value {
+  background-color: #f44336;
+}
+
+.progress-red::-moz-progress-bar {
+  background-color: #f44336;
+}
+
+.progress-red::-ms-fill {
+  background-color: #f44336;
+}
+
+
+.table-wrapper {
+  position: relative;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 2;
+}
+
+.scrollable-container {
+  max-height: 700px;
+  overflow-y: auto;
+  margin: 1rem;
+  position: relative;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.dropdown-menu {
+  z-index: 1;
 }
