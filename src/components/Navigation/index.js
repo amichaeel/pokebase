@@ -68,8 +68,8 @@ export default function Navigation() {
                     <span className="font-semibold text-lg">All Pokémon</span>
                     <span className="text-xs">The Master Pokedex</span>
                   </li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">National Dex (Generation 9)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Scarlet & Violet (Paldea)</li>
+                  {/* <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">National Dex (Generation 9)</li> */}
+                  {/* <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Scarlet & Violet (Paldea)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Legends: Arceus (Hisui)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Brilliant Diamond & Shining Pearl (Sinnoh)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Sword & Shield (Galar)</li>
@@ -86,7 +86,7 @@ export default function Navigation() {
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">FireRed & LeafGreen (Kanto)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Ruby, Sapphire & Emerald (Hoenn)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Gold, Silver & Crystal (Johto)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Red, Blue & Yellow (Kanto)</li>
+                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Red, Blue & Yellow (Kanto)</li> */}
                 </ul>
               </div>
             </li>
