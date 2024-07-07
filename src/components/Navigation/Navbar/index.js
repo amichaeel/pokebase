@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { capitalizeWords, regions } from "@/lib/utils";
 
-export default function Navigation() {
+export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [allPokemonNames, setAllPokemonNames] = useState([]);

@@ -1,4 +1,4 @@
-import Navigation from "@/components/Navigation";
+import Navbar from "@/components/Navigation/Navbar";
 
 import { Inter, Fira_Sans } from "next/font/google";
 import "./globals.css";
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={firaSans.className}>
-        <Navigation />
+        <Navbar />
         {children}
       </body>
     </html>

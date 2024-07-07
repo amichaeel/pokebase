@@ -8,6 +8,7 @@ import TrainingTable from '@/components/Tables/Training';
 import BreedingTable from '@/components/Tables/Breeding';
 import EvolutionChart from '@/components/Charts/Evolution';
 import PikachuLoader from '@/components/Loaders/Pokeball';
+import PokemonPageNavigator from '@/components/Navigation/Pokemon';
 import Error from '@/components/Errors';
 import LevelUpMovesTable from '@/components/Tables/Moves/LevelUp';
 import TMMovesTable from '@/components/Tables/Moves/TM';
@@ -30,11 +31,6 @@ export default function PokemonPage({ params }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [hovered, setHovered] = useState(false);
-
-
-  const scrollToSection = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
-  }
 
   const playCry = async () => {
     if (!defaultPokemonData) return;
@@ -151,8 +147,8 @@ export default function PokemonPage({ params }) {
                 </Link>
               )}
             </div>
-            <div className='flex items-center justify-center'>
-              <h1 className='text-4xl py-3 w-full font-bold text-center'>{capitalizeWords(defaultPokemonData.name)}</h1>
+            <div className='flex col-span-1 w-full justify-center'>
+              <h1 className='md:text-4xl text-2xl py-3 w-full font-bold text-center'>{capitalizeWords(defaultPokemonData.name)}</h1>
             </div>
             <div className='w-full flex items-center justify-end'>
               {navigation.next && (
@@ -164,14 +160,14 @@ export default function PokemonPage({ params }) {
             </div>
           </div>
 
-          <div role="tablist" className="tabs flex gap-y-1 *:transition-all flex-wrap w-full tabs-lifted">
+          <div role="tablist" className="tabs flex gap-y-1 *:transition-all flex-wrap w-full">
             {Object.keys(allPokemonData).length > 1 && allPokemonData.map((pokemon, index) => {
               return (
                 <a
                   onClick={() => setSelectedPokemonData(allPokemonData[index])}
                   key={index}
                   role="tab"
-                  className={`tab flex flex-grow bg-black/20 hover:bg-black/10 break-words ${selectedPokemonData.name === pokemon.name ? 'tab-active' : ''}`}
+                  className={`tab flex flex-grow bg-black/10 hover:bg-black/15 break-words ${selectedPokemonData.name === pokemon.name ? 'tab-active !bg-black/20' : ''}`}
                 >
                   {capitalizeWords(pokemon.name)}
                 </a>
@@ -199,47 +195,8 @@ export default function PokemonPage({ params }) {
           </div>
         </div>
 
-        <div className='px-4 sticky top-12 z-30 bg-white'>
-          <div className='flex w-full bg-zinc-200  rounded-xl my-2 text-zinc-700 overflow-hidden'>
-            <div className='flex items-center *:transition-all w-full'>
-              <div
-                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
-                onClick={() => scrollToSection('base-stats')}
-              >
-                Base Stats
-              </div>
-              <div
-                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
-                onClick={() => scrollToSection('training')}
-              >
-                Training
-              </div>
-              <div
-                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
-                onClick={() => scrollToSection('breeding')}
-              >
-                Breeding
-              </div>
-              <div
-                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
-                onClick={() => scrollToSection('evolution-tree')}
-              >
-                Evolution Tree
-              </div>
-              <div
-                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
-                onClick={() => scrollToSection('moves')}
-              >
-                Moves
-              </div>
-              <div
-                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
-                onClick={() => scrollToSection('sprites')}
-              >
-                Sprites
-              </div>
-            </div>
-          </div>
+        <div className='sticky top-12 z-30 bg-[#f8f8f8]'>
+          <PokemonPageNavigator />
         </div>
 
         <div id="base-stats">

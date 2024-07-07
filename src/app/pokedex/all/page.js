@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PikachuLoader from '@/components/Loaders/Pokeball';
 import PokedexTable from '@/components/Tables/Pokedex';
-import PokedexGrid from '@/components/Grids/Pokedex'; // New component for grid view
+import PokedexGrid from '@/components/Grids/Pokedex';
 
 const MasterPokedexPage = () => {
   const [pokemonData, setPokemonData] = useState([]);
