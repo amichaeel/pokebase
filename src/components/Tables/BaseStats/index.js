@@ -1,7 +1,6 @@
 import React from 'react';
 
 const BaseStatsTable = ({ pokemonData }) => {
-  console.log(pokemonData)
   const calculateStatRange = (statName, baseStat) => {
     const maxEV = 63;
     const maxIV = 31;

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { capitalizeWords, regions } from "@/lib/utils";
 
 export default function Navigation() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,9 +15,9 @@ export default function Navigation() {
   useEffect(() => {
     const fetchPokemonNames = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
+        const response = await fetch('https://pokeapi.co/api/v2/pokedex/1');
         const data = await response.json();
-        const pokemonNames = data.results.map(pokemon => pokemon.name);
+        const pokemonNames = data.pokemon_entries.map(pokemon => pokemon.pokemon_species.name);
         setAllPokemonNames(pokemonNames);
       } catch (error) {
         console.error('Error fetching Pokémon names:', error);
@@ -50,7 +51,7 @@ export default function Navigation() {
   };
 
   return (
-    <div className="flex items-center justify-center h-12 bg-zinc-800 text-white/70 text-xs">
+    <div className="flex items-center justify-center h-12 bg-zinc-800 text-white/70 text-xs sticky z-40 top-0">
       <div className="flex items-center h-full justify-between max-w-6xl w-full">
         <div className="space-x-6 h-full">
           <ul className="flex h-full items-center space-x-6 *:transition-all">
@@ -68,7 +69,16 @@ export default function Navigation() {
                     <span className="font-semibold text-lg">All Pokémon</span>
                     <span className="text-xs">The Master Pokedex</span>
                   </li>
-                  {/* <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">National Dex (Generation 9)</li> */}
+                  {regions.map((region, index) => (
+                    <li
+                      key={index}
+                      className="py-2 flex w-full h-full px-2 hover:bg-white/10"
+                      onClick={() => router.push(`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`)}
+                    >
+                      {capitalizeWords(region.name)}
+                    </li>
+                  ))}
+
                   {/* <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Scarlet & Violet (Paldea)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Legends: Arceus (Hisui)</li>
                   <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Brilliant Diamond & Shining Pearl (Sinnoh)</li>
@@ -93,7 +103,7 @@ export default function Navigation() {
           </ul>
         </div>
 
-        <div className="space-x-6 flex items-center px-2 z-20 relative">
+        <div className="space-x-6 flex items-center px-2 z-50 relative">
           <form onSubmit={handleSearch} className="flex w-56 bg-zinc-900 text-white/70 rounded">
             <input
               type="text"

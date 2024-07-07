@@ -29,10 +29,24 @@ export default function PokemonPage({ params }) {
   const [allPokemonData, setAllPokemonData] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [hovered, setHovered] = useState(false);
+
 
   const scrollToSection = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" })
   }
+
+  const playCry = async () => {
+    if (!defaultPokemonData) return;
+
+    try {
+      const cryUrl = `https://pokemoncries.com/cries/${defaultPokemonData.id}.mp3`;
+      const audio = new Audio(cryUrl);
+      await audio.play();
+    } catch (error) {
+      console.error('Error playing Pokémon cry:', error);
+    }
+  };
 
   useEffect(() => {
     const fetchSpeciesData = async (url) => {
@@ -125,7 +139,7 @@ export default function PokemonPage({ params }) {
 
   return (
     <div className='flex w-full justify-center'>
-      <div className='flex flex-col w-full max-w-6xl'>
+      <div className='flex space-y-6 flex-col w-full max-w-6xl'>
 
         <div className={`flex flex-col text-white w-full lg:rounded-b-3xl rounded-none items-center justify-between`} style={{ background: typeGradients[selectedPokemonData.types[0].type.name] }}>
           <div className='pb-4 grid grid-cols-3 w-full'>
@@ -149,6 +163,7 @@ export default function PokemonPage({ params }) {
               )}
             </div>
           </div>
+
           <div role="tablist" className="tabs flex gap-y-1 *:transition-all flex-wrap w-full tabs-lifted">
             {Object.keys(allPokemonData).length > 1 && allPokemonData.map((pokemon, index) => {
               return (
@@ -165,18 +180,26 @@ export default function PokemonPage({ params }) {
           </div>
 
           <div className='p-4 w-full items-center justify-center flex md:flex-row flex-col'>
-            <div className='h-full w-full flex items-center justify-center'>
+            <div className='relative h-full w-full flex items-center justify-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
               <img
                 src={selectedPokemonData.sprites.other['official-artwork'].front_default}
                 alt={selectedPokemonData.name}
                 className='w-96 h-96 object-contain'
               />
+              {hovered && (
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <SpeakerWaveIcon onClick={playCry} className="w-20 h-20 p-6 transition-all bg-white/40 hover:bg-white/70 rounded-full text-gray-700 cursor-pointer" />
+                </div>
+              )}
             </div>
+
             <PokedexDataTable pokemonData={selectedPokemonData} speciesData={speciesData} />
           </div>
         </div>
 
-        <div className='px-4'>
+        <div className='px-4 sticky top-12 z-30 bg-white'>
           <div className='flex w-full bg-zinc-200  rounded-xl my-2 text-zinc-700 overflow-hidden'>
             <div className='flex items-center *:transition-all w-full'>
               <div
@@ -281,7 +304,7 @@ export default function PokemonPage({ params }) {
           </div>
         </div>
 
-        <div id="sprites">
+        <div id="sprites" className='overflow-x-auto'>
           <SpritesOverviewTable pokemonData={selectedPokemonData} />
         </div>
 

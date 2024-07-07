@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import PikachuLoader from '@/components/Loaders/Pokeball';
 import PokedexTable from '@/components/Tables/Pokedex';
 
-const MasterPokedexPage = ({ params }) => {
+const RegionalPokedexPage = ({ params }) => {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -39,4 +39,4 @@ const MasterPokedexPage = ({ params }) => {
   );
 }
 
-export default MasterPokedexPage;
+export default RegionalPokedexPage;

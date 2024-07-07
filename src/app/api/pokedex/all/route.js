@@ -1,5 +1,3 @@
-// src/app/api/pokedex/route.js
-
 const fetchPokemonEntry = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {
