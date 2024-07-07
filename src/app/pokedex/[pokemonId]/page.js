@@ -53,7 +53,6 @@ export default function PokemonPage({ params }) {
           }
 
           if (matchIndex > 0) {
-
             prevAndNext.prev = pokedex.pokemon_entries[matchIndex - 1];
           }
           if (matchIndex < pokedex.pokemon_entries.length - 1) {
@@ -146,20 +145,21 @@ export default function PokemonPage({ params }) {
               )}
             </div>
           </div>
-          <div role="tablist" className="tabs w-full tabs-lifted">
+          <div role="tablist" className="tabs flex gap-y-1 *:transition-all flex-wrap w-full tabs-lifted">
             {Object.keys(allPokemonData).length > 1 && allPokemonData.map((pokemon, index) => {
               return (
                 <a
                   onClick={() => setSelectedPokemonData(allPokemonData[index])}
                   key={index}
                   role="tab"
-                  className={`tab break-all ${selectedPokemonData.name === pokemon.name ? 'tab-active' : ''}`}
+                  className={`tab flex flex-grow bg-black/20 hover:bg-black/10 break-words ${selectedPokemonData.name === pokemon.name ? 'tab-active' : ''}`}
                 >
                   {capitalizeWords(pokemon.name)}
                 </a>
               );
             })}
           </div>
+
           <div className='p-4 w-full items-center justify-center flex md:flex-row flex-col'>
             <div className='h-full w-full flex items-center justify-center'>
               <img

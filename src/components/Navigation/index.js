@@ -93,7 +93,7 @@ export default function Navigation() {
           </ul>
         </div>
 
-        <div className="space-x-6 flex items-center px-2 relative">
+        <div className="space-x-6 flex items-center px-2 z-20 relative">
           <form onSubmit={handleSearch} className="flex w-56 bg-zinc-900 text-white/70 rounded">
             <input
               type="text"
