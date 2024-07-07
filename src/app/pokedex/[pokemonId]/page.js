@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import BaseStatsTable from '@/components/Tables/BaseStats';
 import PokedexDataTable from '@/components/Tables/PokedexData';
@@ -29,6 +29,10 @@ export default function PokemonPage({ params }) {
   const [allPokemonData, setAllPokemonData] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+  }
 
   useEffect(() => {
     const fetchSpeciesData = async (url) => {
@@ -171,20 +175,68 @@ export default function PokemonPage({ params }) {
             <PokedexDataTable pokemonData={selectedPokemonData} speciesData={speciesData} />
           </div>
         </div>
-        <div>
+
+        <div className='px-4'>
+          <div className='flex w-full bg-zinc-200  rounded-xl my-2 text-zinc-700 overflow-hidden'>
+            <div className='flex items-center *:transition-all w-full'>
+              <div
+                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
+                onClick={() => scrollToSection('base-stats')}
+              >
+                Base Stats
+              </div>
+              <div
+                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
+                onClick={() => scrollToSection('training')}
+              >
+                Training
+              </div>
+              <div
+                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
+                onClick={() => scrollToSection('breeding')}
+              >
+                Breeding
+              </div>
+              <div
+                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
+                onClick={() => scrollToSection('evolution-tree')}
+              >
+                Evolution Tree
+              </div>
+              <div
+                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
+                onClick={() => scrollToSection('moves')}
+              >
+                Moves
+              </div>
+              <div
+                className='hover:bg-zinc-400/10 cursor-pointer h-full flex items-center justify-center p-3 flex-grow'
+                onClick={() => scrollToSection('sprites')}
+              >
+                Sprites
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="base-stats">
           <BaseStatsTable pokemonData={selectedPokemonData} />
         </div>
         <div className="flex flex-col md:flex-row justify-between items-start mt-4 space-y-4 md:space-y-0 md:space-x-4">
-          <TrainingTable pokemonData={selectedPokemonData} speciesData={speciesData} />
-          <BreedingTable speciesData={speciesData} />
+          <div id="training" className='w-full'>
+            <TrainingTable pokemonData={selectedPokemonData} speciesData={speciesData} />
+          </div>
+          <div id="breeding" className='w-full'>
+            <BreedingTable speciesData={speciesData} />
+          </div>
         </div>
 
-        <div>
-          <h1 className="font-bold text-2xl pl-4">Evolution Chart</h1>
+        <div id="evolution-tree">
+          <h1 className="font-bold text-2xl pl-4">Evolution Tree</h1>
           <EvolutionChart speciesData={speciesData} pokemonData={selectedPokemonData} />
         </div>
 
-        <div className='flex w-full lg:flex-row flex-col'>
+        <div id="moves" className='flex w-full lg:flex-row flex-col'>
           <div className="w-full border">
             <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Leveling Up</h2>
             <div className="scrollable-container">
@@ -229,7 +281,7 @@ export default function PokemonPage({ params }) {
           </div>
         </div>
 
-        <div>
+        <div id="sprites">
           <SpritesOverviewTable pokemonData={selectedPokemonData} />
         </div>
 

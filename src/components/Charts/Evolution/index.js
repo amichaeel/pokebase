@@ -61,7 +61,7 @@ const EvolutionChart = ({ speciesData }) => {
     const speciesId = speciesUrl.split('/')[speciesUrl.split('/').length - 2];
 
     return (
-      <div className="evolution-stage">
+      <div className="evolution-stage flex">
         <div className="pokemon flex items-center">
           <div onClick={() => router.push(`/pokedex/${speciesName}`)} className="p-2 pokemon-info text-center flex flex-col items-center justify-center hover:bg-black/10 hover:cursor-pointer rounded-lg">
             <img className="pokemon-img" height={'100px'} width={'100px'} src={pokemonDetails[speciesName]?.image} alt={speciesName} />

@@ -22,3 +22,9 @@ export const typeGradients = {
   steel: 'linear-gradient(to bottom, rgba(107, 114, 128, 0.6), rgba(75, 85, 99, 0.9))', // gray
   fairy: 'linear-gradient(to bottom, rgba(232, 121, 249, 0.6), rgba(217, 70, 239, 0.9))', // pink
 };
+
+export const moveCatergories = {
+  physical: "/move-physical.png",
+  status: "/move-status.png",
+  special: "/move-special.png"
+}
