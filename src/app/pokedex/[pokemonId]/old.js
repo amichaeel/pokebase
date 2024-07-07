@@ -150,7 +150,7 @@ export default function PokemonPage({ params }) {
         <div className={`flex flex-col text-white w-full rounded-b-3xl items-center justify-between`} style={{ background: typeGradients[pokemonData.types[0].type.name] }}>
           <div id="pokemon-navigation" className='flex px-12 w-full justify-between'>
             <div className='flex h-full my-0 -m-12'>
-              <Link legacyBehavior={true} href={`/pokedex/pokemon/${previousPokemon}`}>
+              <Link legacyBehavior={true} href={`/pokedex/${previousPokemon}`}>
                 <a className='flex items-center h-full w-full px-4 rounded-br-3xl hover:bg-white/10'>
                   {previousPokemon && (
                     <>
@@ -165,7 +165,7 @@ export default function PokemonPage({ params }) {
               {pokemonData.name.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')}
             </div>
             <div className='flex h-full my-0 -m-12'>
-              <Link legacyBehavior={true} href={`/pokedex/pokemon/${nextPokemon}`}>
+              <Link legacyBehavior={true} href={`/pokedex/${nextPokemon}`}>
                 <a className='flex items-center h-full w-full px-4 rounded-bl-3xl hover:bg-white/10'>
                   {nextPokemon && (
                     <>

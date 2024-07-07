@@ -1,3 +1,4 @@
+import { capitalizeWords } from '@/lib/utils';
 import React, { useEffect, useState } from 'react';
 
 const SpritesOverviewTable = ({ pokemonData }) => {
@@ -49,7 +50,7 @@ const SpritesOverviewTable = ({ pokemonData }) => {
 
   return (
     <div className="w-full p-4">
-      <h2 className="text-2xl font-bold mb-4">{pokemonData.name.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')} sprites</h2>
+      <h2 className="text-2xl font-bold mb-4">{capitalizeWords(pokemonData.name)} sprites</h2>
       {loading ? (
         <div className="flex justify-center"><span className="loading loading-spinner loading-sm"></span></div>
       ) : (

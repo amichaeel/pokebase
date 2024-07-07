@@ -40,11 +40,11 @@ export default function Navigation() {
   const handleSearch = (event) => {
     event.preventDefault();
     if (searchTerm.trim() === '') return;
-    router.push(`/pokedex/pokemon/${searchTerm.toLowerCase()}`);
+    router.push(`/pokedex/${searchTerm.toLowerCase()}`);
   };
 
   const handleSuggestionClick = (suggestion) => {
-    router.push(`/pokedex/pokemon/${suggestion}`);
+    router.push(`/pokedex/${suggestion}`);
     setSearchTerm('');
     setSuggestions([]);
   };

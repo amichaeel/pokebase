@@ -1,7 +1,10 @@
 import React from 'react';
 import WideTypeIcon from '@/components/TypeIcon/Wide';
 
-const PokedexDataTable = ({ pokemonData, speciesData }) => {
+const PokedexDataTable = ({ pokemonData = {}, speciesData = {} }) => {
+  if (!pokemonData || Object.keys(pokemonData).length === 0) {
+    return <div>No Pokemon data available</div>;
+  }
   const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
   const convertHeight = (decimeters) => {
