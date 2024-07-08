@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { capitalizeWords, regions } from "@/lib/utils";
 
+import Link from "next/link";
+
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -65,18 +67,18 @@ export default function Navbar() {
               <a className="h-full px-2">Pokédex</a>
               <div className="group-hover:block top-12 dropdown-menu absolute hidden h-auto w-64">
                 <ul className=" bg-zinc-900 text-white/70 *:cursor-pointer">
-                  <li onClick={() => router.push("/pokedex/all")} className="py-4 flex w-full h-full px-2 flex-col hover:bg-white/10">
-                    <span className="font-semibold text-lg">All Pokémon</span>
-                    <span className="text-xs">The National Pokedex</span>
+                  <li>
+                    <Link href="/pokedex/all" className="py-4 flex w-full h-full px-2 flex-col hover:bg-white/10">
+                      <span className="font-semibold text-lg">All Pokémon</span>
+                      <span className="text-xs">The National Pokedex</span>
+                    </Link>
                   </li>
                   <li className="p-2 hover:bg-none text-xs font-semibold bg-zinc-800 uppercase !hover:text-black">Other Regions</li>
                   {regions.map((region, index) => (
-                    <li
-                      key={index}
-                      className="py-2 flex w-full hover:*:text-white h-full px-2 hover:bg-white/10"
-                      onClick={() => router.push(`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`)}
-                    >
-                      {capitalizeWords(region.name)}
+                    <li key={index} className="py-2 hover:text-white flex w-full h-full px-2 hover:bg-white/10">
+                      <Link className="w-full h-full" href={`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`}>
+                        {capitalizeWords(region.name)}
+                      </Link>
                     </li>
                   ))}
                 </ul>

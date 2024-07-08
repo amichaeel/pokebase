@@ -1,7 +1,12 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState, useRef } from 'react';
 import { ChartBarIcon, TrophyIcon, HeartIcon, ArrowTrendingUpIcon, BoltIcon, PhotoIcon } from '@heroicons/react/24/outline';
 
 export default function PokemonPageNavigator() {
+  const [isAtTop, setIsAtTop] = useState(false)
+  const navigatorRef = useRef(null);
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -12,9 +17,24 @@ export default function PokemonPageNavigator() {
       });
     }
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navigatorRef.current) {
+        const rect = navigatorRef.current.getBoundingClientRect();
+        setIsAtTop(rect.top <= 57);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className='px-4'>
-      <div className='flex w-full bg-zinc-200 rounded-xl my-2 text-zinc-700 overflow-hidden'>
+      <div className={`flex transition-all w-full bg-zinc-200 ${isAtTop ? 'shadow-xl' : ''} rounded-xl my-2 text-zinc-700 overflow-hidden`} ref={navigatorRef}>
         <div className='flex items-center justify-center w-full'>
 
           <div

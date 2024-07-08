@@ -195,7 +195,7 @@ export default function PokemonPage({ params }) {
           </div>
         </div>
 
-        <div className='sticky top-12 z-30 bg-[#f8f8f8]'>
+        <div className='sticky top-12 z-30'>
           <PokemonPageNavigator />
         </div>
 
