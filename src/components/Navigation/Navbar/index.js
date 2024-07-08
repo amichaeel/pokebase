@@ -64,39 +64,21 @@ export default function Navbar() {
             <li className="h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
               <a className="h-full px-2">Pokédex</a>
               <div className="group-hover:block top-12 dropdown-menu absolute hidden h-auto w-64">
-                <ul className=" bg-zinc-900 text-white/70 *:cursor-pointer hover:*:text-white">
+                <ul className=" bg-zinc-900 text-white/70 *:cursor-pointer">
                   <li onClick={() => router.push("/pokedex/all")} className="py-4 flex w-full h-full px-2 flex-col hover:bg-white/10">
                     <span className="font-semibold text-lg">All Pokémon</span>
-                    <span className="text-xs">The Master Pokedex</span>
+                    <span className="text-xs">The National Pokedex</span>
                   </li>
+                  <li className="p-2 hover:bg-none text-xs font-semibold bg-zinc-800 uppercase !hover:text-black">Other Regions</li>
                   {regions.map((region, index) => (
                     <li
                       key={index}
-                      className="py-2 flex w-full h-full px-2 hover:bg-white/10"
+                      className="py-2 flex w-full hover:*:text-white h-full px-2 hover:bg-white/10"
                       onClick={() => router.push(`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`)}
                     >
                       {capitalizeWords(region.name)}
                     </li>
                   ))}
-
-                  {/* <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Scarlet & Violet (Paldea)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Legends: Arceus (Hisui)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Brilliant Diamond & Shining Pearl (Sinnoh)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Sword & Shield (Galar)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Let's Go Pikachu & Let's Go Eevee (Kanto)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Ultra Sun & Ultra Moon (Alola)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Sun & Moon (Alola)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Omega Ruby & Alpha Sapphire (Hoenn)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">X & Y (Kalos)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Black 2 & White 2 (Unova)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Black & White (Unova)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">HeartGold & SoulSilver (Johto)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Platinum (Sinnoh)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Diamond & Pearl (Sinnoh)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">FireRed & LeafGreen (Kanto)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Ruby, Sapphire & Emerald (Hoenn)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Gold, Silver & Crystal (Johto)</li>
-                  <li className="py-2 flex w-full h-full px-2 hover:bg-white/10">Red, Blue & Yellow (Kanto)</li> */}
                 </ul>
               </div>
             </li>

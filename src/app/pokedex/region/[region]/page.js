@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import PikachuLoader from '@/components/Loaders/Pokeball';
 import PokedexTable from '@/components/Tables/Pokedex';
+import { capitalizeWords } from '@/lib/utils';
 
 const RegionalPokedexPage = ({ params }) => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -33,7 +34,7 @@ const RegionalPokedexPage = ({ params }) => {
 
   return (
     <div className='container mx-auto w-full max-w-6xl p-4'>
-      <h1>The Complete Pokedex</h1>
+      <h1 className='text-3xl py-5'>The {capitalizeWords(params.region)} Pokédex</h1>
       <PokedexTable pokemonData={pokemonData} />
     </div>
   );

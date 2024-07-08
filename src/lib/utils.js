@@ -30,7 +30,6 @@ export const moveCatergories = {
 }
 
 export const regions = [
-  { name: "national", url: "https://pokeapi.co/api/v2/pokedex/1/" },
   { name: "kanto", url: "https://pokeapi.co/api/v2/pokedex/2/" },
   { name: "original-johto", url: "https://pokeapi.co/api/v2/pokedex/3/" },
   { name: "hoenn", url: "https://pokeapi.co/api/v2/pokedex/4/" },
@@ -51,3 +50,161 @@ export const regions = [
   { name: "original-poni", url: "https://pokeapi.co/api/v2/pokedex/20/" },
   { name: "updated-alola", url: "https://pokeapi.co/api/v2/pokedex/21/" }
 ];
+
+export const pokedexMap = {
+  "kanto": {
+    "url": "https://pokeapi.co/api/v2/pokedex/2/",
+    "games": ["Red", "Blue", "Green", "Yellow", "FireRed", "LeafGreen", "Let's Go, Pikachu!", "Let's Go, Eevee!"],
+    "generation": 1
+  },
+  "original-johto": {
+    "url": "https://pokeapi.co/api/v2/pokedex/3/",
+    "games": ["Gold", "Silver", "Crystal"],
+    "generation": 2
+  },
+  "hoenn": {
+    "url": "https://pokeapi.co/api/v2/pokedex/4/",
+    "games": ["Ruby", "Sapphire", "Emerald"],
+    "generation": 3
+  },
+  "original-sinnoh": {
+    "url": "https://pokeapi.co/api/v2/pokedex/5/",
+    "games": ["Diamond", "Pearl"],
+    "generation": 4
+  },
+  "extended-sinnoh": {
+    "url": "https://pokeapi.co/api/v2/pokedex/6/",
+    "games": ["Diamond", "Pearl", "Platinum"],
+    "generation": 4
+  },
+  "updated-johto": {
+    "url": "https://pokeapi.co/api/v2/pokedex/7/",
+    "games": ["HeartGold", "SoulSilver"],
+    "generation": 4
+  },
+  "original-unova": {
+    "url": "https://pokeapi.co/api/v2/pokedex/8/",
+    "games": ["Black", "White"],
+    "generation": 5
+  },
+  "updated-unova": {
+    "url": "https://pokeapi.co/api/v2/pokedex/9/",
+    "games": ["Black 2", "White 2"],
+    "generation": 5
+  },
+  "conquest-gallery": {
+    "url": "https://pokeapi.co/api/v2/pokedex/11/",
+    "games": ["Pokémon Conquest"],
+    "generation": 5
+  },
+  "kalos-central": {
+    "url": "https://pokeapi.co/api/v2/pokedex/12/",
+    "games": ["X", "Y"],
+    "generation": 6
+  },
+  "kalos-coastal": {
+    "url": "https://pokeapi.co/api/v2/pokedex/13/",
+    "games": ["X", "Y"],
+    "generation": 6
+  },
+  "kalos-mountain": {
+    "url": "https://pokeapi.co/api/v2/pokedex/14/",
+    "games": ["X", "Y"],
+    "generation": 6
+  },
+  "updated-hoenn": {
+    "url": "https://pokeapi.co/api/v2/pokedex/15/",
+    "games": ["Omega Ruby", "Alpha Sapphire"],
+    "generation": 6
+  },
+  "original-alola": {
+    "url": "https://pokeapi.co/api/v2/pokedex/16/",
+    "games": ["Sun", "Moon"],
+    "generation": 7
+  },
+  "original-melemele": {
+    "url": "https://pokeapi.co/api/v2/pokedex/17/",
+    "games": ["Sun", "Moon"],
+    "generation": 7
+  },
+  "original-akala": {
+    "url": "https://pokeapi.co/api/v2/pokedex/18/",
+    "games": ["Sun", "Moon"],
+    "generation": 7
+  },
+  "original-ulaula": {
+    "url": "https://pokeapi.co/api/v2/pokedex/19/",
+    "games": ["Sun", "Moon"],
+    "generation": 7
+  },
+  "original-poni": {
+    "url": "https://pokeapi.co/api/v2/pokedex/20/",
+    "games": ["Sun", "Moon"],
+    "generation": 7
+  },
+  "updated-alola": {
+    "url": "https://pokeapi.co/api/v2/pokedex/21/",
+    "games": ["Ultra Sun", "Ultra Moon"],
+    "generation": 7
+  },
+  "updated-melemele": {
+    "url": "https://pokeapi.co/api/v2/pokedex/22/",
+    "games": ["Ultra Sun", "Ultra Moon"],
+    "generation": 7
+  },
+  "updated-akala": {
+    "url": "https://pokeapi.co/api/v2/pokedex/23/",
+    "games": ["Ultra Sun", "Ultra Moon"],
+    "generation": 7
+  },
+  "updated-ulaula": {
+    "url": "https://pokeapi.co/api/v2/pokedex/24/",
+    "games": ["Ultra Sun", "Ultra Moon"],
+    "generation": 7
+  },
+  "updated-poni": {
+    "url": "https://pokeapi.co/api/v2/pokedex/25/",
+    "games": ["Ultra Sun", "Ultra Moon"],
+    "generation": 7
+  },
+  "letsgo-kanto": {
+    "url": "https://pokeapi.co/api/v2/pokedex/26/",
+    "games": ["Let's Go, Pikachu!", "Let's Go, Eevee!"],
+    "generation": 1
+  },
+  "galar": {
+    "url": "https://pokeapi.co/api/v2/pokedex/27/",
+    "games": ["Sword", "Shield"],
+    "generation": 8
+  },
+  "isle-of-armor": {
+    "url": "https://pokeapi.co/api/v2/pokedex/28/",
+    "games": ["Sword", "Shield"],
+    "generation": 8
+  },
+  "crown-tundra": {
+    "url": "https://pokeapi.co/api/v2/pokedex/29/",
+    "games": ["Sword", "Shield"],
+    "generation": 8
+  },
+  "hisui": {
+    "url": "https://pokeapi.co/api/v2/pokedex/30/",
+    "games": ["Legends: Arceus"],
+    "generation": 8
+  },
+  "paldea": {
+    "url": "https://pokeapi.co/api/v2/pokedex/31/",
+    "games": ["Scarlet", "Violet"],
+    "generation": 9
+  },
+  "kitakami": {
+    "url": "https://pokeapi.co/api/v2/pokedex/32/",
+    "games": ["Scarlet", "Violet"],
+    "generation": 9
+  },
+  "blueberry": {
+    "url": "https://pokeapi.co/api/v2/pokedex/33/",
+    "games": ["Scarlet", "Violet"],
+    "generation": 9
+  }
+};

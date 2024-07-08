@@ -1,9 +1,11 @@
 "use client"
 
 import React, { useEffect, useState, useMemo } from 'react';
+
 import PikachuLoader from '@/components/Loaders/Pokeball';
 import PokedexTable from '@/components/Tables/Pokedex';
 import PokedexGrid from '@/components/Grids/Pokedex';
+import { TableCellsIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
 
 const MasterPokedexPage = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -46,7 +48,7 @@ const MasterPokedexPage = () => {
 
   return (
     <div className='container mx-auto w-full max-w-6xl p-4'>
-      <h1>The Complete Pokedex</h1>
+      <h1 className='text-3xl py-5'>The National Pokédex</h1>
       <div className="flex justify-between mb-4">
         <input
           type="text"
@@ -55,18 +57,18 @@ const MasterPokedexPage = () => {
           onChange={handleSearch}
           className="p-2 border border-gray-300 rounded"
         />
-        <div>
+        <div className='flex items-center justify-center'>
           <button
             onClick={() => setView('table')}
-            className={`mr-2 ${view === 'table' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+            className={`mr-2 flex space-x-2 btn items-center justify-center ${view === 'table' ? 'btn-active' : 'bg-black/10 hover:bg-black/5'}`}
           >
-            Table View
+            <TableCellsIcon className='size-6' />
           </button>
           <button
             onClick={() => setView('grid')}
-            className={`${view === 'grid' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+            className={`mr-2 flex space-x-2 btn items-center justify-center ${view === 'grid' ? 'btn-active' : 'bg-black/10 hover:bg-black/5'}`}
           >
-            Grid View
+            <Squares2X2Icon className='size-6' />
           </button>
         </div>
       </div>

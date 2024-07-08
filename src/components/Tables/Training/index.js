@@ -1,10 +1,11 @@
 import React from 'react';
+import { capitalizeWords } from '@/lib/utils';
 
 const TrainingTable = ({ pokemonData, speciesData }) => {
 
-  const evYield = speciesData ? speciesData['ev_yield'] : 'N/A';
-  const catchRate = speciesData ? `${speciesData['capture_rate']} (5.9% with PokéBall, full HP)` : 'N/A';
-  const baseFriendship = speciesData ? `${speciesData['base_happiness']} (normal)` : 'N/A';
+  const evYield = pokemonData ? pokemonData.stats.filter(stat => stat.effort > 0) : 'N/A';
+  const catchRate = speciesData ? `${speciesData['capture_rate']}` : 'N/A';
+  const baseFriendship = speciesData ? `${speciesData['base_happiness']}` : 'N/A';
   const baseExp = pokemonData.base_experience;
   const growthRate = speciesData ? speciesData['growth_rate'].name : 'N/A';
 
@@ -15,7 +16,9 @@ const TrainingTable = ({ pokemonData, speciesData }) => {
         <tbody className='*:border-y *:border-black/15'>
           <tr>
             <th className="py-2">EV yield</th>
-            <td className="py-2">{evYield}</td>
+            <td className="py-2">
+              {evYield.map(item => `${item.effort} ${capitalizeWords(item.stat.name)}`).join(', ')}
+            </td>
           </tr>
           <tr>
             <th className="py-2">Catch rate</th>
@@ -31,7 +34,7 @@ const TrainingTable = ({ pokemonData, speciesData }) => {
           </tr>
           <tr>
             <th className="py-2">Growth Rate</th>
-            <td className="py-2">{growthRate}</td>
+            <td className="py-2">{capitalizeWords(growthRate)}</td>
           </tr>
         </tbody>
       </table>

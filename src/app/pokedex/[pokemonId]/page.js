@@ -180,7 +180,7 @@ export default function PokemonPage({ params }) {
               <img
                 src={selectedPokemonData.sprites.other['official-artwork'].front_default}
                 alt={selectedPokemonData.name}
-                className='w-96 h-96 object-contain'
+                className='w-96 h-96 object-contain rendering-auto'
               />
               {hovered && (
                 <div
