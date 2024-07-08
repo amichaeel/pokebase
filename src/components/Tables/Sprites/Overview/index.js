@@ -49,8 +49,8 @@ const SpritesOverviewTable = ({ pokemonData }) => {
   }, [pokemonData]);
 
   return (
-    <div className="w-full overflow-auto">
-      <h2 className="text-2xl p-4 font-bold mb-4">{capitalizeWords(pokemonData.name)} sprites</h2>
+    <div className="w-full overflow-auto px-4">
+      <h2 className="text-2xl font-bold mb-4">{capitalizeWords(pokemonData.name)} sprites</h2>
       {loading ? (
         <div className="flex justify-center">
           <span className="loading loading-spinner loading-sm"></span>

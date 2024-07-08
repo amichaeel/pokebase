@@ -3,7 +3,6 @@ import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 import WideTypeIcon from '@/components/TypeIcon/Wide';
 import { useRouter } from 'next/navigation';
 
-
 const EvolutionChart = ({ speciesData }) => {
   const [evolutionChain, setEvolutionChain] = useState(null);
   const [pokemonDetails, setPokemonDetails] = useState({});
@@ -122,8 +121,10 @@ const EvolutionChart = ({ speciesData }) => {
   }
 
   return (
-    <div className="evolution-chart flex flex-col justify-center text-center text-sm items-center p-6 rounded-lg">
-      {renderEvolution(evolutionChain)}
+    <div className="evolution-chart-container flex md:!justify-center overflow-x-auto">
+      <div className="evolution-chart flex flex-nowrap justify-start text-center text-sm items-center p-6 rounded-lg">
+        {renderEvolution(evolutionChain)}
+      </div>
     </div>
   );
 };

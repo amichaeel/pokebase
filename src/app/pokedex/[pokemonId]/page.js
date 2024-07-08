@@ -216,47 +216,49 @@ export default function PokemonPage({ params }) {
           <EvolutionChart speciesData={speciesData} pokemonData={selectedPokemonData} />
         </div>
 
-        <div id="moves" className='flex w-full lg:flex-row flex-col'>
-          <div className="w-full border">
-            <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Leveling Up</h2>
-            <div className="scrollable-container">
-              <LevelUpMovesTable pokemonData={selectedPokemonData} />
+        <div id="moves" className='px-4'>
+          <div className='flex w-full lg:flex-row flex-col'>
+            <div className="w-full border">
+              <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Leveling Up</h2>
+              <div className="scrollable-container">
+                <LevelUpMovesTable pokemonData={selectedPokemonData} />
+              </div>
+            </div>
+            <div className="w-full border">
+              <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by TM</h2>
+              <div className="scrollable-container">
+                <TMMovesTable pokemonData={selectedPokemonData} />
+              </div>
             </div>
           </div>
-          <div className="w-full border">
-            <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by TM</h2>
-            <div className="scrollable-container">
-              <TMMovesTable pokemonData={selectedPokemonData} />
-            </div>
-          </div>
-        </div>
 
-        <div className='flex w-full lg:flex-row flex-col'>
-          <div className="w-full border">
-            <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Egg</h2>
-            <div className="scrollable-container">
-              <EggMovesTable pokemonData={selectedPokemonData} />
+          <div className='flex w-full lg:flex-row flex-col'>
+            <div className="w-full border">
+              <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Egg</h2>
+              <div className="scrollable-container">
+                <EggMovesTable pokemonData={selectedPokemonData} />
+              </div>
+            </div>
+            <div className="w-full border">
+              <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by HM</h2>
+              <div className="scrollable-container">
+                <HMMovesTable pokemonData={selectedPokemonData} />
+              </div>
             </div>
           </div>
-          <div className="w-full border">
-            <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by HM</h2>
-            <div className="scrollable-container">
-              <HMMovesTable pokemonData={selectedPokemonData} />
-            </div>
-          </div>
-        </div>
 
-        <div className='flex w-full lg:flex-row flex-col'>
-          <div className="w-full border">
-            <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Tutor</h2>
-            <div className="scrollable-container">
-              <TutorMovesTable pokemonData={selectedPokemonData} />
+          <div className='flex w-full lg:flex-row flex-col'>
+            <div className="w-full border">
+              <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Tutor</h2>
+              <div className="scrollable-container">
+                <TutorMovesTable pokemonData={selectedPokemonData} />
+              </div>
             </div>
-          </div>
-          <div className="w-full border">
-            <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Form Change</h2>
-            <div className="scrollable-container">
-              <FormChangeMovesTable pokemonData={selectedPokemonData} />
+            <div className="w-full border">
+              <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Form Change</h2>
+              <div className="scrollable-container">
+                <FormChangeMovesTable pokemonData={selectedPokemonData} />
+              </div>
             </div>
           </div>
         </div>
