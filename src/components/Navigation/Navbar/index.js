@@ -47,7 +47,8 @@ export default function Navbar() {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    router.push(`/pokedex/${suggestion}`);
+    const suggestionFormatted = suggestion.toLowerCase().replace(" ", "-")
+    router.push(`/pokedex/${suggestionFormatted}`);
     setSearchTerm('');
     setSuggestions([]);
   };
