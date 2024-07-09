@@ -23,6 +23,27 @@ export const typeGradients = {
   fairy: 'linear-gradient(to bottom, rgba(232, 121, 249, 0.6), rgba(217, 70, 239, 0.9))', // pink
 };
 
+export const types = [
+  'Normal',
+  'Fire',
+  'Water',
+  'Electric',
+  'Grass',
+  'Ice',
+  'Fighting',
+  'Poison',
+  'Ground',
+  'Flying',
+  'Psychic',
+  'Bug',
+  'Rock',
+  'Ghost',
+  'Dragon',
+  'Dark',
+  'Steel',
+  'Fairy'
+];
+
 export const moveCatergories = {
   physical: "/move-physical.png",
   status: "/move-status.png",

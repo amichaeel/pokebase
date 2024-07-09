@@ -58,10 +58,12 @@ export default function Navbar() {
         <div className="space-x-6 h-full">
           <ul className="flex h-full items-center space-x-6 *:transition-all">
 
-            <li className="flex h-full hover:text-white p-2 items-center space-x-2 hover:bg-white/10 hover:cursor-pointer">
-              <img src="/pokeball.png" alt="Pokeball Logo" className="w-5 h-5 invert" />
-              <span className="text-lg">PokéBase</span>
-            </li>
+            <Link href="/">
+              <li className="flex h-full hover:text-white p-2 items-center space-x-2 hover:bg-white/10 hover:cursor-pointer">
+                <img src="/pokeball.png" alt="Pokeball Logo" className="w-5 h-5 invert" />
+                <span className="text-lg">PokéBase</span>
+              </li>
+            </Link>
 
             <li className="h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
               <a className="h-full px-2">Pokédex</a>
