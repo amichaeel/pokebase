@@ -148,7 +148,7 @@ export default function PokemonPage({ params }) {
               )}
             </div>
             <div className='flex col-span-1 w-full justify-center'>
-              <h1 className='md:text-4xl text-2xl py-3 w-full font-bold text-center'>{capitalizeWords(defaultPokemonData.name)}</h1>
+              <h1 className='md:text-4xl text-2xl py-3 w-full font-bold text-center'>{capitalizeWords(defaultPokemonData.species.name)}</h1>
             </div>
             <div className='w-full flex items-center justify-end'>
               {navigation.next && (
