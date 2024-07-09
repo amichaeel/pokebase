@@ -42,16 +42,6 @@ const PokemonOfTheDay = () => {
       try {
         const pokemon = await fetchPokemonOfTheDay();
         setPokemonOfTheDay(pokemon);
-
-        const pokemonStats = [
-          { name: 'HP', base: pokemonOfTheDay.stats[0].base_stat },
-          { name: 'Attack', base: pokemonOfTheDay.stats[1].base_stat },
-          { name: 'Defense', base: pokemonOfTheDay.stats[2].base_stat },
-          { name: 'Sp. Atk', base: pokemonOfTheDay.stats[3].base_stat },
-          { name: 'Sp. Def', base: pokemonOfTheDay.stats[4].base_stat },
-          { name: 'Speed', base: pokemonOfTheDay.stats[5].base_stat },
-        ];
-        setStats(pokemonStats)
       } catch (error) {
         console.error('Error fetching Pokémon of the day:', error);
       } finally {

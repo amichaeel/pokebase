@@ -229,3 +229,46 @@ export const pokedexMap = {
     "generation": 9
   }
 };
+
+export const quickLinks = [
+  {
+    name: "National Pokedex",
+    link: "/pokedex/all",
+    active: true
+  },
+  {
+    name: "Pokémon Stats",
+    link: "/",
+    active: false
+  },
+  {
+    name: "Type Chart",
+    link: "/",
+    active: false
+  },
+  {
+    name: "Shiny Pokemon",
+    link: "/",
+    active: false
+  },
+  {
+    name: "Interactive Map",
+    link: "/",
+    active: false
+  },
+  {
+    name: "Evolution Trees",
+    link: "/",
+    active: false
+  },
+  {
+    name: "Moves",
+    link: "/",
+    active: false
+  },
+  {
+    name: "Items",
+    link: "/",
+    active: false
+  },
+]

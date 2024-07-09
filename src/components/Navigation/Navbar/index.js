@@ -19,7 +19,7 @@ export default function Navbar() {
       try {
         const response = await fetch('https://pokeapi.co/api/v2/pokedex/1');
         const data = await response.json();
-        const pokemonNames = data.pokemon_entries.map(pokemon => pokemon.pokemon_species.name);
+        const pokemonNames = data.pokemon_entries.map(pokemon => capitalizeWords(pokemon.pokemon_species.name));
         setAllPokemonNames(pokemonNames);
       } catch (error) {
         console.error('Error fetching Pokémon names:', error);

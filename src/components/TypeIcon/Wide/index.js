@@ -1,5 +1,4 @@
 import React from 'react';
-import { Fira_Sans } from 'next/font/google';
 
 const typeColors = {
   normal: 'bg-gray-400',
@@ -22,16 +21,11 @@ const typeColors = {
   fairy: 'bg-pink-300',
 };
 
-const firaSans = Fira_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-});
-
 export default function WideTypeIcon({ type }) {
   const typeClass = typeColors[type.toLowerCase()] || 'bg-gray-400';
 
   return (
-    <div className={`flex justify-center text-xs text-white py-1 px-4 w-16 rounded-md border-[1px] border-black/40 ${typeClass} ${firaSans.className} hover:opacity-90 transition-all cursor-pointer`}>
+    <div className={`flex justify-center text-xs text-white py-1 px-4 w-16 rounded-md border-[1px] border-black/40 ${typeClass} hover:opacity-90 transition-all cursor-pointer`}>
       <span className='text-shadow-sm shadow-black'>{type.toUpperCase()}</span>
     </div>
   );

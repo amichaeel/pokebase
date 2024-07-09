@@ -1,17 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { types, capitalizeWords } from "@/lib/utils";
+import { types, quickLinks } from "@/lib/utils";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
-import { typeGradients } from "@/lib/utils";
 import PokemonOfTheDay from "@/components/POTD";
+
 
 export default function Home() {
   const router = useRouter();
-
   return (
     <main className="flex flex-col items-center justify-start min-h-screen">
       <div className="w-full max-w-6xl p-8 mb-8">
@@ -22,22 +19,29 @@ export default function Home() {
           </p>
         </div>
         <div className="flex bg-zinc-200 rounded-3xl flex-col md:flex-row justify-around items-center mb-8">
-          <div className="w-full flex items-center justify-center md:w-1/3 p-4">
-            <div>
-              <h1 className="text-xl mb-2 font-semibold">Quick Links</h1>
-              <ul className="grid grid-cols-2 gap-1">
-                <li><Link className="text-sm hover:text-blue-500" href="/pokedex/all">National Pokédex</Link></li>
-                <li><Link className="text-sm hover:cursor-default text-gray-400" href="/">Pokémon Stats</Link></li>
-                <li><Link className="text-sm hover:cursor-default text-gray-400" href="/">Type Chart</Link></li>
-                <li><Link className="text-sm hover:cursor-default text-gray-400" href="/">Shiny Pokemon</Link></li>
-                <li><Link className="text-sm hover:cursor-default text-gray-400" href="/">Interactive Map</Link></li>
-                <li><Link className="text-sm hover:cursor-default text-gray-400" href="/">Evolution Chains</Link></li>
-                <li><Link className="text-sm hover:cursor-default text-gray-400" href="/">Moves</Link></li>
-              </ul>
-              <div className="grid lg:grid-cols-4 grid-cols-3 gap-1 py-4">
-                {types.map(type => {
+          <div className="w-full flex items-center justify-center lg:w-1/3 p-4">
+            <div className="flex flex-col w-full justify-center">
+              <div className="flex lg:justify-start justify-center w-full mb-2 pl-2">
+                <h1 className="font-semibold text-xl">
+                  Quick Links
+                </h1>
+              </div>
+              <ul className="grid grid-cols-2 align-middle gap-1 pl-2">
+                {quickLinks.map((link, index) => {
                   return (
-                    <WideTypeIcon type={type} key={type} />
+                    <li key={index} className="flex lg:justify-start justify-center">
+                      <Link className={`text-sm  ${link.active ? "hover:text-blue-500" : "text-gray-400 cursor-default"}`} href={link.link}>{link.name}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+              <div className="grid lg:grid-cols-4 justify-center grid-cols-3 gap-1 py-4">
+                {types.map((type, index) => {
+                  return (
+                    <div key={index} className="flex justify-center">
+                      <WideTypeIcon type={type} key={type} />
+                    </div>
                   )
                 })}
               </div>
@@ -82,7 +86,7 @@ export default function Home() {
           <PokemonOfTheDay />
         </div>
         <p className="text-sm text-black/40 text-center mb-6">
-          Powered by PokéAPI
+          Powered by <Link className="hover:text-blue-400" href="https://pokeapi.co/">PokeAPI</Link>
         </p>
       </div>
     </main>

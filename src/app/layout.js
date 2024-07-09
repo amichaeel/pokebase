@@ -1,13 +1,15 @@
 import Navbar from "@/components/Navigation/Navbar";
 
-import { Inter, Fira_Sans } from "next/font/google";
+import { Fira_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-const firaSans = Fira_Sans({ subsets: ['latin'], weight: '300' });
+const firaSans = Fira_Sans({
+  subsets: ['latin'],
+  weight: ['300', '500', '700'],
+});
 
 export const metadata = {
-  title: "PokeBase",
+  title: "PokéBase",
 };
 
 export default function RootLayout({ children }) {

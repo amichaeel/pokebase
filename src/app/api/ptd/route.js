@@ -53,6 +53,7 @@ export async function GET() {
   if (!cachedPokemon || cachedPokemon.date !== today) {
     const newPokemon = await getRandomPokemonOfTheDay();
     cachedPokemon = { ...newPokemon, date: today };
+    console.log(JSON.stringify(cachedPokemon));
 
     try {
       fs.writeFileSync(filePath, JSON.stringify(cachedPokemon, null, 2), 'utf-8');
