@@ -3,10 +3,7 @@ import Navbar from "@/components/Navigation/Navbar";
 import { Fira_Sans } from "next/font/google";
 import "./globals.css";
 
-const firaSans = Fira_Sans({
-  subsets: ['latin'],
-  weight: ['300', '500', '700'],
-});
+const firaSans = Fira_Sans({ subsets: ['latin'], weight: '300' });
 
 export const metadata = {
   title: "PokéBase",
