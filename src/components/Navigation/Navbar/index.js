@@ -54,44 +54,50 @@ export default function Navbar() {
   };
 
   return (
-    <div className="flex items-center justify-center h-12 bg-zinc-800 text-white/70 text-xs sticky z-40 top-0">
-      <div className="flex items-center h-full justify-between max-w-6xl w-full">
-        <div className="space-x-6 h-full">
-          <ul className="flex h-full items-center space-x-6 *:transition-all">
+    <div className="flex items-center justify-center h-12 w-full bg-zinc-800 text-white/70 text-xs sticky z-40 top-0">
+      <div className="flex items-center h-full justify-between max-w-6xl w-full px-4">
+        <div className="space-x-1 h-full flex items-center">
+          <Link href="/" className="hover:text-white h-full hover:bg-white/10 hover:cursor-pointer px-3">
+            <div className="flex h-full items-center space-x-2">
+              <img src="/pokeball.png" alt="Pokeball Logo" className="w-5 h-5 invert" />
+              <span className="text-lg">PokéBase</span>
+            </div>
+          </Link>
 
-            <Link href="/">
-              <li className="flex h-full hover:text-white p-2 items-center space-x-2 hover:bg-white/10 hover:cursor-pointer">
-                <img src="/pokeball.png" alt="Pokeball Logo" className="w-5 h-5 invert" />
-                <span className="text-lg">PokéBase</span>
-              </li>
-            </Link>
-
-            <li className="h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
-              <a className="h-full px-2">Pokédex</a>
-              <div className="group-hover:block top-12 dropdown-menu absolute hidden h-auto w-64">
-                <ul className=" bg-zinc-900 text-white/70 *:cursor-pointer">
-                  <li>
-                    <Link href="/pokedex/all" className="py-4 flex w-full h-full px-2 flex-col hover:bg-white/10">
-                      <span className="font-semibold text-lg">All Pokémon</span>
-                      <span className="text-xs">The National Pokedex</span>
+          <div className="h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
+            <span className="h-full px-2">Pokémon Data</span>
+            <div className="group-hover:block top-12 dropdown-menu absolute hidden h-auto w-64">
+              <ul className=" bg-zinc-900 text-white/70 *:cursor-pointer">
+                <li>
+                  <Link href="/pokedex/all" className="py-4 flex w-full h-full px-2 flex-col hover:text-white hover:bg-white/10">
+                    <span className="font-semibold text-lg">All Pokémon</span>
+                    <span className="text-xs">The National Pokedex</span>
+                  </Link>
+                </li>
+                <li className="p-2 hover:bg-none hover:cursor-default text-xs font-semibold bg-zinc-800 uppercase !hover:text-black">Other Regions</li>
+                {regions.map((region, index) => (
+                  <li key={index} className=" hover:text-white flex w-full h-full hover:bg-white/10">
+                    <Link className="w-full p-2 h-full" href={`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`}>
+                      {capitalizeWords(region.name)}
                     </Link>
                   </li>
-                  <li className="p-2 hover:bg-none text-xs font-semibold bg-zinc-800 uppercase !hover:text-black">Other Regions</li>
-                  {regions.map((region, index) => (
-                    <li key={index} className="py-2 hover:text-white flex w-full h-full px-2 hover:bg-white/10">
-                      <Link className="w-full h-full" href={`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`}>
-                        {capitalizeWords(region.name)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          </ul>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="hidden h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
+            <span className="h-full px-2">Games</span>
+          </div>
+          <div className="hidden h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
+            <span className="h-full px-2">Maps</span>
+          </div>
+          <div className="hidden h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
+            <span className="h-full px-2">Mechanics</span>
+          </div>
         </div>
 
-        <div className="space-x-6 flex items-center px-2 z-50 relative">
-          <form onSubmit={handleSearch} className="flex w-56 bg-zinc-900 text-white/70 rounded">
+        <div className="flex items-center px-2 z-50 relative">
+          <form onSubmit={handleSearch} className="flex bg-zinc-900 text-white/70 rounded">
             <input
               type="text"
               className="w-full p-2 bg-zinc-900 text-white/70 placeholder-white/50 rounded focus:outline-none"
@@ -104,7 +110,7 @@ export default function Navbar() {
             </button>
           </form>
           {suggestions.length > 0 && (
-            <ul className="absolute top-9 -left-6 w-full bg-zinc-800 text-white/70">
+            <ul className="absolute top-9 left-0 w-full bg-zinc-800 text-white/70">
               {suggestions.map((suggestion, index) => (
                 <li
                   key={index}

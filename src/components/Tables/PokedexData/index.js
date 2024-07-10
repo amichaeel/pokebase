@@ -87,8 +87,8 @@ const PokedexDataTable = ({ pokemonData = {}, speciesData = {} }) => {
             <th className="py-2 text-right pr-4">Abilities</th>
             <td className="py-2 flex flex-col space-y-1">
               {pokemonData.abilities.map((ability, index) => (
-                <span key={index} className={ability.is_hidden ? 'text-white/60' : ''}>
-                  {capitalizeWords(ability.ability.name)} {ability.is_hidden && "(Hidden Ability)"}
+                <span key={index} className={ability.is_hidden ? 'text-white/70' : ''}>
+                  {!ability.is_hidden && `${index + 1}. `} {capitalizeWords(ability.ability.name)} {ability.is_hidden && "(Hidden Ability)"}
                 </span>
               ))}
             </td>
@@ -96,12 +96,16 @@ const PokedexDataTable = ({ pokemonData = {}, speciesData = {} }) => {
           <tr>
             <th className="py-2 text-right pr-4">Local №</th>
             <td className="py-2 flex flex-col space-y-1">
-              {gameIndices.map(({ index, games }) => (
-                <div key={index} className="space-x-2 flex break-words">
-                  <span className="font-semibold">{index.padStart(4, '0')}</span>
-                  <span className="text-sm text-white/60">({games})</span>
-                </div>
-              ))}
+              {gameIndices.map(({ index, games }) => {
+                if (games.length > 0) {
+                  return (
+                    <div key={index} className="space-x-2 flex break-words">
+                      <span className="font-semibold">{index.padStart(4, '0')}</span>
+                      <span className="text-sm text-white/70">({games})</span>
+                    </div>
+                  )
+                }
+              })}
             </td>
           </tr>
         </tbody>

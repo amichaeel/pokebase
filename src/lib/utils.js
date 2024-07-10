@@ -1,5 +1,7 @@
 export const capitalizeWords = (string) => {
-  return string.split('-').map((word) => word[0].toUpperCase() + word.slice(1)).join(' ');
+  return string.split('-').map((word) => {
+    return /^[a-zA-Z]/.test(word) ? (word[0].toUpperCase() + word.slice(1)) : word;
+  }).join(' ');
 };
 
 export const typeGradients = {
@@ -140,57 +142,57 @@ export const pokedexMap = {
   },
   "original-alola": {
     "url": "https://pokeapi.co/api/v2/pokedex/16/",
-    "games": ["Sun", "Moon"],
+    "games": ["Sun/Moon — Alola Dex"],
     "generation": 7
   },
   "original-melemele": {
     "url": "https://pokeapi.co/api/v2/pokedex/17/",
-    "games": ["Sun", "Moon"],
+    "games": ["Sun/Moon — Melemele Dex"],
     "generation": 7
   },
   "original-akala": {
     "url": "https://pokeapi.co/api/v2/pokedex/18/",
-    "games": ["Sun", "Moon"],
+    "games": ["Sun/Moon — Akala Dex"],
     "generation": 7
   },
   "original-ulaula": {
     "url": "https://pokeapi.co/api/v2/pokedex/19/",
-    "games": ["Sun", "Moon"],
+    "games": ["Sun/Moon — Ulaula Dex"],
     "generation": 7
   },
   "original-poni": {
     "url": "https://pokeapi.co/api/v2/pokedex/20/",
-    "games": ["Sun", "Moon"],
+    "games": ["Sun/Moon — Poni Dex"],
     "generation": 7
   },
   "updated-alola": {
     "url": "https://pokeapi.co/api/v2/pokedex/21/",
-    "games": ["Ultra Sun", "Ultra Moon"],
+    "games": ["U. Sun/U. Moon — Alola Dex"],
     "generation": 7
   },
   "updated-melemele": {
     "url": "https://pokeapi.co/api/v2/pokedex/22/",
-    "games": ["Ultra Sun", "Ultra Moon"],
+    "games": ["U. Sun/U. Moon — Melemele Dex"],
     "generation": 7
   },
   "updated-akala": {
     "url": "https://pokeapi.co/api/v2/pokedex/23/",
-    "games": ["Ultra Sun", "Ultra Moon"],
+    "games": ["U. Sun/U. Moon — Akala Dex"],
     "generation": 7
   },
   "updated-ulaula": {
     "url": "https://pokeapi.co/api/v2/pokedex/24/",
-    "games": ["Ultra Sun", "Ultra Moon"],
+    "games": ["U. Sun/U. Moon — Ulaula Dex"],
     "generation": 7
   },
   "updated-poni": {
     "url": "https://pokeapi.co/api/v2/pokedex/25/",
-    "games": ["Ultra Sun", "Ultra Moon"],
+    "games": ["U. Sun/U. Moon — Poni Dex"],
     "generation": 7
   },
   "letsgo-kanto": {
     "url": "https://pokeapi.co/api/v2/pokedex/26/",
-    "games": ["Let's Go, Pikachu!", "Let's Go, Eevee!"],
+    "games": ["Let's Go Pikachu!", "Let's Go Eevee!"],
     "generation": 1
   },
   "galar": {
@@ -200,12 +202,12 @@ export const pokedexMap = {
   },
   "isle-of-armor": {
     "url": "https://pokeapi.co/api/v2/pokedex/28/",
-    "games": ["Sword", "Shield"],
+    "games": ["The Isle of Armor"],
     "generation": 8
   },
   "crown-tundra": {
     "url": "https://pokeapi.co/api/v2/pokedex/29/",
-    "games": ["Sword", "Shield"],
+    "games": ["The Crown Tundra"],
     "generation": 8
   },
   "hisui": {
@@ -220,12 +222,12 @@ export const pokedexMap = {
   },
   "kitakami": {
     "url": "https://pokeapi.co/api/v2/pokedex/32/",
-    "games": ["Scarlet", "Violet"],
+    "games": ["The Teal Mask"],
     "generation": 9
   },
   "blueberry": {
     "url": "https://pokeapi.co/api/v2/pokedex/33/",
-    "games": ["Scarlet", "Violet"],
+    "games": ["The Indigo Disk"],
     "generation": 9
   }
 };

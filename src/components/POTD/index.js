@@ -97,7 +97,7 @@ const PokemonOfTheDay = () => {
                 width={300}
                 height={300}
               />
-              <h2 className="text-sm">#{pokemonOfTheDay.id.toString().padStart(4, '0')}</h2>
+              <h2 className="text-sm text-black/50">#{pokemonOfTheDay.id.toString().padStart(4, '0')}</h2>
               <h2 className="text-xl font-semibold">{capitalizeWords(pokemonOfTheDay.name)}</h2>
               <div className="flex space-x-2 mt-2">
                 {pokemonOfTheDay.types.map(type => (

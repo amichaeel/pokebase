@@ -140,16 +140,18 @@ const PokedexTable = ({ pokemonData }) => {
           {sortedPokemonData.map((pokemon) => (
             <React.Fragment key={pokemon.id}>
               {pokemon.varieties.map((variety, vIndex) => (
-                <tr key={vIndex} className='hover:bg-black/10'>
+                <tr key={vIndex} className='hover:bg-black/5'>
                   <td>{pokemon.id}</td>
                   <td className='flex items-center space-x-2'>
                     {variety.pokemon.data.sprites.front_default ? (
                       <img src={variety.pokemon.data.sprites.front_default} alt={pokemon.name} className='w-16 h-16 rendering-pixelated' />
                     ) : (
-                      <NoSymbolIcon className='size-16 ' />
+                      <div className='w-16 h-16 flex items-center justify-center'>
+                        <NoSymbolIcon className='size-6 ' />
+                      </div>
                     )}
                     <div className='flex flex-col'>
-                      <Link className='hover:underline' href={`/pokedex/${pokemon.name}`}>
+                      <Link className='hover:underline pr-9' href={`/pokedex/${pokemon.name}`}>
                         {capitalizeWords(pokemon.name)}
                       </Link>
                       {pokemon.name !== variety.pokemon.name && <span className='text-xs text-gray-500'>{capitalizeWords(variety.pokemon.name)}</span>}

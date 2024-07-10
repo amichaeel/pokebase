@@ -14,10 +14,12 @@ const PokemonCard = ({ pokemon }) => {
           {pokemon.data.pokemon.data.sprites.other.home.front_default ? (
             <img src={pokemon.data.pokemon.data.sprites.other.home.front_default} alt={pokemon.name} className="w-full h-full object-contain" />
           ) : (
-            <NoSymbolIcon className="w-full h-full" />
+            <div className="flex items-center justify-center h-full w-full">
+              <NoSymbolIcon className="size-8" />
+            </div>
           )}
         </div>
-        <span className="font-bold">{`#${pokemon.id.toString().padStart(4, '0')}`}</span>
+        <span className='text-sm text-black/50'>{`#${pokemon.id.toString().padStart(4, '0')}`}</span>
         <span className="text-lg">{capitalizeWords(pokemon.name)}</span>
         {isVariety ? (
           <span className="text-sm mb-2">{capitalizeWords(pokemon.data.pokemon.name)}</span>
@@ -30,7 +32,7 @@ const PokemonCard = ({ pokemon }) => {
           ))}
         </div>
       </div>
-    </Link>
+    </Link >
   );
 };
 

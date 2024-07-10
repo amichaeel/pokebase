@@ -4,6 +4,11 @@ import path from 'path';
 
 const filePath = path.resolve(process.cwd(), 'public', 'pokemonOfTheDay.json');
 
+const convertLocalDateToISO = (dateString, format) => {
+  const date = new Date(dateString)
+  return date.toISOString().split('T')[0]
+}
+
 const fetchNationalPokedex = async () => {
   const response = await fetch('https://pokeapi.co/api/v2/pokedex/1/');
   if (!response.ok) {
@@ -37,7 +42,10 @@ const getRandomPokemonOfTheDay = async () => {
 
 export async function GET() {
   const now = new Date();
-  const today = now.toISOString().split('T')[0];
+  const localToday = now.toLocaleString().split('T')[0].split(',')[0];
+  const today = convertLocalDateToISO(localToday);
+
+  console.log(today)
 
 
   let cachedPokemon;

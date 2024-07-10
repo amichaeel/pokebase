@@ -69,7 +69,7 @@ const BaseStatsTable = ({ pokemonData }) => {
                 <td className="py-2 px-4 border-b border-black/15">{stat.base}</td>
                 <td className="py-2 px-4 w-full border-b border-black/15">
                   <progress
-                    className={`progress progress-custom w-full h-3 ${getProgressBarClass(stat.base)}`}
+                    className={`w-full progress-custom h-4 ${getProgressBarClass(stat.base)}`}
                     value={stat.base}
                     max="255"
                   ></progress>
