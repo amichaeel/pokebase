@@ -64,8 +64,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="h-full pt-4 group dropdown relative cursor-default hover:text-white hover:bg-white/10">
-            <span className="h-full px-2">Pokémon Data</span>
+          <div className="h-full group dropdown relative cursor-default hover:text-white hover:bg-white/10">
+            <span className="h-full flex items-center justify-center w-full text-center px-2">Pokémon Data</span>
             <div className="group-hover:block top-12 dropdown-menu absolute hidden h-auto w-64">
               <ul className=" bg-zinc-900 text-white/70 *:cursor-pointer">
                 <li>
