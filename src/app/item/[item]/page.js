@@ -93,7 +93,7 @@ export default function ItemPage({ params }) {
         <div className="flex md:flex-row flex-col px-4">
           <div>
             <h1 className="text-3xl font-semibold pt-5">Game Descriptions</h1>
-            <div className="flex max-w-2xl flex-wrap gap-3 text-xs  py-2">
+            <div className="flex flex-wrap gap-1">
               {(() => {
                 const uniqueLanguages = new Set();
                 return itemData.flavor_text_entries.map((entry, index) => {
@@ -103,13 +103,13 @@ export default function ItemPage({ params }) {
                   }
                   uniqueLanguages.add(language.name);
                   return (
-                    <span
+                    <button
                       key={index}
-                      className={`cursor-pointer px-3 py-1 bg-zinc-400/20 rounded-full hover:bg-blue-100  ${descriptionLanguage == language.name && "!bg-blue-300 text-zinc-100"}`}
+                      className={`text-sm p-2 rounded-3xl hover:bg-black/10  ${descriptionLanguage == language.name && "btn-active !bg-zinc-300"}`}
                       onClick={() => setDescriptionLanguage(language.name)}
                     >
                       {language.fullName}
-                    </span>
+                    </button>
                   );
                 });
               })()}
