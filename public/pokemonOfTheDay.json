@@ -1,10 +1,10 @@
 {
-  "name": "crocalor",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/910.png",
-  "id": 910,
+  "name": "goodra",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png",
+  "id": 706,
   "stats": [
     {
-      "base_stat": 81,
+      "base_stat": 90,
       "effort": 0,
       "stat": {
         "name": "hp",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "base_stat": 55,
+      "base_stat": 100,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "base_stat": 78,
+      "base_stat": 70,
       "effort": 0,
       "stat": {
         "name": "defense",
@@ -28,23 +28,23 @@
       }
     },
     {
-      "base_stat": 90,
-      "effort": 2,
+      "base_stat": 110,
+      "effort": 0,
       "stat": {
         "name": "special-attack",
         "url": "https://pokeapi.co/api/v2/stat/4/"
       }
     },
     {
-      "base_stat": 58,
-      "effort": 0,
+      "base_stat": 150,
+      "effort": 3,
       "stat": {
         "name": "special-defense",
         "url": "https://pokeapi.co/api/v2/stat/5/"
       }
     },
     {
-      "base_stat": 49,
+      "base_stat": 80,
       "effort": 0,
       "stat": {
         "name": "speed",
@@ -56,10 +56,10 @@
     {
       "slot": 1,
       "type": {
-        "name": "fire",
-        "url": "https://pokeapi.co/api/v2/type/10/"
+        "name": "dragon",
+        "url": "https://pokeapi.co/api/v2/type/16/"
       }
     }
   ],
-  "date": "2024-07-09"
+  "date": "2024-07-10"
 }

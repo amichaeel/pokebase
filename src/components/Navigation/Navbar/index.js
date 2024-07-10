@@ -12,6 +12,7 @@ export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [allPokemonNames, setAllPokemonNames] = useState([]);
+  const [allItemNames, setAllItemNames] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -19,39 +20,68 @@ export default function Navbar() {
       try {
         const response = await fetch('https://pokeapi.co/api/v2/pokedex/1');
         const data = await response.json();
-        const pokemonNames = data.pokemon_entries.map(pokemon => capitalizeWords(pokemon.pokemon_species.name));
+        const pokemonNames = data.pokemon_entries.map(pokemon => ({
+          name: capitalizeWords(pokemon.pokemon_species.name),
+          type: 'Pokédex'
+        }));
         setAllPokemonNames(pokemonNames);
       } catch (error) {
         console.error('Error fetching Pokémon names:', error);
       }
     };
 
+    const fetchItemNames = async () => {
+      try {
+        const response = await fetch('https://pokeapi.co/api/v2/item?limit=2169');
+        const data = await response.json();
+        const itemNames = data.results.map(item => ({
+          name: capitalizeWords(item.name),
+          type: 'Item'
+        }));
+        setAllItemNames(itemNames);
+      } catch (error) {
+        console.error('Error fetching item names:', error);
+      }
+    };
+
     fetchPokemonNames();
+    fetchItemNames();
   }, []);
 
   useEffect(() => {
     if (searchTerm.trim() === '') {
       setSuggestions([]);
     } else {
-      const filteredSuggestions = allPokemonNames
-        .filter(name => name.toLowerCase().includes(searchTerm.toLowerCase()))
+      const allNames = [...allPokemonNames, ...allItemNames];
+      const filteredSuggestions = allNames
+        .filter(entry => entry.name.toLowerCase().includes(searchTerm.toLowerCase()))
         .slice(0, 10);
       setSuggestions(filteredSuggestions);
     }
-  }, [searchTerm, allPokemonNames]);
+  }, [searchTerm, allPokemonNames, allItemNames]);
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (searchTerm.trim() === '') return;
-    router.push(`/pokedex/${searchTerm.toLowerCase()}`);
+    if (suggestions.length > 0 && searchTerm.trim() !== '') {
+      const suggestionFormatted = suggestions[0].name.toLowerCase().replace(" ", "-");
+      router.push(suggestions[0].type === 'Pokédex' ? `/pokedex/${suggestionFormatted}` : `/item/${suggestionFormatted}`);
+      setSearchTerm('');
+      setSuggestions([]);
+    }
   };
 
   const handleSuggestionClick = (suggestion) => {
-    const suggestionFormatted = suggestion.toLowerCase().replace(" ", "-")
-    router.push(`/pokedex/${suggestionFormatted}`);
+    const suggestionFormatted = suggestion.name.toLowerCase().replace(" ", "-");
+    router.push(suggestion.type === 'Pokédex' ? `/pokedex/${suggestionFormatted}` : `/item/${suggestionFormatted}`);
     setSearchTerm('');
     setSuggestions([]);
   };
+
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      console.log(suggestions)
+    }
+  }, [suggestions])
 
   return (
     <div className="flex items-center justify-center h-12 w-full bg-zinc-800 text-white/70 text-xs sticky z-40 top-0">
@@ -111,15 +141,20 @@ export default function Navbar() {
           </form>
           {suggestions.length > 0 && (
             <ul className="absolute top-9 left-0 w-full bg-zinc-800 text-white/70">
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  className="px-4 py-2 hover:bg-zinc-700 cursor-pointer font-bold"
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion.charAt(0).toUpperCase() + suggestion.slice(1)}
-                </li>
-              ))}
+              {suggestions.map((suggestion, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="flex items-center justify-between w-full px-4 py-2 hover:bg-zinc-700 cursor-pointer font-bold"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    <span className="text-white font-semibold text-md">{suggestion.name}</span>
+                    <span>
+                      {suggestion.type}
+                    </span>
+                  </li>
+                )
+              })}
             </ul>
           )}
         </div>
