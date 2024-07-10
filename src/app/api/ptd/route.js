@@ -42,12 +42,9 @@ const getRandomPokemonOfTheDay = async () => {
 
 export async function GET() {
   const now = new Date();
-  const localToday = now.toLocaleString().split('T')[0].split(',')[0];
+  const options = { timeZone: 'America/New_York' };
+  const localToday = now.toLocaleString('en-US', options).split('T')[0].split(',')[0];
   const today = convertLocalDateToISO(localToday);
-
-  console.log(today)
-
-
   let cachedPokemon;
 
   try {

@@ -1,10 +1,10 @@
 {
-  "name": "murkrow",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/198.png",
-  "id": 198,
+  "name": "crocalor",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/910.png",
+  "id": 910,
   "stats": [
     {
-      "base_stat": 60,
+      "base_stat": 81,
       "effort": 0,
       "stat": {
         "name": "hp",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "base_stat": 85,
+      "base_stat": 55,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "base_stat": 42,
+      "base_stat": 78,
       "effort": 0,
       "stat": {
         "name": "defense",
@@ -28,15 +28,15 @@
       }
     },
     {
-      "base_stat": 85,
-      "effort": 0,
+      "base_stat": 90,
+      "effort": 2,
       "stat": {
         "name": "special-attack",
         "url": "https://pokeapi.co/api/v2/stat/4/"
       }
     },
     {
-      "base_stat": 42,
+      "base_stat": 58,
       "effort": 0,
       "stat": {
         "name": "special-defense",
@@ -44,8 +44,8 @@
       }
     },
     {
-      "base_stat": 91,
-      "effort": 1,
+      "base_stat": 49,
+      "effort": 0,
       "stat": {
         "name": "speed",
         "url": "https://pokeapi.co/api/v2/stat/6/"
@@ -56,15 +56,8 @@
     {
       "slot": 1,
       "type": {
-        "name": "dark",
-        "url": "https://pokeapi.co/api/v2/type/17/"
-      }
-    },
-    {
-      "slot": 2,
-      "type": {
-        "name": "flying",
-        "url": "https://pokeapi.co/api/v2/type/3/"
+        "name": "fire",
+        "url": "https://pokeapi.co/api/v2/type/10/"
       }
     }
   ],
