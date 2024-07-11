@@ -244,6 +244,11 @@ export const quickLinks = [
     active: true
   },
   {
+    name: "All Moves",
+    link: "/move/all",
+    active: true
+  },
+  {
     name: "Pokémon Stats",
     link: "/",
     active: false
@@ -265,11 +270,6 @@ export const quickLinks = [
   },
   {
     name: "Evolution Trees",
-    link: "/",
-    active: false
-  },
-  {
-    name: "Moves",
     link: "/",
     active: false
   }

@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { CircleStackIcon, BookOpenIcon, BeakerIcon, LanguageIcon, HandRaisedIcon } from '@heroicons/react/24/outline';
 
-export default function ItemPageNavigator() {
+export default function ItemPageNavigator({ itemData }) {
   const [isAtTop, setIsAtTop] = useState(false)
   const navigatorRef = useRef(null);
 
@@ -77,15 +77,17 @@ export default function ItemPageNavigator() {
             </div>
           </div>
 
-          <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
-            onClick={() => scrollToSection('held-by-pokemon')}
-          >
-            <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
-              <HandRaisedIcon className='w-8 h-8 md:w-5 md:h-5' />
-              <span className="text-xs md:text-base">Held By</span>
+          {itemData.held_by_pokemon.length > 0 && (
+            <div
+              className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+              onClick={() => scrollToSection('held-by-pokemon')}
+            >
+              <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
+                <HandRaisedIcon className='w-8 h-8 md:w-5 md:h-5' />
+                <span className="text-xs md:text-base">Held By</span>
+              </div>
             </div>
-          </div>
+          )}
 
         </div>
       </div>

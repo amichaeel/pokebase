@@ -61,7 +61,7 @@ const ItemsTable = ({ itemsData }) => {
         <tbody className='divide-y divide-gray-300'>
           {sortedItems.map((item) => (
             <tr key={item.url} className='hover:bg-zinc-200'>
-              <td className="border-t border-gray-300 ">
+              <td className="border-t border-gray-300 p-1">
                 <div className='flex items-center'>
                   {item.sprite ? (
                     <img src={item.sprite} alt={item.name} className="w-10 h-10 rendering-pixelated" />
@@ -74,7 +74,7 @@ const ItemsTable = ({ itemsData }) => {
                 </div>
               </td>
               <td className="border-t border-gray-300">{capitalizeWords(item.category)}</td>
-              <td className="border-t border-gray-300">{item.effect}</td>
+              <td className="border-t border-gray-300 p-1">{item.effect}</td>
             </tr>
           ))}
         </tbody>

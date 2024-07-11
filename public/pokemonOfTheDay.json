@@ -1,10 +1,10 @@
 {
-  "name": "goodra",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png",
-  "id": 706,
+  "name": "rookidee",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/821.png",
+  "id": 821,
   "stats": [
     {
-      "base_stat": 90,
+      "base_stat": 38,
       "effort": 0,
       "stat": {
         "name": "hp",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "base_stat": 100,
+      "base_stat": 47,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "base_stat": 70,
+      "base_stat": 35,
       "effort": 0,
       "stat": {
         "name": "defense",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "base_stat": 110,
+      "base_stat": 33,
       "effort": 0,
       "stat": {
         "name": "special-attack",
@@ -36,16 +36,16 @@
       }
     },
     {
-      "base_stat": 150,
-      "effort": 3,
+      "base_stat": 35,
+      "effort": 0,
       "stat": {
         "name": "special-defense",
         "url": "https://pokeapi.co/api/v2/stat/5/"
       }
     },
     {
-      "base_stat": 80,
-      "effort": 0,
+      "base_stat": 57,
+      "effort": 1,
       "stat": {
         "name": "speed",
         "url": "https://pokeapi.co/api/v2/stat/6/"
@@ -56,10 +56,10 @@
     {
       "slot": 1,
       "type": {
-        "name": "dragon",
-        "url": "https://pokeapi.co/api/v2/type/16/"
+        "name": "flying",
+        "url": "https://pokeapi.co/api/v2/type/3/"
       }
     }
   ],
-  "date": "2024-07-10"
+  "date": "2024-07-11"
 }

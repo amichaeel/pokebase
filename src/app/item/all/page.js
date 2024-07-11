@@ -59,7 +59,7 @@ const MasterItemsPage = () => {
           placeholder="Search Items"
           value={searchQuery}
           onChange={handleSearch}
-          className="p-2 border w-96 border-gray-300 rounded"
+          className="p-2 border w-96 focus:outline-none border-gray-300 rounded"
         />
         <div className='flex items-center justify-center'>
           <button

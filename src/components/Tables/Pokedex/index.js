@@ -194,7 +194,7 @@ const PokedexTable = ({ pokemonData }) => {
                       </div>
                     </div>
                   </td>
-                  <td className='space-y-1 border-t border-gray-300 align-middle'>
+                  <td className='space-y-1 p-1 border-t border-gray-300 align-middle'>
                     {variety.pokemon.data.types.map((type) => (
                       <div key={type.type.name} className='mr-1'>
                         <WideTypeIcon type={type.type.name} />

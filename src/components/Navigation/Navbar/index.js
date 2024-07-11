@@ -13,6 +13,7 @@ export default function Navbar() {
   const [suggestions, setSuggestions] = useState([]);
   const [allPokemonNames, setAllPokemonNames] = useState([]);
   const [allItemNames, setAllItemNames] = useState([]);
+  const [allMoveNames, setAllMoveNames] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -44,27 +45,54 @@ export default function Navbar() {
       }
     };
 
+    const fetchMoveNames = async () => {
+      try {
+        const response = await fetch('https://pokeapi.co/api/v2/move?limit=1000');
+        const data = await response.json();
+        const moveNames = data.results.map(move => ({
+          name: capitalizeWords(move.name),
+          type: 'Move'
+        }));
+        setAllMoveNames(moveNames);
+      } catch (error) {
+        console.error('Error fetching move names:', error);
+      }
+    };
+
     fetchPokemonNames();
     fetchItemNames();
+    fetchMoveNames();
   }, []);
 
   useEffect(() => {
-    if (searchTerm.trim() === '') {
+    if (searchTerm.trim().length < 2) {
       setSuggestions([]);
     } else {
-      const allNames = [...allPokemonNames, ...allItemNames];
+      const allNames = [...allPokemonNames, ...allItemNames, ...allMoveNames];
       const filteredSuggestions = allNames
         .filter(entry => entry.name.toLowerCase().includes(searchTerm.toLowerCase()))
         .slice(0, 10);
       setSuggestions(filteredSuggestions);
     }
-  }, [searchTerm, allPokemonNames, allItemNames]);
+  }, [searchTerm, allPokemonNames, allItemNames, allMoveNames]);
 
   const handleSearch = (event) => {
     event.preventDefault();
     if (suggestions.length > 0 && searchTerm.trim() !== '') {
+      let url = ''
+      switch (suggestions[0].type) {
+        case 'Pokédex':
+          url = '/pokedex/'
+          break
+        case 'Item':
+          url = '/item/'
+          break
+        case 'Move':
+          url = '/move.'
+          break
+      }
       const suggestionFormatted = suggestions[0].name.toLowerCase().replace(" ", "-");
-      router.push(suggestions[0].type === 'Pokédex' ? `/pokedex/${suggestionFormatted}` : `/item/${suggestionFormatted}`);
+      router.push(`${url}${suggestionFormatted}`);
       setSearchTerm('');
       setSuggestions([]);
     }
@@ -72,16 +100,22 @@ export default function Navbar() {
 
   const handleSuggestionClick = (suggestion) => {
     const suggestionFormatted = suggestion.name.toLowerCase().replace(" ", "-");
-    router.push(suggestion.type === 'Pokédex' ? `/pokedex/${suggestionFormatted}` : `/item/${suggestionFormatted}`);
+    let url = ''
+    switch (suggestion.type) {
+      case 'Pokédex':
+        url = '/pokedex/'
+        break
+      case 'Item':
+        url = '/item/'
+        break
+      case 'Move':
+        url = '/move/'
+        break
+    }
+    router.push(`${url}${suggestionFormatted}`);
     setSearchTerm('');
     setSuggestions([]);
   };
-
-  useEffect(() => {
-    if (suggestions.length > 0) {
-      console.log(suggestions)
-    }
-  }, [suggestions])
 
   return (
     <div className="flex items-center justify-center h-12 w-full bg-zinc-800 text-white/70 text-xs sticky z-40 top-0">
