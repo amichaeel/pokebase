@@ -5,7 +5,7 @@ import { capitalizeWords } from '@/lib/utils';
 import Link from 'next/link';
 
 const PokedexTable = ({ pokemonData }) => {
-  const [sortConfig, setSortConfig] = useState({ key: '', direction: 'ascending' });
+  const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
   const handleSort = (key) => {
     let direction = 'ascending';
@@ -75,7 +75,7 @@ const PokedexTable = ({ pokemonData }) => {
   }, [pokemonData, sortConfig]);
 
   const getClassNamesFor = (name) => {
-    return sortConfig.key === name ? 'bg-blue-200' : '';
+    return sortConfig.key === name ? '!bg-blue-200' : '';
   };
 
   return (
@@ -87,7 +87,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('id')}`}
               onClick={() => handleSort('id')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>#</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -96,7 +96,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('name')}`}
               onClick={() => handleSort('name')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Name</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -108,7 +108,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('total')}`}
               onClick={() => handleSort('total')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Total</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -117,7 +117,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('hp')}`}
               onClick={() => handleSort('hp')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>HP</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -126,7 +126,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('attack')}`}
               onClick={() => handleSort('attack')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Attack</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -135,7 +135,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('defense')}`}
               onClick={() => handleSort('defense')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Defense</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -144,7 +144,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('sp. atk')}`}
               onClick={() => handleSort('sp. atk')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Sp. Atk</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -153,7 +153,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('sp. def')}`}
               onClick={() => handleSort('sp. def')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Sp. Def</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -162,7 +162,7 @@ const PokedexTable = ({ pokemonData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('speed')}`}
               onClick={() => handleSort('speed')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Speed</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>

@@ -25,7 +25,7 @@ const ItemsTable = ({ itemsData }) => {
   };
 
   const getClassNamesFor = (name) => {
-    return sortConfig.key === name ? 'bg-blue-200' : '';
+    return sortConfig.key === name ? '!bg-blue-200' : '';
   };
 
   return (
@@ -37,7 +37,7 @@ const ItemsTable = ({ itemsData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('name')}`}
               onClick={() => requestSort('name')}
             >
-              <div className='flex justify-between '>
+              <div className='flex items-center justify-between '>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Name</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
@@ -46,13 +46,15 @@ const ItemsTable = ({ itemsData }) => {
               className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('category')}`}
               onClick={() => requestSort('category')}
             >
-              <div className='flex justify-between'>
+              <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Category</span>
                 <ChevronUpDownIcon className='size-4' />
               </div>
             </th>
-            <th className="border-b border-gray-300 text-left text-xs font-medium uppercase tracking-wider p-3 bg-zinc-100">
-              Effect
+            <th className="border-b border-gray-300 p-3 bg-zinc-100">
+              <div className='flex items-center justify-between'>
+                <span className='uppercase text-left text-xs font-medium tracking-wider'>Effect</span>
+              </div>
             </th>
           </tr>
         </thead>
