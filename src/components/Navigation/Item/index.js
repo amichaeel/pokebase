@@ -34,11 +34,11 @@ export default function ItemPageNavigator({ itemData }) {
 
   return (
     <div className='px-4'>
-      <div className={`flex transition-all w-full bg-zinc-200 ${isAtTop ? 'shadow-xl' : ''} rounded-xl my-2 text-zinc-700 overflow-hidden`} ref={navigatorRef}>
+      <div className={`flex transition-all w-full bg-base-100 ${isAtTop ? 'drop-shadow-xl' : ''} rounded-xl my-2 overflow-hidden`} ref={navigatorRef}>
         <div className='flex items-center justify-center w-full'>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('item-data')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -48,7 +48,7 @@ export default function ItemPageNavigator({ itemData }) {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('effects')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -58,7 +58,7 @@ export default function ItemPageNavigator({ itemData }) {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('game-descriptions')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -68,7 +68,7 @@ export default function ItemPageNavigator({ itemData }) {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('other-languages')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -79,7 +79,7 @@ export default function ItemPageNavigator({ itemData }) {
 
           {itemData.held_by_pokemon.length > 0 && (
             <div
-              className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+              className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
               onClick={() => scrollToSection('held-by-pokemon')}
             >
               <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -88,7 +88,6 @@ export default function ItemPageNavigator({ itemData }) {
               </div>
             </div>
           )}
-
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ const MovesTable = ({ movesData }) => {
   };
 
   const getClassNamesFor = (name) => {
-    return sortConfig.key === name ? '!bg-blue-200' : '';
+    return sortConfig.key === name ? '!bg-base-100' : '';
   };
 
   return (
@@ -36,7 +36,7 @@ const MovesTable = ({ movesData }) => {
           <tr>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('name')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('name')}`}
               onClick={() => requestSort('name')}
             >
               <div className='flex items-center justify-between '>
@@ -46,7 +46,7 @@ const MovesTable = ({ movesData }) => {
             </th>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('type')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('type')}`}
               onClick={() => requestSort('type')}
             >
               <div className='flex items-center justify-between '>
@@ -56,7 +56,7 @@ const MovesTable = ({ movesData }) => {
             </th>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('category')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('category')}`}
               onClick={() => requestSort('category')}
             >
               <div className='flex items-center justify-between'>
@@ -66,7 +66,7 @@ const MovesTable = ({ movesData }) => {
             </th>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('power')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('power')}`}
               onClick={() => requestSort('power')}
             >
               <div className='flex items-center justify-between '>
@@ -76,7 +76,7 @@ const MovesTable = ({ movesData }) => {
             </th>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('accuracy')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('accuracy')}`}
               onClick={() => requestSort('accuracy')}
             >
               <div className='flex items-center justify-between '>
@@ -86,7 +86,7 @@ const MovesTable = ({ movesData }) => {
             </th>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('pp')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('pp')}`}
               onClick={() => requestSort('pp')}
             >
               <div className='flex items-center justify-between '>
@@ -95,14 +95,14 @@ const MovesTable = ({ movesData }) => {
               </div>
             </th>
 
-            <th className="border-b border-gray-300 p-3 bg-zinc-100">
+            <th className="border-b border-base-100 p-3 bg-base-200">
               <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Effect</span>
               </div>
             </th>
 
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('prob')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('prob')}`}
               onClick={() => requestSort('prob')}
             >
               <div className='flex items-center justify-between '>
@@ -114,18 +114,18 @@ const MovesTable = ({ movesData }) => {
         </thead>
         <tbody className='divide-y divide-gray-300'>
           {sortedMoves.map((move) => (
-            <tr key={move.url} className='hover:bg-zinc-200'>
-              <td className="border-t border-gray-300 p-1">
+            <tr key={move.url} className='hover:bg-base-100'>
+              <td className="border-t border-base-100 p-1">
                 <Link className='hover:text-blue-400' href={`/move/${move.name}`}>{capitalizeWords(move.name)}</Link>
               </td>
-              <td className="border-t border-gray-300">
+              <td className="border-t border-base-100">
                 {move.type ? (
                   <WideTypeIcon type={move.type} />
                 ) : (
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-gray-300">
+              <td className="border-t border-base-100">
                 {move.category ? (
                   <div className='flex justify-center items-center'>
                     <img src={`/move-${move.category}.png`} className='w-8' alt={move.category} />
@@ -134,35 +134,35 @@ const MovesTable = ({ movesData }) => {
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-gray-300">
+              <td className="border-t border-base-100">
                 {move.power ? (
                   <span>{move.power}</span>
                 ) : (
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-gray-300">
+              <td className="border-t border-base-100">
                 {move.accuracy ? (
                   <span>{move.accuracy}</span>
                 ) : (
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-gray-300">
+              <td className="border-t border-base-100">
                 {move.pp ? (
                   <span>{move.pp}</span>
                 ) : (
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-gray-300 max-w-md">
+              <td className="border-t border-base-100 max-w-md">
                 {move.short_effect ? (
                   <span>{move.short_effect}</span>
                 ) : (
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-gray-300 text-right p-1">
+              <td className="border-t border-base-100 text-right p-1">
                 {move.effect_chance > 0 ? (
                   <span>{move.effect_chance}</span>
                 ) : (

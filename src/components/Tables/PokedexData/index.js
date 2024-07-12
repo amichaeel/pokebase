@@ -56,8 +56,8 @@ const PokedexDataTable = ({ pokemonData = {}, speciesData = {} }) => {
 
   return (
     <div className='w-full p-4 bg-black/5 rounded-3xl'>
-      <h1 className="text-center font-bold text-2xl mb-4">Pokédex Data</h1>
-      <table className="table-auto w-full text-left border-collapse">
+      <h1 className="text-center font-bold text-2xl mb-4 text-white/90">Pokédex Data</h1>
+      <table className="table-auto w-full text-white/90 text-left border-collapse">
         <tbody>
           <tr>
             <th className="py-2 text-right pr-4">National №</th>

@@ -2,6 +2,7 @@
 const { default: daisyui } = require('daisyui');
 const plugin = require('tailwindcss/plugin')
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -39,6 +40,6 @@ module.exports = {
     require('tailwindcss-image-rendering')(),
   ],
   daisyui: {
-    themes: []
+    themes: ['light', 'dark']
   },
 };

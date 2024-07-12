@@ -338,11 +338,11 @@ export const gameColors = {
   "Platinum": "#757575",       // Dark gray
   "HeartGold": "#FFA000",      // Dark gold
   "SoulSilver": "#757575",     // Dark gray
-  "Black": "#212121",          // Dark black
+  "Black": "#595959",          // Dark black
   "White": "#BDBDBD",          // Dark gray
   "Colosseum": "#512DA8",      // Dark purple
   "XD: Gale of Darkness": "#673AB7",  // Medium purple
-  "Black 2": "#212121",        // Dark black
+  "Black 2": "#595959",        // Dark black
   "White 2": "#BDBDBD",        // Dark gray
   "X": "#AD1457",              // Dark pink
   "Y": "#6A1B9A",              // Dark purple

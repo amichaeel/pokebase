@@ -47,7 +47,7 @@ const MasterMovesPage = () => {
   return (
     <div className='container mx-auto w-full max-w-6xl p-4'>
       <h1 className='text-3xl py-5 font-semibold'>The Complete Pokémon Move List</h1>
-      <div className='flex flex-col bg-zinc-200 p-4 rounded-xl mb-10 space-y-3 text-zinc-700'>
+      <div className='flex flex-col bg-base-200 p-4 rounded-xl mb-10 space-y-3 text-base-700'>
         <span>This is a full list of every move in the Pokémon universe, along with their details.</span>
         <span>The table is searchable by using the controls above it.</span>
         <div className='flex items-center gap-3'>
@@ -74,7 +74,7 @@ const MasterMovesPage = () => {
           placeholder="Search Moves"
           value={searchQuery}
           onChange={handleSearch}
-          className="p-2 border w-96 border-gray-300 focus:outline-none rounded"
+          className="p-2 border w-96 border-none outline-none bg-base-100 focus:outline-none rounded-xl"
         />
       </div>
       <MovesTable movesData={filteredMovesData} />

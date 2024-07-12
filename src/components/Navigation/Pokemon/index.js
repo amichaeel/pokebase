@@ -34,11 +34,11 @@ export default function PokemonPageNavigator() {
 
   return (
     <div className='px-4'>
-      <div className={`flex transition-all w-full bg-zinc-200 ${isAtTop ? 'shadow-xl' : ''} rounded-xl my-2 text-zinc-700 overflow-hidden`} ref={navigatorRef}>
+      <div className={`flex transition-all w-full bg-base-100 ${isAtTop ? 'drop-shadow-xl ' : ''} rounded-xl my-2 overflow-hidden`} ref={navigatorRef}>
         <div className='flex items-center justify-center w-full'>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('base-stats')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -48,7 +48,7 @@ export default function PokemonPageNavigator() {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('training')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -58,7 +58,7 @@ export default function PokemonPageNavigator() {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('breeding')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -68,7 +68,7 @@ export default function PokemonPageNavigator() {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('evolution-tree')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -78,7 +78,7 @@ export default function PokemonPageNavigator() {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('moves')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>
@@ -88,7 +88,7 @@ export default function PokemonPageNavigator() {
           </div>
 
           <div
-            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-zinc-400/10'
+            className='flex h-full items-center justify-center w-full md:p-3 p-1 flex-grow cursor-pointer hover:bg-base-200'
             onClick={() => scrollToSection('sprites')}
           >
             <div className='flex md:flex-row md:space-x-2 flex-col text-center items-center justify-center'>

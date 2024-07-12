@@ -49,7 +49,7 @@ const MasterItemsPage = () => {
   return (
     <div className='container mx-auto w-full max-w-6xl p-4'>
       <h1 className='text-3xl py-5 font-semibold'>The Complete Pokémon Items List</h1>
-      <div className='flex flex-col bg-zinc-200 p-4 rounded-xl mb-10 space-y-3 text-zinc-700'>
+      <div className='flex flex-col bg-base-100 p-4 rounded-xl mb-10 space-y-3'>
         <span>This is a full list of every item in the Pokémon universe, along with their details.</span>
         <span>The table is searchable by using the controls above it.</span>
       </div>
@@ -59,7 +59,7 @@ const MasterItemsPage = () => {
           placeholder="Search Items"
           value={searchQuery}
           onChange={handleSearch}
-          className="p-2 border w-96 focus:outline-none border-gray-300 rounded"
+          className="p-2 border w-96 bg-base-100 outline-none border-none focus:outline-none rounded-xl"
         />
         <div className='flex items-center justify-center'>
           <button

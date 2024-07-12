@@ -103,7 +103,7 @@ export default function ItemPage({ params }) {
                     {itemData.effect_entries.map((effect, index) => {
                       return (
                         <tr key={index}>
-                          <td className="text-zinc-600" key={index}>
+                          <td key={index}>
                             <span className="whitespace-pre-wrap">{effect.effect.replaceAll('\n:   ', ': ')}</span>
                           </td>
                         </tr>
@@ -128,7 +128,7 @@ export default function ItemPage({ params }) {
                 <select
                   value={descriptionLanguage}
                   onChange={(e) => setDescriptionLanguage(e.target.value)}
-                  className="select focus:outline-none focus:border-none bg-zinc-200 select-sm"
+                  className="select focus:outline-none focus:border-none bg-base-100 select-sm"
                 >
                   {(() => {
                     const uniqueLanguages = new Set();
@@ -152,7 +152,7 @@ export default function ItemPage({ params }) {
                 </select>
               </div>
             ) : (
-              <span className="text-zinc-600">
+              <span>
                 No game descriptions found for this item.
               </span>
             )}
@@ -165,7 +165,7 @@ export default function ItemPage({ params }) {
                     );
                     return (
                       <tr key={index}>
-                        <th className="text-sm w-1 text-zinc-400 text-right">
+                        <th className="text-sm w-1 text-right">
                           {games.fullName
                             .split("/")
                             .map((game, gIndex) => {
@@ -180,7 +180,7 @@ export default function ItemPage({ params }) {
                             })
                             .reduce((prev, curr) => [prev, "/", curr])}
                         </th>
-                        <td className="text-md p-2 max-w-lg text-zinc-600">{entry.text}</td>
+                        <td className="text-md p-2 max-w-lg">{entry.text}</td>
                       </tr>
                     );
                   }
@@ -199,10 +199,10 @@ export default function ItemPage({ params }) {
                   );
                   return (
                     <tr key={index}>
-                      <th className="text-sm break-words text-zinc-400 text-right">
+                      <th className="text-sm break-words text-base-content/60 text-right">
                         {language.fullName}
                       </th>
-                      <td className="text-md p-1 text-zinc-600">{name.name}</td>
+                      <td className="text-md p-1">{name.name}</td>
                     </tr>
                   );
                 })}

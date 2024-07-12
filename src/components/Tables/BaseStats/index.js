@@ -53,11 +53,11 @@ const BaseStatsTable = ({ pokemonData }) => {
       <table className="w-full text-right border-separate" style={{ borderSpacing: '0 10px' }}>
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b border-black/15"></th>
-            <th className="py-2 px-4 border-b border-black/15"></th>
-            <th className="py-2 px-4 border-b border-black/15"></th>
-            <th className="py-2 px-4 border-b border-black/15"></th>
-            <th className="py-2 px-4 border-b border-black/15"></th>
+            <th className="py-2 px-4 border-b border-base-200"></th>
+            <th className="py-2 px-4 border-b border-base-200"></th>
+            <th className="py-2 px-4 border-b border-base-200"></th>
+            <th className="py-2 px-4 border-b border-base-200"></th>
+            <th className="py-2 px-4 border-b border-base-200"></th>
           </tr>
         </thead>
         <tbody>
@@ -65,26 +65,26 @@ const BaseStatsTable = ({ pokemonData }) => {
             const { min, max } = calculateStatRange(stat.name, stat.base);
             return (
               <tr key={stat.name}>
-                <td className="py-2 px-4 border-b border-black/15">{stat.name}</td>
-                <td className="py-2 px-4 border-b border-black/15">{stat.base}</td>
-                <td className="py-2 px-4 w-full border-b border-black/15">
+                <td className="py-2 px-4 border-b border-base-200">{stat.name}</td>
+                <td className="py-2 px-4 border-b border-base-200">{stat.base}</td>
+                <td className="py-2 px-4 w-full border-b border-base-200">
                   <progress
                     className={`w-full progress-custom h-4 ${getProgressBarClass(stat.base)}`}
                     value={stat.base}
                     max="255"
                   ></progress>
                 </td>
-                <td className="py-2 px-4 border-b border-black/15">{min}</td>
-                <td className="py-2 px-4 border-b border-black/15">{max}</td>
+                <td className="py-2 px-4 border-b border-base-200">{min}</td>
+                <td className="py-2 px-4 border-b border-base-200">{max}</td>
               </tr>
             );
           })}
           <tr>
-            <td className="py-2 px-4 font-bold border-b border-black/15">Total</td>
-            <td className="py-2 px-4 font-bold border-b border-black/15">{stats.reduce((sum, stat) => sum + stat.base, 0)}</td>
-            <td className="py-2 px-4 border-b border-black/15"></td>
-            <th className="py-2 px-4 border-b border-black/15">Min</th>
-            <th className="py-2 px-4 border-b border-black/15">Max</th>
+            <td className="py-2 px-4 font-bold border-b border-base-200">Total</td>
+            <td className="py-2 px-4 font-bold border-b border-base-200">{stats.reduce((sum, stat) => sum + stat.base, 0)}</td>
+            <td className="py-2 px-4 border-b border-base-200"></td>
+            <th className="py-2 px-4 border-b border-base-200">Min</th>
+            <th className="py-2 px-4 border-b border-base-200">Max</th>
           </tr>
         </tbody>
       </table>

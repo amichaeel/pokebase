@@ -49,7 +49,7 @@ const RegionalPokedexPage = ({ params }) => {
   return (
     <div className='container mx-auto w-full max-w-6xl p-4'>
       <h1 className='text-3xl py-5 font-semibold'>The {capitalizeWords(params.region)} Pokédex</h1>
-      <div className='flex flex-col bg-zinc-200 p-4 mb-10 space-y-3 text-zinc-700'>
+      <div className='flex flex-col bg-base-100 p-4 mb-10 space-y-3 rounded-xl'>
         <span>This is a list of every Pokémon in the {capitalizeWords(params.region)} region, along with their main stats.</span>
         <div>
           <span>This region is composed of the following games: </span>
@@ -63,7 +63,7 @@ const RegionalPokedexPage = ({ params }) => {
           placeholder="Search Pokémon"
           value={searchQuery}
           onChange={handleSearch}
-          className="p-2 border w-96 border-gray-300 rounded"
+          className="p-2 w-96 rounded-xl focus:outline-none bg-base-100"
         />
         <div className='flex items-center justify-center'>
           <button

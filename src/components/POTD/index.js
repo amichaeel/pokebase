@@ -86,11 +86,11 @@ const PokemonOfTheDay = () => {
 
   return (
     <div className="flex justify-center w-full">
-      <div className={`flex w-full max-w-6xl flex-col justify-center p-3 mb-3 bg-zinc-200 rounded-3xl`}>
+      <div className={`flex w-full max-w-6xl flex-col justify-center p-3 mb-3 bg-base-200 rounded-3xl`}>
         <h1 className="text-4xl font-bold text-center">Pokémon of the Day</h1>
         {pokemonOfTheDay ? (
           <div className="flex md:flex-row flex-col gap-2 rounded-3xl items-center justify-center mt-4">
-            <Link href={`/pokedex/${pokemonOfTheDay.name}`} className="flex flex-col items-center justify-center w-full p-3 cursor-pointer transition-all hover:bg-zinc-300 rounded-3xl ">
+            <Link href={`/pokedex/${pokemonOfTheDay.name}`} className="flex flex-col items-center justify-center w-full p-3 cursor-pointer transition-all hover:bg-base-300 rounded-3xl ">
               <img
                 src={pokemonOfTheDay.sprite}
                 alt={pokemonOfTheDay.name}

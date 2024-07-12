@@ -9,7 +9,7 @@ const PokemonCard = ({ pokemon }) => {
 
   return (
     <Link href={`/pokedex/${pokemon.name}`} className='w-full h-full'>
-      <div className="flex flex-col justify-between h-full w-full items-center rounded-lg hover:bg-black/10 p-4 hover:cursor-pointer">
+      <div className="flex flex-col justify-between h-full w-full items-center rounded-lg hover:bg-base-100 p-4 hover:cursor-pointer">
         <div className="w-36 h-36 relative">
           {pokemon.data.pokemon.data.sprites.other.home.front_default ? (
             <img src={pokemon.data.pokemon.data.sprites.other.home.front_default} alt={pokemon.name} className="w-full h-full object-contain" />
@@ -19,10 +19,10 @@ const PokemonCard = ({ pokemon }) => {
             </div>
           )}
         </div>
-        <span className='text-sm text-black/50'>{`#${pokemon.id.toString().padStart(4, '0')}`}</span>
+        <span className='text-sm text-base-content/50'>{`#${pokemon.id.toString().padStart(4, '0')}`}</span>
         <span className="text-lg">{capitalizeWords(pokemon.name)}</span>
         {isVariety ? (
-          <span className="text-sm mb-2">{capitalizeWords(pokemon.data.pokemon.name)}</span>
+          <span className="text-sm mb-2 text-center">{capitalizeWords(pokemon.data.pokemon.name)}</span>
         ) : (
           <span className="text-sm mb-2">‎</span>
         )}

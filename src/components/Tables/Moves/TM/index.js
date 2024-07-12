@@ -85,44 +85,44 @@ const TMMovesTable = ({ pokemonData }) => {
         <div className="table-wrapper">
           <table className="w-full text-left text-sm">
             <thead className="sticky-header">
-              <tr className="hover:*:bg-black/10 hover:*:cursor-pointer">
-                <th onClick={() => handleSort('tm')} className={`py-2 ${sortConfig.key === 'tm' ? 'bg-blue-100' : ''}`}>
+              <tr className="hover:*:bg-base-100 hover:*:cursor-pointer">
+                <th onClick={() => handleSort('tm')} className={`py-2 ${sortConfig.key === 'tm' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>TM</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
                   </div>
                 </th>
-                <th onClick={() => handleSort('name')} className={`py-2 ${sortConfig.key === 'name' ? 'bg-blue-100' : ''}`}>
+                <th onClick={() => handleSort('name')} className={`py-2 ${sortConfig.key === 'name' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>Move</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
                   </div>
                 </th>
-                <th onClick={() => handleSort('type')} className={`py-2 ${sortConfig.key === 'type' ? 'bg-blue-100' : ''}`}>
+                <th onClick={() => handleSort('type')} className={`py-2 ${sortConfig.key === 'type' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>Type</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
                   </div>
                 </th>
-                <th onClick={() => handleSort('category')} className={`py-2 ${sortConfig.key === 'category' ? 'bg-blue-100' : ''}`}>
+                <th onClick={() => handleSort('category')} className={`py-2 ${sortConfig.key === 'category' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>Category</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
                   </div>
                 </th>
-                <th onClick={() => handleSort('power')} className={`py-2 ${sortConfig.key === 'power' ? 'bg-blue-100' : ''}`}>
+                <th onClick={() => handleSort('power')} className={`py-2 ${sortConfig.key === 'power' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>Power</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
                   </div>
                 </th>
-                <th onClick={() => handleSort('accuracy')} className={`py-2 ${sortConfig.key === 'accuracy' ? 'bg-blue-100' : ''}`}>
+                <th onClick={() => handleSort('accuracy')} className={`py-2 ${sortConfig.key === 'accuracy' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>Accuracy</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
                   </div>
                 </th>
-                <th onClick={() => handleSort('pp')} className={`py-2 ${sortConfig.key === 'pp' ? 'bg-blue-100' : ''}`}>
+                <th onClick={() => handleSort('pp')} className={`py-2 ${sortConfig.key === 'pp' ? 'bg-base-100' : ''}`}>
                   <div className="flex justify-between items-center">
                     <span>PP</span>
                     <ChevronUpDownIcon className="w-4 h-4" />
@@ -130,9 +130,9 @@ const TMMovesTable = ({ pokemonData }) => {
                 </th>
               </tr>
             </thead>
-            <tbody className="*:border-y *:border-black/15">
+            <tbody>
               {sortedMoves.map((move, index) => (
-                <tr key={index} className="hover:bg-black/10">
+                <tr key={index} className="hover:bg-base-200">
                   <td className="py-2">{move.tm}</td>
                   <td className="py-2">{move.name}</td>
                   <td className="py-2">

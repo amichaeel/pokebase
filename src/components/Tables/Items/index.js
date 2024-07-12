@@ -25,7 +25,7 @@ const ItemsTable = ({ itemsData }) => {
   };
 
   const getClassNamesFor = (name) => {
-    return sortConfig.key === name ? '!bg-blue-200' : '';
+    return sortConfig.key === name ? '!bg-base-100' : '';
   };
 
   return (
@@ -34,7 +34,7 @@ const ItemsTable = ({ itemsData }) => {
         <thead>
           <tr>
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('name')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('name')}`}
               onClick={() => requestSort('name')}
             >
               <div className='flex items-center justify-between '>
@@ -43,7 +43,7 @@ const ItemsTable = ({ itemsData }) => {
               </div>
             </th>
             <th
-              className={`border-b border-gray-300 p-3 bg-zinc-100 hover:bg-blue-200 cursor-pointer ${getClassNamesFor('category')}`}
+              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor('category')}`}
               onClick={() => requestSort('category')}
             >
               <div className='flex items-center justify-between'>
@@ -51,30 +51,30 @@ const ItemsTable = ({ itemsData }) => {
                 <ChevronUpDownIcon className='size-4' />
               </div>
             </th>
-            <th className="border-b border-gray-300 p-3 bg-zinc-100">
+            <th className="border-b border-base-100 p-3 bg-base-200">
               <div className='flex items-center justify-between'>
                 <span className='uppercase text-left text-xs font-medium tracking-wider'>Effect</span>
               </div>
             </th>
           </tr>
         </thead>
-        <tbody className='divide-y divide-gray-300'>
+        <tbody>
           {sortedItems.map((item) => (
-            <tr key={item.url} className='hover:bg-zinc-200'>
-              <td className="border-t border-gray-300 p-1">
+            <tr key={item.url} className='hover:bg-base-100'>
+              <td className="border-t border-base-100 p-1">
                 <div className='flex items-center'>
                   {item.sprite ? (
                     <img src={item.sprite} alt={item.name} className="w-10 h-10 rendering-pixelated" />
                   ) : (
                     <div className='flex items-center justify-center'>
-                      <NoSymbolIcon className='size-10 text-zinc-200' />
+                      <NoSymbolIcon className='size-10 bg-base-100 opacity-10' />
                     </div>
                   )}
                   <Link className='hover:text-blue-400 ml-2' href={`/item/${item.name}`}>{capitalizeWords(item.name)}</Link>
                 </div>
               </td>
-              <td className="border-t border-gray-300">{capitalizeWords(item.category)}</td>
-              <td className="border-t border-gray-300 p-1">{item.effect}</td>
+              <td className="border-t border-base-100">{capitalizeWords(item.category)}</td>
+              <td className="border-t border-base-100 p-1">{item.effect}</td>
             </tr>
           ))}
         </tbody>

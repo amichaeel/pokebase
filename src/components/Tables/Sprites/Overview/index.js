@@ -56,9 +56,9 @@ const SpritesOverviewTable = ({ pokemonData }) => {
           <span className="loading loading-spinner loading-sm"></span>
         </div>
       ) : (
-        <div className="overflow-x-auto border">
+        <div className="overflow-x-auto">
           <table className="table-fixed" style={{ minWidth: '1200px' }}>
-            <thead className="sticky top-0 bg-white border-b">
+            <thead className="sticky top-0 bg-base-200">
               <tr>
                 <th className="py-2" style={{ width: '200px' }}>Type</th>
                 {Object.values(generations).map((gen) => (
@@ -70,7 +70,7 @@ const SpritesOverviewTable = ({ pokemonData }) => {
               <tr>
                 <td className="py-2">Normal</td>
                 {sprites.normal.map((sprite, index) => (
-                  <td key={index} className="h-24 border" style={{ width: '200px' }}>
+                  <td key={index} className="h-24" style={{ width: '200px' }}>
                     {sprite !== '-' ? (
                       <div className='flex items-center justify-center hover:bg-green-200/50 hover:cursor-pointer w-full h-full transition-all'>
                         <img src={sprite} alt={`Normal Sprite ${generations[Object.keys(generations)[index]]}`} className="h-full w-full p-1 rendering-pixelated" />
@@ -86,7 +86,7 @@ const SpritesOverviewTable = ({ pokemonData }) => {
               <tr>
                 <td className="py-2">Shiny</td>
                 {sprites.shiny.map((sprite, index) => (
-                  <td key={index} className="h-24 border" style={{ width: '200px' }}>
+                  <td key={index} className="h-24border" style={{ width: '200px' }}>
                     {sprite !== '-' ? (
                       <div className='flex items-center justify-center hover:bg-green-200/50 hover:cursor-pointer w-full h-full transition-all'>
                         <img src={sprite} alt={`Shiny Sprite ${generations[Object.keys(generations)[index]]}`} className="h-full w-full p-1 rendering-pixelated" />

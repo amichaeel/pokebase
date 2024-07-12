@@ -11,14 +11,14 @@ export default function Home() {
   const router = useRouter();
   return (
     <main className="flex flex-col items-center justify-start min-h-screen">
-      <div className="w-full max-w-6xl p-8 mb-8">
+      <div className="w-full max-w-6xl mb-8">
         <div className="flex flex-col justify-center p-3 mb-3 rounded-3xl">
           <h1 className="text-4xl font-bold text-center">PokéBase</h1>
-          <p className="text-sm text-black/40 text-center">
+          <p className="text-sm opacity-50 text-center">
             PokéBase is under construction and will have limited functionality available for public use. Access to beta features are limited.
           </p>
         </div>
-        <div className="flex bg-zinc-200 rounded-3xl flex-col md:flex-row justify-around items-center mb-8">
+        <div className="flex bg-base-200 rounded-3xl flex-col md:flex-row justify-around items-center mb-8">
           <div className="w-full flex items-center justify-center lg:w-1/3 p-4">
             <div className="flex flex-col w-full justify-center">
               <div className="flex lg:justify-start justify-center w-full mb-2 pl-2">
@@ -50,31 +50,31 @@ export default function Home() {
           <div className="w-full md:w-2/3 p-4">
             <div className="flex flex-col items-center justify-around space-y-4">
               <Link
-                className="btn btn-square hover:bg-black/10 w-full"
+                className="btn btn-outline w-full"
                 href='/pokedex/all'
               >
                 Explore Pokédex
               </Link>
               <button
-                className="btn !text-gray-400 btn-disabled w-full"
+                className="btn btn-disabled w-full"
                 onClick={() => router.push('/')}
               >
                 Game Mechanics
               </button>
               <button
-                className="btn !text-gray-400 btn-disabled w-full"
+                className="btn btn-disabled w-full"
                 onClick={() => router.push('/')}
               >
                 Breeding
               </button>
               <button
-                className="btn !text-gray-400 btn-disabled w-full"
+                className="btn btn-disabled w-full"
                 onClick={() => router.push('/')}
               >
                 Pokémon Games
               </button>
               <button
-                className="btn !text-gray-400 btn-disabled w-full"
+                className="btn btn-disabled w-full"
                 onClick={() => router.push('/')}
               >
                 Community
@@ -85,7 +85,7 @@ export default function Home() {
         <div>
           <PokemonOfTheDay />
         </div>
-        <p className="text-sm text-black/40 text-center mb-6">
+        <p className="text-sm text-center mb-6">
           Powered by <Link className="hover:text-blue-400" href="https://pokeapi.co/">PokeAPI</Link>
         </p>
       </div>

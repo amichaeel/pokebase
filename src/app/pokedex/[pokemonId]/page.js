@@ -137,9 +137,9 @@ export default function PokemonPage({ params }) {
     <div className='flex w-full justify-center'>
       <div className='flex space-y-6 flex-col w-full max-w-6xl'>
 
-        <div className={`flex flex-col text-white w-full lg:rounded-b-3xl rounded-none items-center justify-between`} style={{ background: typeGradients[selectedPokemonData.types[0].type.name] }}>
+        <div className={`flex flex-col w-full lg:rounded-b-3xl rounded-none items-center justify-between`} style={{ background: typeGradients[selectedPokemonData.types[0].type.name] }}>
           <div className='pb-4 grid grid-cols-3 w-full'>
-            <div className='w-full flex items-center justify-start'>
+            <div className='w-full flex items-center text-white/50 justify-start'>
               {navigation.prev && (
                 <Link href={`/pokedex/${navigation.prev.pokemon_species.name}`} className='hover:bg-black/10 h-full py-4 pr-6 flex items-center rounded-br-3xl cursor-pointer'>
                   <ChevronLeftIcon className='w-5 h-5 ml-2' />
@@ -148,9 +148,9 @@ export default function PokemonPage({ params }) {
               )}
             </div>
             <div className='flex col-span-1 w-full justify-center'>
-              <h1 className='md:text-4xl text-2xl py-3 w-full font-bold text-center'>{capitalizeWords(defaultPokemonData.species.name)}</h1>
+              <h1 className='md:text-4xl text-white/90 text-2xl py-3 w-full font-bold text-center'>{capitalizeWords(defaultPokemonData.species.name)}</h1>
             </div>
-            <div className='w-full flex items-center justify-end'>
+            <div className='w-full flex items-center text-white/50 justify-end'>
               {navigation.next && (
                 <Link href={`/pokedex/${navigation.next.pokemon_species.name}`} className='hover:bg-black/10 h-full py-4 pl-6 flex items-center rounded-bl-3xl cursor-pointer'>
                   {capitalizeWords(navigation.next.pokemon_species.name)}
@@ -167,7 +167,7 @@ export default function PokemonPage({ params }) {
                   onClick={() => setSelectedPokemonData(allPokemonData[index])}
                   key={index}
                   role="tab"
-                  className={`tab flex flex-grow bg-black/10 hover:bg-black/15 break-words ${selectedPokemonData.name === pokemon.name ? 'tab-active !bg-black/20' : ''}`}
+                  className={`tab flex flex-grow text-white bg-black/10 hover:bg-black/15 break-words ${selectedPokemonData.name === pokemon.name ? 'tab-active !bg-black/20' : ''}`}
                 >
                   {capitalizeWords(pokemon.name)}
                 </a>
@@ -186,7 +186,7 @@ export default function PokemonPage({ params }) {
                 <div
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <SpeakerWaveIcon onClick={playCry} className="w-20 h-20 p-6 transition-all bg-white/40 hover:bg-white/70 rounded-full text-gray-700 cursor-pointer" />
+                  <SpeakerWaveIcon onClick={playCry} className="w-20 h-20 p-6 transition-all bg-white/40 hover:bg-white/70 rounded-full cursor-pointer" />
                 </div>
               )}
             </div>
@@ -218,13 +218,13 @@ export default function PokemonPage({ params }) {
 
         <div id="moves" className='px-4'>
           <div className='flex w-full lg:flex-row flex-col'>
-            <div className="w-full border">
+            <div className="w-full">
               <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Leveling Up</h2>
               <div className="scrollable-container">
                 <LevelUpMovesTable pokemonData={selectedPokemonData} />
               </div>
             </div>
-            <div className="w-full border">
+            <div className="w-full">
               <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by TM</h2>
               <div className="scrollable-container">
                 <TMMovesTable pokemonData={selectedPokemonData} />
@@ -233,13 +233,13 @@ export default function PokemonPage({ params }) {
           </div>
 
           <div className='flex w-full lg:flex-row flex-col'>
-            <div className="w-full border">
+            <div className="w-full">
               <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Egg</h2>
               <div className="scrollable-container">
                 <EggMovesTable pokemonData={selectedPokemonData} />
               </div>
             </div>
-            <div className="w-full border">
+            <div className="w-full">
               <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by HM</h2>
               <div className="scrollable-container">
                 <HMMovesTable pokemonData={selectedPokemonData} />
@@ -248,13 +248,13 @@ export default function PokemonPage({ params }) {
           </div>
 
           <div className='flex w-full lg:flex-row flex-col'>
-            <div className="w-full border">
+            <div className="w-full">
               <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Tutor</h2>
               <div className="scrollable-container">
                 <TutorMovesTable pokemonData={selectedPokemonData} />
               </div>
             </div>
-            <div className="w-full border">
+            <div className="w-full">
               <h2 className="font-bold text-2xl my-4 text-center">Moves Learned by Form Change</h2>
               <div className="scrollable-container">
                 <FormChangeMovesTable pokemonData={selectedPokemonData} />

@@ -50,16 +50,16 @@ const HeldItemsTable = ({ itemData }) => {
         ) : (
           <div className="overflow-x-auto">
             {pokemonData.length > 0 ? (
-              <table className="table-auto border w-full">
+              <table className="table-auto w-full">
                 <thead>
                   <tr>
-                    <th className="uppercase text-left text-sm font-medium tracking-wider border-gray-300 p-2 bg-zinc-100">ID</th>
-                    <th className="uppercase text-left text-sm font-medium tracking-wider bg-zinc-100">Name</th>
-                    <th className="uppercase text-left text-sm font-medium tracking-wider bg-zinc-100">Games</th>
-                    <th className="uppercase text-left text-sm font-medium tracking-wider bg-zinc-100">Rarity</th>
+                    <th className="uppercase text-left text-sm font-medium tracking-wider p-2 bg-base-200">ID</th>
+                    <th className="uppercase text-left text-sm font-medium tracking-wider bg-base-200">Name</th>
+                    <th className="uppercase text-left text-sm font-medium tracking-wider bg-base-200">Games</th>
+                    <th className="uppercase text-left text-sm font-medium tracking-wider bg-base-200">Rarity</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-300">
+                <tbody>
                   {pokemonData.reduce((acc, pokemon) => {
                     const existingPokemon = acc.find(p => p.id === pokemon.id && p.rarity === pokemon.rarity);
                     if (existingPokemon) {
@@ -76,9 +76,9 @@ const HeldItemsTable = ({ itemData }) => {
                     }
                     return acc;
                   }, []).map((pokemon, index) => (
-                    <tr key={index} className="hover:bg-zinc-200">
-                      <td className="border-t border-gray-300 py-2 pl-2">{pokemon.id}</td>
-                      <td className="border-t border-gray-300 py-2 pr-12">
+                    <tr key={index} className="hover:bg-base-100">
+                      <td className="border-t border-base-100 py-2 pl-2">{pokemon.id}</td>
+                      <td className="border-t border-base-100 py-2 pr-12">
                         <div className="flex items-center">
                           <img
                             src={pokemon.sprite}
@@ -88,12 +88,12 @@ const HeldItemsTable = ({ itemData }) => {
                           <div className="flex flex-col">
                             <Link className="hover:text-blue-400" href={`/pokedex/${pokemon.name}`}>{capitalizeWords(pokemon.name)}</Link>
                             {pokemon.varietyName && (
-                              <span className="text-xs text-zinc-400">{capitalizeWords(pokemon.varietyName)}</span>
+                              <span className="text-xs">{capitalizeWords(pokemon.varietyName)}</span>
                             )}
                           </div>
                         </div>
                       </td>
-                      <td className="border-t border-gray-300 py-2">
+                      <td className="border-t border-base-100 py-2">
                         <div className="max-w-xl">
                           {pokemon.games.map((game, gIndex) => {
                             const gameFullName = Object.keys(gameColors).find(key => key.toLowerCase() === capitalizeWords(game).toLowerCase()) || game;
@@ -109,7 +109,7 @@ const HeldItemsTable = ({ itemData }) => {
                           }).reduce((prev, curr) => [prev, ", ", curr])}
                         </div>
                       </td>
-                      <td className="border-t border-gray-300 py-2">
+                      <td className="border-t border-base-100 py-2">
                         {pokemon.rarity}
                       </td>
                     </tr>
@@ -117,7 +117,7 @@ const HeldItemsTable = ({ itemData }) => {
                 </tbody>
               </table>
             ) : (
-              <span className="text-zinc-600">
+              <span>
                 No Pokémon found holding this item.
               </span>
             )}
