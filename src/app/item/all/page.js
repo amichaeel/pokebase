@@ -21,6 +21,7 @@ const MasterItemsPage = () => {
           throw new Error(`Error fetching items data: ${response.statusText}`);
         }
         const data = await response.json();
+        console.log(data)
         setItemsData(data);
         setLoading(false);
       } catch (error) {

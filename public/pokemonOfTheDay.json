@@ -1,10 +1,10 @@
 {
-  "name": "rookidee",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/821.png",
-  "id": 821,
+  "name": "vileplume",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+  "id": 45,
   "stats": [
     {
-      "base_stat": 38,
+      "base_stat": 75,
       "effort": 0,
       "stat": {
         "name": "hp",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "base_stat": 47,
+      "base_stat": 80,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "base_stat": 35,
+      "base_stat": 85,
       "effort": 0,
       "stat": {
         "name": "defense",
@@ -28,15 +28,15 @@
       }
     },
     {
-      "base_stat": 33,
-      "effort": 0,
+      "base_stat": 110,
+      "effort": 3,
       "stat": {
         "name": "special-attack",
         "url": "https://pokeapi.co/api/v2/stat/4/"
       }
     },
     {
-      "base_stat": 35,
+      "base_stat": 90,
       "effort": 0,
       "stat": {
         "name": "special-defense",
@@ -44,8 +44,8 @@
       }
     },
     {
-      "base_stat": 57,
-      "effort": 1,
+      "base_stat": 50,
+      "effort": 0,
       "stat": {
         "name": "speed",
         "url": "https://pokeapi.co/api/v2/stat/6/"
@@ -56,10 +56,17 @@
     {
       "slot": 1,
       "type": {
-        "name": "flying",
-        "url": "https://pokeapi.co/api/v2/type/3/"
+        "name": "grass",
+        "url": "https://pokeapi.co/api/v2/type/12/"
+      }
+    },
+    {
+      "slot": 2,
+      "type": {
+        "name": "poison",
+        "url": "https://pokeapi.co/api/v2/type/4/"
       }
     }
   ],
-  "date": "2024-07-11"
+  "date": "2024-07-13"
 }
