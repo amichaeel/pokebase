@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState, useMemo } from 'react';
 
@@ -38,7 +38,7 @@ const MasterPokedexPage = () => {
 
   const filteredPokemonData = useMemo(() => {
     return pokemonData.filter(pokemon =>
-      pokemon.name.toLowerCase().includes(searchQuery)
+      pokemon.species_name.toLowerCase().includes(searchQuery)
     );
   }, [pokemonData, searchQuery]);
 

@@ -1,10 +1,10 @@
 {
-  "name": "vileplume",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
-  "id": 45,
+  "name": "scrafty",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/560.png",
+  "id": 560,
   "stats": [
     {
-      "base_stat": 75,
+      "base_stat": 65,
       "effort": 0,
       "stat": {
         "name": "hp",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "base_stat": 80,
+      "base_stat": 90,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,31 +20,31 @@
       }
     },
     {
-      "base_stat": 85,
-      "effort": 0,
+      "base_stat": 115,
+      "effort": 1,
       "stat": {
         "name": "defense",
         "url": "https://pokeapi.co/api/v2/stat/3/"
       }
     },
     {
-      "base_stat": 110,
-      "effort": 3,
+      "base_stat": 45,
+      "effort": 0,
       "stat": {
         "name": "special-attack",
         "url": "https://pokeapi.co/api/v2/stat/4/"
       }
     },
     {
-      "base_stat": 90,
-      "effort": 0,
+      "base_stat": 115,
+      "effort": 1,
       "stat": {
         "name": "special-defense",
         "url": "https://pokeapi.co/api/v2/stat/5/"
       }
     },
     {
-      "base_stat": 50,
+      "base_stat": 58,
       "effort": 0,
       "stat": {
         "name": "speed",
@@ -56,17 +56,17 @@
     {
       "slot": 1,
       "type": {
-        "name": "grass",
-        "url": "https://pokeapi.co/api/v2/type/12/"
+        "name": "dark",
+        "url": "https://pokeapi.co/api/v2/type/17/"
       }
     },
     {
       "slot": 2,
       "type": {
-        "name": "poison",
-        "url": "https://pokeapi.co/api/v2/type/4/"
+        "name": "fighting",
+        "url": "https://pokeapi.co/api/v2/type/2/"
       }
     }
   ],
-  "date": "2024-07-13"
+  "date": "2024-07-14"
 }

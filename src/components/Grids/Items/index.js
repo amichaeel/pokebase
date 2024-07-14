@@ -4,7 +4,6 @@ import { NoSymbolIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 const ItemsGrid = ({ itemsData }) => {
-  console.log(itemsData)
   return (
     <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8">
       {itemsData.map((item) => (

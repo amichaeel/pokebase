@@ -1,57 +1,58 @@
-const fetchMoveDetails = async (url) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Error fetching move details: ${response.statusText}`);
+import { GraphQLClient, gql } from 'graphql-request';
+
+const endpoint = 'https://beta.pokeapi.co/graphql/v1beta';
+
+const graphQLClient = new GraphQLClient(endpoint);
+
+const fetchMoveDetails = async () => {
+  const query = gql`
+    query getMoves {
+      pokemon_v2_move {
+        name
+        id
+        accuracy
+        power
+        pp
+        priority
+        pokemon_v2_type {
+          name
+        }
+        move_effect_chance
+        pokemon_v2_moveeffect {
+          pokemon_v2_moveeffecteffecttexts {
+            short_effect
+            effect
+          }
+        }
+        pokemon_v2_movedamageclass {
+          name
+        }
+      }
+    }
+  `;
+
+  try {
+    const data = await graphQLClient.request(query);
+    return data.pokemon_v2_move.map(move => ({
+      id: move.id,
+      name: move.name,
+      type: move.pokemon_v2_type.name,
+      category: move.pokemon_v2_movedamageclass.name,
+      power: move.power,
+      accuracy: move.accuracy,
+      pp: move.pp,
+      effect: move.pokemon_v2_moveeffect?.pokemon_v2_moveeffecteffecttexts[0]?.effect,
+      short_effect: move.pokemon_v2_moveeffect?.pokemon_v2_moveeffecteffecttexts[0]?.short_effect,
+      effect_chance: move.move_effect_chance
+    }));
+  } catch (error) {
+    throw new Error(`Error fetching move details: ${error.message}`);
   }
-  const data = await response.json();
-  return {
-    id: data.id,
-    name: data.name,
-    type: data.type.name,
-    category: data.damage_class.name,
-    power: data.power,
-    accuracy: data.accuracy,
-    pp: data.pp,
-    effect: data.effect_entries[0]?.effect,
-    short_effect: data.effect_entries[0]?.short_effect,
-    meta: data.meta,
-    effect_chance: data.effect_chance
-  };
 }
 
 export const GET = async (req, res) => {
   try {
-    const response = await fetch('https://pokeapi.co/api/v2/move?limit=1000');
-    if (!response.ok) {
-      throw new Error(`Error fetching moves: ${response.statusText}`);
-    }
-    const data = await response.json();
-
-    const concurrencyLimit = 500;
-    const delay = 1000;
-    let index = 0;
-    let allMovesData = [];
-
-    const fetchBatches = async () => {
-      while (index < data.results.length) {
-        const batch = data.results.slice(index, index + concurrencyLimit);
-        const promises = batch.map(async (move) => {
-          const details = await fetchMoveDetails(move.url);
-          return {
-            ...details,
-            url: move.url
-          };
-        });
-
-        const results = await Promise.all(promises);
-        allMovesData = [...allMovesData, ...results];
-
-        index += concurrencyLimit;
-        await new Promise(resolve => setTimeout(resolve, delay));
-      }
-    }
-
-    await fetchBatches();
+    const allMovesData = await fetchMoveDetails();
 
     return new Response(JSON.stringify(allMovesData), {
       status: 200,

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { ChevronUpDownIcon, NoSymbolIcon } from '@heroicons/react/24/outline';
 import WideTypeIcon from '@/components/TypeIcon/Wide';
 import { capitalizeWords } from '@/lib/utils';
@@ -15,6 +15,12 @@ const PokedexTable = ({ pokemonData }) => {
     setSortConfig({ key, direction });
   };
 
+  useEffect(() => {
+    if (pokemonData) {
+      console.log(pokemonData)
+    }
+  }, [pokemonData])
+
   const sortedPokemonData = useMemo(() => {
     let sortableData = [...pokemonData];
     if (sortConfig.key) {
@@ -27,36 +33,36 @@ const PokedexTable = ({ pokemonData }) => {
             bValue = b.id;
             break;
           case 'name':
-            aValue = a.name.toLowerCase();
-            bValue = b.name.toLowerCase();
+            aValue = a.species_name.toLowerCase();
+            bValue = b.species_name.toLowerCase();
             break;
           case 'total':
-            aValue = a.varieties[0].pokemon.data.stats.reduce((acc, stat) => acc + stat.base_stat, 0);
-            bValue = b.varieties[0].pokemon.data.stats.reduce((acc, stat) => acc + stat.base_stat, 0);
+            aValue = a.varieties[0].data.stats.reduce((acc, stat) => acc + stat.base_stat, 0);
+            bValue = b.varieties[0].data.stats.reduce((acc, stat) => acc + stat.base_stat, 0);
             break;
           case 'hp':
-            aValue = a.varieties[0].pokemon.data.stats[0].base_stat;
-            bValue = b.varieties[0].pokemon.data.stats[0].base_stat;
+            aValue = a.varieties[0].data.stats[0].base_stat;
+            bValue = b.varieties[0].data.stats[0].base_stat;
             break;
           case 'attack':
-            aValue = a.varieties[0].pokemon.data.stats[1].base_stat;
-            bValue = b.varieties[0].pokemon.data.stats[1].base_stat;
+            aValue = a.varieties[0].data.stats[1].base_stat;
+            bValue = b.varieties[0].data.stats[1].base_stat;
             break;
           case 'defense':
-            aValue = a.varieties[0].pokemon.data.stats[2].base_stat;
-            bValue = b.varieties[0].pokemon.data.stats[2].base_stat;
+            aValue = a.varieties[0].data.stats[2].base_stat;
+            bValue = b.varieties[0].data.stats[2].base_stat;
             break;
           case 'sp. atk':
-            aValue = a.varieties[0].pokemon.data.stats[3].base_stat;
-            bValue = b.varieties[0].pokemon.data.stats[3].base_stat;
+            aValue = a.varieties[0].data.stats[3].base_stat;
+            bValue = b.varieties[0].data.stats[3].base_stat;
             break;
           case 'sp. def':
-            aValue = a.varieties[0].pokemon.data.stats[4].base_stat;
-            bValue = b.varieties[0].pokemon.data.stats[4].base_stat;
+            aValue = a.varieties[0].data.stats[4].base_stat;
+            bValue = b.varieties[0].data.stats[4].base_stat;
             break;
           case 'speed':
-            aValue = a.varieties[0].pokemon.data.stats[5].base_stat;
-            bValue = b.varieties[0].pokemon.data.stats[5].base_stat;
+            aValue = a.varieties[0].data.stats[5].base_stat;
+            bValue = b.varieties[0].data.stats[5].base_stat;
             break;
           default:
             return 0;
@@ -179,35 +185,35 @@ const PokedexTable = ({ pokemonData }) => {
                   </td>
                   <td className='border-t border-base-100'>
                     <div className='flex items-center space-x-2'>
-                      {variety.pokemon.data.sprites.front_default ? (
-                        <img src={variety.pokemon.data.sprites.front_default} alt={pokemon.name} className='w-10 h-10 rendering-pixelated' />
+                      {variety.sprites.front_default ? (
+                        <img src={variety.sprites.front_default} alt={variety.name} className='w-10 h-10 rendering-pixelated' />
                       ) : (
                         <div className='flex items-center justify-center w-10 h-10'>
                           <NoSymbolIcon className='size-10' />
                         </div>
                       )}
                       <div className='flex flex-col'>
-                        <Link className='hover:text-blue-400' href={`/pokedex/${pokemon.name}`}>
-                          {capitalizeWords(pokemon.name)}
+                        <Link className='hover:text-blue-400' href={`/pokedex/${pokemon.species_name}`}>
+                          {capitalizeWords(pokemon.species_name)}
                         </Link>
-                        {pokemon.name !== variety.pokemon.name && <span className='text-xs text-gray-500'>{capitalizeWords(variety.pokemon.name)}</span>}
+                        {pokemon.species_name !== variety.name && <span className='text-xs text-gray-500'>{capitalizeWords(variety.name)}</span>}
                       </div>
                     </div>
                   </td>
                   <td className='space-y-1 p-1 border-t border-base-100 align-middle'>
-                    {variety.pokemon.data.types.map((type) => (
-                      <div key={type.type.name} className='mr-1'>
-                        <WideTypeIcon type={type.type.name} />
+                    {variety.types.map((type) => (
+                      <div key={type} className='mr-1'>
+                        <WideTypeIcon type={type} />
                       </div>
                     ))}
                   </td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats.reduce((acc, stat) => acc + stat.base_stat, 0)}</td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats[0].base_stat}</td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats[1].base_stat}</td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats[2].base_stat}</td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats[3].base_stat}</td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats[4].base_stat}</td>
-                  <td className="border-t border-base-100 align-middle">{variety.pokemon.data.stats[5].base_stat}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats.reduce((acc, stat) => acc + stat.base_stat, 0)}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats[0].base_stat}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats[1].base_stat}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats[2].base_stat}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats[3].base_stat}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats[4].base_stat}</td>
+                  <td className="border-t border-base-100 align-middle">{variety.stats[5].base_stat}</td>
                 </tr>
               ))}
             </React.Fragment>
