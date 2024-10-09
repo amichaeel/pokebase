@@ -46,7 +46,7 @@ const SpritesOverviewTable = ({ pokemonData }) => {
     };
 
     fetchSprites();
-  }, [pokemonData, generations]);
+  }, [pokemonData]);
 
   return (
     <div className="w-full overflow-auto px-4">
