@@ -15,7 +15,7 @@ const firaSans = Fira_Sans({
 
 const afacad = Afacad({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 

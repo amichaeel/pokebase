@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { capitalizeWords, regions } from "@/lib/utils";
+import { capitalizeWords, regions, types } from "@/lib/utils";
 import ThemeSwitcher from "@/components/Theme";
 import Link from "next/link";
 
@@ -130,9 +130,9 @@ export default function Navbar() {
   };
 
   return (
-    <div className="flex items-center justify-center h-12 w-full bg-base-100  text-xs sticky z-40 top-0">
-      <div className="flex items-center h-full justify-between max-w-6xl w-full px-4">
-        <div className="space-x-1 h-full flex items-center">
+    <div className="flex items-center z-50 justify-center w-full bg-base-100 sticky top-0">
+      <div className="flex flex-col md:flex-row items-center h-22 md:h-12 justify-between max-w-6xl w-full">
+        <div className="space-x-1 h-full flex w-full justify-between md:justify-start items-center">
           <Link
             href="/"
             className=" h-full hover:bg-base-300 hover:cursor-pointer px-3"
@@ -147,16 +147,16 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="h-full hover:bg-base-200 group dropdown relative cursor-default">
-            <span className="h-full flex items-center justify-center w-full text-center px-2">
-              Pokémon Data
+          <div className="h-full hover:bg-base-300 group dropdown relative cursor-default">
+            <span className="h-full text-sm flex items-center justify-center w-full text-center px-2">
+              Pokédex
             </span>
-            <div className="group-hover:block bg-base-200 rounded-b-xl top-12 dropdown-menu absolute hidden h-auto w-64">
-              <ul className="*:cursor-pointer">
+            <div className="group-hover:block bg-base-100 shadow-lg rounded-b-xl !z-50 md:top-12 dropdown-menu absolute hidden h-auto w-64">
+              <ul className="*:cursor-pointer z-50">
                 <li>
                   <Link
                     href="/pokedex/all"
-                    className="py-4 flex w-full h-full px-2 flex-col  hover:bg-base-300"
+                    className="flex w-full h-full px-2 flex-col  hover:bg-base-300"
                   >
                     <span className="font-semibold text-lg">All Pokémon</span>
                     <span className="text-xs">The National Pokedex</span>
@@ -181,15 +181,53 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
-          <div className="hidden h-full pt-4 group dropdown relative cursor-default  hover:bg-base-200">
-            <span className="h-full px-2">Games</span>
+
+          <div className="h-full hover:bg-base-300 group dropdown relative cursor-default">
+            <span className="h-10 md:h-full text-sm flex items-center justify-center w-full text-center px-2">
+              Types
+            </span>
+            <div className="group-hover:block bg-base-100 shadow-lg rounded-b-xl !z-50 md:top-12 dropdown-menu absolute hidden h-auto w-64">
+              <ul className="*:cursor-pointer">
+                {types.map((type, index) => (
+                  <li
+                    key={index}
+                    className="  flex w-full h-full hover:bg-base-300"
+                  >
+                    <Link
+                      className="w-full p-2 h-full"
+                      href={`/type/${type.toLowerCase().replace(/ /g, "-")}}`}
+                    >
+                      {capitalizeWords(type)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+
+          <Link
+            href={`/move/all`}
+            className="h-full hover:bg-base-300 group dropdown relative"
+          >
+            <div className="h-10 md:h-full text-sm flex items-center justify-center w-full text-center px-2">
+              Moves
+            </div>
+          </Link>
+
+          <Link
+            href={`/item/all`}
+            className="h-full hover:bg-base-300 group dropdown relative"
+          >
+            <div className="h-10 md:h-full text-sm flex items-center justify-center w-full text-center px-2">
+              Items
+            </div>
+          </Link>
         </div>
 
-        <div className="flex items-center gap-2 px-2 z-50 relative">
+        <div className="flex items-center gap-2 justify-center md:justify-end w-full px-2 z-40 relative">
           <form
             onSubmit={handleSearch}
-            className="flex bg-base-300 rounded-full"
+            className="flex my-2 md:my-0 items-center w-full bg-base-300 rounded-full"
           >
             <input
               type="text"
@@ -203,12 +241,12 @@ export default function Navbar() {
             </button>
           </form>
           {suggestions.length > 0 && (
-            <ul className="absolute top-[40px] left-0 w-full rounded-b-xl bg-base-100">
+            <ul className="absolute top-[56px] md:top-[44px] shadow-lg z-50 right-0 w-full rounded-b-xl bg-base-100">
               {suggestions.map((suggestion, index) => {
                 return (
                   <li
                     key={index}
-                    className="flex items-center justify-between w-full px-4 py-2 hover:bg-base-300 cursor-pointer font-bold"
+                    className="flex items-center justify-between w-full px-4 hover:bg-base-300 cursor-pointer font-bold"
                     onClick={() => handleSuggestionClick(suggestion)}
                   >
                     <span className="font-semibold text-md">
@@ -220,7 +258,7 @@ export default function Navbar() {
               })}
             </ul>
           )}
-          <div className="flex btn btn-circle btn-sm">
+          <div className="flex items-center ">
             <ThemeSwitcher handleTheme={handleTheme} />
           </div>
         </div>

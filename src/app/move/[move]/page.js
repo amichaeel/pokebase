@@ -35,7 +35,6 @@ export default function MovePage({ params }) {
         const url = `https://pokeapi.co/api/v2/move/${params.move}/`;
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
         setMoveData(data);
         setLoading(false);
       } catch (error) {
@@ -65,7 +64,7 @@ export default function MovePage({ params }) {
             </span>
           </div>
         </div>
-        <div className="sticky top-12 z-30">
+        <div className="sticky top-12">
           <MovePageNavigator moveData={moveData} />
         </div>
         <div className="flex justify-between gap-3 md:flex-row flex-col px-4">

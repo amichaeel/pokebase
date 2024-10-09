@@ -40,9 +40,9 @@ export default function MovePageNavigator({ moveData }) {
   }, []);
 
   return (
-    <div className="px-4">
+    <div className={`px-4 md:mt-0 mt-14`}>
       <div
-        className={`flex transition-all w-full bg-base-100 ${isAtTop ? "drop-shadow-xl" : ""} rounded-xl my-2 overflow-hidden`}
+        className={`flex transition-all w-full bg-base-100 ${isAtTop && "drop-shadow-xl"} rounded-xl my-2 `}
         ref={navigatorRef}
       >
         <div className="flex items-center justify-center w-full">

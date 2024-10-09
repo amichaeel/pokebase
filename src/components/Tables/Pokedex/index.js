@@ -18,12 +18,6 @@ const PokedexTable = ({ pokemonData }) => {
     setSortConfig({ key, direction });
   };
 
-  useEffect(() => {
-    if (pokemonData) {
-      console.log(pokemonData);
-    }
-  }, [pokemonData]);
-
   const sortedPokemonData = useMemo(() => {
     let sortableData = [...pokemonData];
     if (sortConfig.key) {

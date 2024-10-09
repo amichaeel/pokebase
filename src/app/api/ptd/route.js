@@ -1,18 +1,18 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 
-const filePath = path.resolve(process.cwd(), 'public', 'pokemonOfTheDay.json');
+const filePath = path.resolve(process.cwd(), "public", "pokemonOfTheDay.json");
 
 const convertLocalDateToISO = (dateString, format) => {
-  const date = new Date(dateString)
-  return date.toISOString().split('T')[0]
-}
+  const date = new Date(dateString);
+  return date.toISOString().split("T")[0];
+};
 
 const fetchNationalPokedex = async () => {
-  const response = await fetch('https://pokeapi.co/api/v2/pokedex/1/');
+  const response = await fetch("https://pokeapi.co/api/v2/pokedex/1/");
   if (!response.ok) {
-    throw new Error('Failed to fetch National Pokédex');
+    throw new Error("Failed to fetch National Pokédex");
   }
   const data = await response.json();
   return data.pokemon_entries;
@@ -21,7 +21,7 @@ const fetchNationalPokedex = async () => {
 const fetchPokemonDetails = async (pokemonUrl) => {
   const response = await fetch(pokemonUrl);
   if (!response.ok) {
-    throw new Error('Failed to fetch Pokémon details');
+    throw new Error("Failed to fetch Pokémon details");
   }
   return response.json();
 };
@@ -30,43 +30,50 @@ const getRandomPokemonOfTheDay = async () => {
   const pokemonEntries = await fetchNationalPokedex();
   const randomIndex = Math.floor(Math.random() * pokemonEntries.length);
   const randomPokemon = pokemonEntries[randomIndex];
-  const pokemonDetails = await fetchPokemonDetails(randomPokemon.pokemon_species.url.replace('pokemon-species', 'pokemon'));
+  const pokemonDetails = await fetchPokemonDetails(
+    randomPokemon.pokemon_species.url.replace("pokemon-species", "pokemon"),
+  );
   return {
     name: pokemonDetails.species.name,
-    sprite: pokemonDetails.sprites.other['official-artwork'].front_default,
+    sprite: pokemonDetails.sprites.other["official-artwork"].front_default,
     id: pokemonDetails.id,
     stats: pokemonDetails.stats,
-    types: pokemonDetails.types
+    types: pokemonDetails.types,
   };
 };
 
 export async function GET() {
   const now = new Date();
-  const options = { timeZone: 'America/New_York' };
-  const localToday = now.toLocaleString('en-US', options).split('T')[0].split(',')[0];
+  const options = { timeZone: "America/New_York" };
+  const localToday = now
+    .toLocaleString("en-US", options)
+    .split("T")[0]
+    .split(",")[0];
   const today = convertLocalDateToISO(localToday);
   let cachedPokemon;
 
   try {
-    const fileData = fs.readFileSync(filePath, 'utf-8');
+    const fileData = fs.readFileSync(filePath, "utf-8");
     cachedPokemon = JSON.parse(fileData);
   } catch (error) {
-    console.error('Error reading the file, new Pokémon being fetched!');
+    console.error("Error reading the file, new Pokémon being fetched!");
     cachedPokemon = null;
   }
 
   if (!cachedPokemon || cachedPokemon.date !== today) {
     const newPokemon = await getRandomPokemonOfTheDay();
     cachedPokemon = { ...newPokemon, date: today };
-    console.log(JSON.stringify(cachedPokemon));
 
     try {
-      fs.writeFileSync(filePath, JSON.stringify(cachedPokemon, null, 2), 'utf-8');
+      fs.writeFileSync(
+        filePath,
+        JSON.stringify(cachedPokemon, null, 2),
+        "utf-8",
+      );
     } catch (error) {
-      console.error('Error writing to the file:', error);
+      console.error("Error writing to the file:", error);
     }
   }
 
   return NextResponse.json(cachedPokemon);
 }
-
