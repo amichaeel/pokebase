@@ -235,7 +235,7 @@ export default function MovePage({ params }) {
           </div>
         </div>
 
-        <div className="px-4">
+        <div id="learned-by-pokemon" className="px-4">
           <h1 className="text-3xl font-semibold py-5">Learnt by level up</h1>
           <PokemonByMoveAndLearningMethod
             move={params.move}

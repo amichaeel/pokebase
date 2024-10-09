@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { versionGroups as vgMap, typeTextColors } from "@/lib/utils";
+import {
+  versionGroups as vgMap,
+  typeTextColors,
+  capitalizeWords,
+} from "@/lib/utils";
 import Link from "next/link";
 import CondensedTypeIcon from "@/components/TypeIcon/Condensed";
 
@@ -53,7 +57,6 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
         const versionGroupList = Array.from(allVersionGroups).sort();
         setSelectedGame(versionGroupList[0]);
         setPokemon(data);
-        console.log(data);
         setVersionGroups(versionGroupList);
       } catch (error) {
         console.error("Error: ", error);
@@ -72,6 +75,10 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
       </div>
     );
   }
+
+  const filteredPokemon = pokemon.filter(
+    (pokemon) => getLevelForGame(pokemon) !== "N/A",
+  );
 
   return (
     <div>
@@ -92,23 +99,17 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
           ))}
         </select>
       </div>
+      {filteredPokemon.length === 0 && <div>No pokemon found</div>}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {pokemon.map((pokemon) => {
           const level = getLevelForGame(pokemon);
           const spriteUrl = getSpriteUrl(pokemon);
-          const types = pokemon.types
-            .map((typeEntry) => typeEntry.pokemon_v2_type.name)
-            .join(" / ");
 
-          if (level === "N/A") return null;
+          if (level === "N/A" || !pokemon.is_default) return null;
 
           return (
-            <Link
-              href={`/pokedex/${pokemon.name}`}
-              key={pokemon.id}
-              className="flex rounded-xl hover:bg-base-200"
-            >
+            <div key={pokemon.id} className="flex rounded-xl">
               <div>
                 <img
                   src={spriteUrl}
@@ -117,7 +118,12 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
                 />
               </div>
               <div className="">
-                <p className="font-bold capitalize">{pokemon.name}</p>
+                <Link
+                  href={`/pokedex/${pokemon.name}`}
+                  className="link-hover font-bold capitalize"
+                >
+                  {capitalizeWords(pokemon.name)}
+                </Link>
                 <div className="flex gap-2 text-sm">
                   <p className="text-gray-500">#{pokemon.species_id}</p>
                   <div className="flex gap-2">
@@ -137,7 +143,7 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
                   </p>
                 )}
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

@@ -1,18 +1,18 @@
 {
-  "name": "manaphy",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/490.png",
-  "id": 490,
+  "name": "arrokuda",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/846.png",
+  "id": 846,
   "stats": [
     {
-      "base_stat": 100,
-      "effort": 3,
+      "base_stat": 41,
+      "effort": 0,
       "stat": {
         "name": "hp",
         "url": "https://pokeapi.co/api/v2/stat/1/"
       }
     },
     {
-      "base_stat": 100,
+      "base_stat": 63,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "base_stat": 100,
+      "base_stat": 40,
       "effort": 0,
       "stat": {
         "name": "defense",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "base_stat": 100,
+      "base_stat": 40,
       "effort": 0,
       "stat": {
         "name": "special-attack",
@@ -36,7 +36,7 @@
       }
     },
     {
-      "base_stat": 100,
+      "base_stat": 30,
       "effort": 0,
       "stat": {
         "name": "special-defense",
@@ -44,8 +44,8 @@
       }
     },
     {
-      "base_stat": 100,
-      "effort": 0,
+      "base_stat": 66,
+      "effort": 1,
       "stat": {
         "name": "speed",
         "url": "https://pokeapi.co/api/v2/stat/6/"
@@ -61,5 +61,5 @@
       }
     }
   ],
-  "date": "2024-10-08"
+  "date": "2024-10-09"
 }

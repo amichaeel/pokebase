@@ -186,11 +186,14 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center px-2 z-50 relative">
-          <form onSubmit={handleSearch} className="flex bg-base-300 rounded">
+        <div className="flex items-center gap-2 px-2 z-50 relative">
+          <form
+            onSubmit={handleSearch}
+            className="flex bg-base-300 rounded-full"
+          >
             <input
               type="text"
-              className="w-full p-2 bg-base-300 rounded focus:outline-none"
+              className="w-full p-2 px-4 bg-base-300 rounded-full focus:outline-none"
               placeholder="Search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -200,7 +203,7 @@ export default function Navbar() {
             </button>
           </form>
           {suggestions.length > 0 && (
-            <ul className="absolute top-[46px] left-0 w-full rounded-b-xl bg-base-100">
+            <ul className="absolute top-[40px] left-0 w-full rounded-b-xl bg-base-100">
               {suggestions.map((suggestion, index) => {
                 return (
                   <li
@@ -217,7 +220,7 @@ export default function Navbar() {
               })}
             </ul>
           )}
-          <div className="flex items-center justify-center p-3">
+          <div className="flex btn btn-circle btn-sm">
             <ThemeSwitcher handleTheme={handleTheme} />
           </div>
         </div>

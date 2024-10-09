@@ -33,6 +33,7 @@ export const GET = async (req) => {
         id
         name
         pokemon_species_id
+        is_default
         pokemon_v2_pokemonmoves(
           where: {
             pokemon_v2_move: { name: { _eq: $moveName } }
@@ -74,6 +75,7 @@ export const GET = async (req) => {
         id: pokemon.id,
         name: pokemon.name,
         species_id: pokemon.pokemon_species_id,
+        is_default: pokemon.is_default,
         sprites: pokemon.pokemon_v2_pokemonsprites,
         levels: pokemon.pokemon_v2_pokemonmoves,
         types: pokemon.pokemon_v2_pokemontypes,
