@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-const { default: daisyui } = require('daisyui');
-const plugin = require('tailwindcss/plugin')
+const { default: daisyui } = require("daisyui");
+const plugin = require("tailwindcss/plugin");
 module.exports = {
-  darkMode: 'class',
+  purge: {
+    content: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.jsx"],
+    options: {
+      safelist: [/^text-/], // This safelists all text color classes
+    },
+  },
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,30 +22,30 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       textShadow: {
-        sm: '1px 1px 2px var(--tw-shadow-color)',
-        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
-        lg: '0 8px 16px var(--tw-shadow-color)',
+        sm: "1px 1px 2px var(--tw-shadow-color)",
+        DEFAULT: "0 2px 4px var(--tw-shadow-color)",
+        lg: "0 8px 16px var(--tw-shadow-color)",
       },
     },
   },
   variants: {
-    imageRendering: ['responsive'],
+    imageRendering: ["responsive"],
   },
   plugins: [
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {
-          'text-shadow': (value) => ({
+          "text-shadow": (value) => ({
             textShadow: value,
           }),
         },
-        { values: theme('textShadow') }
-      )
+        { values: theme("textShadow") },
+      );
     }),
-    require('daisyui'),
-    require('tailwindcss-image-rendering')(),
+    require("daisyui"),
+    require("tailwindcss-image-rendering")(),
   ],
   daisyui: {
-    themes: ['light', 'dark']
+    themes: ["light", "dark"],
   },
 };

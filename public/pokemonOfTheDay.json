@@ -1,18 +1,18 @@
 {
-  "name": "scrafty",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/560.png",
-  "id": 560,
+  "name": "manaphy",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/490.png",
+  "id": 490,
   "stats": [
     {
-      "base_stat": 65,
-      "effort": 0,
+      "base_stat": 100,
+      "effort": 3,
       "stat": {
         "name": "hp",
         "url": "https://pokeapi.co/api/v2/stat/1/"
       }
     },
     {
-      "base_stat": 90,
+      "base_stat": 100,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,15 +20,15 @@
       }
     },
     {
-      "base_stat": 115,
-      "effort": 1,
+      "base_stat": 100,
+      "effort": 0,
       "stat": {
         "name": "defense",
         "url": "https://pokeapi.co/api/v2/stat/3/"
       }
     },
     {
-      "base_stat": 45,
+      "base_stat": 100,
       "effort": 0,
       "stat": {
         "name": "special-attack",
@@ -36,15 +36,15 @@
       }
     },
     {
-      "base_stat": 115,
-      "effort": 1,
+      "base_stat": 100,
+      "effort": 0,
       "stat": {
         "name": "special-defense",
         "url": "https://pokeapi.co/api/v2/stat/5/"
       }
     },
     {
-      "base_stat": 58,
+      "base_stat": 100,
       "effort": 0,
       "stat": {
         "name": "speed",
@@ -56,17 +56,10 @@
     {
       "slot": 1,
       "type": {
-        "name": "dark",
-        "url": "https://pokeapi.co/api/v2/type/17/"
-      }
-    },
-    {
-      "slot": 2,
-      "type": {
-        "name": "fighting",
-        "url": "https://pokeapi.co/api/v2/type/2/"
+        "name": "water",
+        "url": "https://pokeapi.co/api/v2/type/11/"
       }
     }
   ],
-  "date": "2024-07-14"
+  "date": "2024-10-08"
 }

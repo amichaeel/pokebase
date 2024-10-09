@@ -8,58 +8,62 @@ import ThemeSwitcher from "@/components/Theme";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [allPokemonNames, setAllPokemonNames] = useState([]);
   const [allItemNames, setAllItemNames] = useState([]);
   const [allMoveNames, setAllMoveNames] = useState([]);
-  const [theme, setTheme] = useState(null)
+  const [theme, setTheme] = useState(null);
   const router = useRouter();
 
   const handleTheme = (theme) => {
     setTheme(theme);
-  }
+  };
 
   useEffect(() => {
     const fetchPokemonNames = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokedex/1');
+        const response = await fetch("https://pokeapi.co/api/v2/pokedex/1");
         const data = await response.json();
-        const pokemonNames = data.pokemon_entries.map(pokemon => ({
+        const pokemonNames = data.pokemon_entries.map((pokemon) => ({
           name: capitalizeWords(pokemon.pokemon_species.name),
-          type: 'Pokédex'
+          type: "Pokédex",
         }));
         setAllPokemonNames(pokemonNames);
       } catch (error) {
-        console.error('Error fetching Pokémon names:', error);
+        console.error("Error fetching Pokémon names:", error);
       }
     };
 
     const fetchItemNames = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/item?limit=2169');
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/item?limit=2169",
+        );
         const data = await response.json();
-        const itemNames = data.results.map(item => ({
+        const itemNames = data.results.map((item) => ({
           name: capitalizeWords(item.name),
-          type: 'Item'
+          type: "Item",
         }));
         setAllItemNames(itemNames);
       } catch (error) {
-        console.error('Error fetching item names:', error);
+        console.error("Error fetching item names:", error);
       }
     };
 
     const fetchMoveNames = async () => {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/move?limit=1000');
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/move?limit=1000",
+        );
         const data = await response.json();
-        const moveNames = data.results.map(move => ({
+        const moveNames = data.results.map((move) => ({
           name: capitalizeWords(move.name),
-          type: 'Move'
+          type: "Move",
         }));
         setAllMoveNames(moveNames);
       } catch (error) {
-        console.error('Error fetching move names:', error);
+        console.error("Error fetching move names:", error);
       }
     };
 
@@ -74,7 +78,9 @@ export default function Navbar() {
     } else {
       const allNames = [...allPokemonNames, ...allItemNames, ...allMoveNames];
       const filteredSuggestions = allNames
-        .filter(entry => entry.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        .filter((entry) =>
+          entry.name.toLowerCase().includes(searchTerm.toLowerCase()),
+        )
         .slice(0, 10);
       setSuggestions(filteredSuggestions);
     }
@@ -82,42 +88,44 @@ export default function Navbar() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (suggestions.length > 0 && searchTerm.trim() !== '') {
-      let url = ''
+    if (suggestions.length > 0 && searchTerm.trim() !== "") {
+      let url = "";
       switch (suggestions[0].type) {
-        case 'Pokédex':
-          url = '/pokedex/'
-          break
-        case 'Item':
-          url = '/item/'
-          break
-        case 'Move':
-          url = '/move.'
-          break
+        case "Pokédex":
+          url = "/pokedex/";
+          break;
+        case "Item":
+          url = "/item/";
+          break;
+        case "Move":
+          url = "/move.";
+          break;
       }
-      const suggestionFormatted = suggestions[0].name.toLowerCase().replace(" ", "-");
+      const suggestionFormatted = suggestions[0].name
+        .toLowerCase()
+        .replace(" ", "-");
       router.push(`${url}${suggestionFormatted}`);
-      setSearchTerm('');
+      setSearchTerm("");
       setSuggestions([]);
     }
   };
 
   const handleSuggestionClick = (suggestion) => {
     const suggestionFormatted = suggestion.name.toLowerCase().replace(" ", "-");
-    let url = ''
+    let url = "";
     switch (suggestion.type) {
-      case 'Pokédex':
-        url = '/pokedex/'
-        break
-      case 'Item':
-        url = '/item/'
-        break
-      case 'Move':
-        url = '/move/'
-        break
+      case "Pokédex":
+        url = "/pokedex/";
+        break;
+      case "Item":
+        url = "/item/";
+        break;
+      case "Move":
+        url = "/move/";
+        break;
     }
     router.push(`${url}${suggestionFormatted}`);
-    setSearchTerm('');
+    setSearchTerm("");
     setSuggestions([]);
   };
 
@@ -125,27 +133,47 @@ export default function Navbar() {
     <div className="flex items-center justify-center h-12 w-full bg-base-100  text-xs sticky z-40 top-0">
       <div className="flex items-center h-full justify-between max-w-6xl w-full px-4">
         <div className="space-x-1 h-full flex items-center">
-          <Link href="/" className=" h-full hover:bg-base-300 hover:cursor-pointer px-3">
+          <Link
+            href="/"
+            className=" h-full hover:bg-base-300 hover:cursor-pointer px-3"
+          >
             <div className="flex h-full items-center space-x-2">
-              <img src="/pokeball.png" alt="Pokeball Logo" className={`w-5 h-5 ${theme == 'dark' ? 'invert' : ''}`} />
+              <img
+                src="/pokeball.png"
+                alt="Pokeball Logo"
+                className={`w-5 h-5 ${theme == "dark" ? "invert" : ""}`}
+              />
               <span className="text-lg">PokéBase</span>
             </div>
           </Link>
 
           <div className="h-full hover:bg-base-200 group dropdown relative cursor-default">
-            <span className="h-full flex items-center justify-center w-full text-center px-2">Pokémon Data</span>
+            <span className="h-full flex items-center justify-center w-full text-center px-2">
+              Pokémon Data
+            </span>
             <div className="group-hover:block bg-base-200 rounded-b-xl top-12 dropdown-menu absolute hidden h-auto w-64">
               <ul className="*:cursor-pointer">
                 <li>
-                  <Link href="/pokedex/all" className="py-4 flex w-full h-full px-2 flex-col  hover:bg-base-300">
+                  <Link
+                    href="/pokedex/all"
+                    className="py-4 flex w-full h-full px-2 flex-col  hover:bg-base-300"
+                  >
                     <span className="font-semibold text-lg">All Pokémon</span>
                     <span className="text-xs">The National Pokedex</span>
                   </Link>
                 </li>
-                <li className="p-2 hover:bg-none hover:cursor-default text-xs font-semibold bg-base-300 uppercase ">Other Regions</li>
+                <li className="p-2 hover:bg-none hover:cursor-default text-xs font-semibold bg-base-300 uppercase ">
+                  Other Regions
+                </li>
                 {regions.map((region, index) => (
-                  <li key={index} className="  flex w-full h-full hover:bg-base-300">
-                    <Link className="w-full p-2 h-full" href={`/pokedex/region/${region.name.toLowerCase().replace(/ /g, '-')}`}>
+                  <li
+                    key={index}
+                    className="  flex w-full h-full hover:bg-base-300"
+                  >
+                    <Link
+                      className="w-full p-2 h-full"
+                      href={`/pokedex/region/${region.name.toLowerCase().replace(/ /g, "-")}`}
+                    >
                       {capitalizeWords(region.name)}
                     </Link>
                   </li>
@@ -172,20 +200,20 @@ export default function Navbar() {
             </button>
           </form>
           {suggestions.length > 0 && (
-            <ul className="absolute top-9 left-0 w-full bg-base-300 rounded-lg">
+            <ul className="absolute top-[46px] left-0 w-full rounded-b-xl bg-base-100">
               {suggestions.map((suggestion, index) => {
                 return (
                   <li
                     key={index}
-                    className="flex items-center justify-between w-full px-4 py-2 hover:bg-base-200 cursor-pointer font-bold"
+                    className="flex items-center justify-between w-full px-4 py-2 hover:bg-base-300 cursor-pointer font-bold"
                     onClick={() => handleSuggestionClick(suggestion)}
                   >
-                    <span className="font-semibold text-md">{suggestion.name}</span>
-                    <span>
-                      {suggestion.type}
+                    <span className="font-semibold text-md">
+                      {suggestion.name}
                     </span>
+                    <span>{suggestion.type}</span>
                   </li>
-                )
+                );
               })}
             </ul>
           )}
@@ -195,5 +223,5 @@ export default function Navbar() {
         </div>
       </div>
     </div>
-  )
+  );
 }
