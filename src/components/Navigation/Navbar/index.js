@@ -134,7 +134,6 @@ export default function Navbar() {
       <div className="flex flex-col md:flex-row items-center h-22 md:h-12 justify-between max-w-6xl w-full">
         <div className="space-x-1 h-full flex w-full justify-between md:justify-start items-center">
           <Link
-            prefetch={false}
             href="/"
             className=" h-full hover:bg-base-300 hover:cursor-pointer px-3"
           >
@@ -156,7 +155,6 @@ export default function Navbar() {
               <ul className="*:cursor-pointer z-50">
                 <li>
                   <Link
-                    prefetch={false}
                     href="/pokedex/all"
                     className="flex w-full h-full px-2 flex-col  hover:bg-base-300"
                   >
@@ -210,7 +208,6 @@ export default function Navbar() {
           </div>
 
           <Link
-            prefetch={false}
             href={`/move/all`}
             className="h-full hover:bg-base-300 group dropdown relative"
           >
@@ -220,7 +217,6 @@ export default function Navbar() {
           </Link>
 
           <Link
-            prefetch={false}
             href={`/item/all`}
             className="h-full hover:bg-base-300 group dropdown relative"
           >

@@ -154,7 +154,6 @@ export default function PokemonPage({ params }) {
             <div className="w-full flex items-center text-white/50 justify-start">
               {navigation.prev && (
                 <Link
-                  prefetch={false}
                   href={`/pokedex/${navigation.prev.pokemon_species.name}`}
                   className="hover:bg-black/10 h-full py-4 pr-6 flex items-center rounded-br-3xl cursor-pointer"
                 >
@@ -171,7 +170,6 @@ export default function PokemonPage({ params }) {
             <div className="w-full flex items-center text-white/50 justify-end">
               {navigation.next && (
                 <Link
-                  prefetch={false}
                   href={`/pokedex/${navigation.next.pokemon_species.name}`}
                   className="hover:bg-black/10 h-full py-4 pl-6 flex items-center rounded-bl-3xl cursor-pointer"
                 >
