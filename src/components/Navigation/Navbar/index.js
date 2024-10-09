@@ -183,7 +183,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="h-full hover:bg-base-300 group dropdown relative cursor-default">
+          {/* <div className="h-full hover:bg-base-300 group dropdown relative cursor-default">
             <span className="h-10 md:h-full text-sm flex items-center justify-center w-full text-center px-2">
               Types
             </span>
@@ -205,7 +205,7 @@ export default function Navbar() {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
 
           <Link
             href={`/move/all`}
