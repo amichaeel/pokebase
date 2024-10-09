@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       ? "Home | PokéBase"
       : `${pathname.replace("/", "")} | PokéBase`;
   return (
-    <html lang="en" className="bg-base-300">
+    <html lang="en" className="bg-base-300 antialiased">
       <head>
         <title>{pageTitle}</title>
       </head>
