@@ -32,6 +32,7 @@ export default function Home() {
                       className="flex lg:justify-start justify-center"
                     >
                       <Link
+                        prefetch={false}
                         className={`text-sm btn btn-sm  ${link.active ? "btn-outline" : "text-gray-400 btn-disabled cursor-default"}`}
                         href={link.link}
                       >
@@ -54,7 +55,11 @@ export default function Home() {
           </div>
           <div className="w-full md:w-2/3 p-4">
             <div className="flex flex-col items-center justify-around space-y-4">
-              <Link className="btn btn-outline w-full" href="/pokedex/all">
+              <Link
+                prefetch={false}
+                className="btn btn-outline w-full"
+                href="/pokedex/all"
+              >
                 Explore Pokédex
               </Link>
               <button
@@ -89,7 +94,11 @@ export default function Home() {
         </div>
         <p className="text-sm text-center mb-6">
           Powered by{" "}
-          <Link className="hover:text-blue-400" href="https://pokeapi.co/">
+          <Link
+            prefetch={false}
+            className="hover:text-blue-400"
+            href="https://pokeapi.co/"
+          >
             PokeAPI
           </Link>
         </p>

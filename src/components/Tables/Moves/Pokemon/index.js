@@ -119,6 +119,7 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
               </div>
               <div className="">
                 <Link
+                  prefetch={false}
                   href={`/pokedex/${pokemon.name}`}
                   className="link-hover font-bold capitalize"
                 >

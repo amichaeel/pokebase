@@ -221,6 +221,7 @@ const PokedexTable = ({ pokemonData }) => {
                       )}
                       <div className="flex flex-col">
                         <Link
+                          prefetch={false}
                           className="hover:text-blue-400"
                           href={`/pokedex/${pokemon.species_name}`}
                         >

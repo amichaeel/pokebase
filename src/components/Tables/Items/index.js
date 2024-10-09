@@ -84,6 +84,7 @@ const ItemsTable = ({ itemsData }) => {
                     </div>
                   )}
                   <Link
+                    prefetch={false}
                     className="hover:text-blue-400 ml-2"
                     href={`/item/${item.name}`}
                   >

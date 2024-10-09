@@ -92,6 +92,7 @@ const PokemonOfTheDay = () => {
         {pokemonOfTheDay ? (
           <div className="flex md:flex-row flex-col gap-2 rounded-3xl items-center justify-center mt-4">
             <Link
+              prefetch={false}
               href={`/pokedex/${pokemonOfTheDay.name}`}
               className="flex flex-col items-center justify-center w-full p-3 cursor-pointer transition-all hover:bg-base-300 rounded-3xl "
             >

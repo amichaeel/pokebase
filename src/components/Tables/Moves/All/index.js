@@ -135,6 +135,7 @@ const MovesTable = ({ movesData }) => {
             <tr key={idx} className="hover:bg-base-100">
               <td className="border-t border-base-100 p-1">
                 <Link
+                  prefetch={false}
                   className="hover:text-blue-400"
                   href={`/move/${move.name}`}
                 >
