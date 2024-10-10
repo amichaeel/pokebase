@@ -8,10 +8,10 @@ export default function WideTypeIcon({ type, condensed = false }) {
 
   return (
     <Link
-      href={`/type/${type}`}
+      href={`/type/${type.toLowerCase()}`}
       className={`flex justify-center text-xs text-white ${condensed ? "w-5 py-1 px-3" : "w-16 py-1 px-4"} rounded-md border-[1px] border-black/40 ${typeClass} hover:opacity-90 transition-all cursor-pointer`}
     >
-      <div href={`/type/${type}`} className="text-shadow-sm shadow-black">
+      <div className="text-shadow-sm shadow-black">
         {condensed ? type.substring(0, 3).toUpperCase() : type.toUpperCase()}
       </div>
     </Link>
