@@ -3,7 +3,6 @@ import { ChevronUpDownIcon, NoSymbolIcon } from "@heroicons/react/24/outline";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
 import { capitalizeWords } from "@/lib/utils";
 import Link from "next/link";
-import Image from "next/image";
 
 const PokedexTable = ({ pokemonData }) => {
   const [sortConfig, setSortConfig] = useState({

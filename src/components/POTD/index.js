@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { capitalizeWords } from "@/lib/utils";
 import WideTypeIcon from "../TypeIcon/Wide";
 import Link from "next/link";
-import Image from "next/image";
 
 const PokemonOfTheDay = () => {
   const [pokemonOfTheDay, setPokemonOfTheDay] = useState(null);
@@ -97,7 +96,7 @@ const PokemonOfTheDay = () => {
               href={`/pokedex/${pokemonOfTheDay.name}`}
               className="flex flex-col items-center justify-center w-full p-3 cursor-pointer transition-all hover:bg-base-300 rounded-3xl "
             >
-              <Image
+              <img
                 src={pokemonOfTheDay.sprite}
                 alt={pokemonOfTheDay.name}
                 width={300}

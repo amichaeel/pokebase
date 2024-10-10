@@ -1,6 +1,5 @@
 import { capitalizeWords } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 
 const SpritesOverviewTable = ({ pokemonData }) => {
   const [sprites, setSprites] = useState({ normal: [], shiny: [] });

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { capitalizeWords } from "@/lib/utils";
 import { ChevronUpDownIcon, NoSymbolIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Image from "next/image";
 
 const ItemsTable = ({ itemsData }) => {
   const [sortConfig, setSortConfig] = useState({

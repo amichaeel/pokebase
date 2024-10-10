@@ -23,7 +23,6 @@ import TutorMovesTable from "@/components/Tables/Moves/Tutor";
 import FormChangeMovesTable from "@/components/Tables/Moves/FormChange";
 import SpritesOverviewTable from "@/components/Tables/Sprites/Overview";
 import Link from "next/link";
-import Image from "next/image";
 
 import { capitalizeWords, typeGradients } from "@/lib/utils";
 

@@ -11,7 +11,6 @@ import {
 import Error from "@/components/Errors";
 import ItemPageNavigator from "@/components/Navigation/Item";
 import HeldItemsTable from "@/components/Tables/HeldItems";
-import Image from "next/image";
 
 export default function ItemPage({ params }) {
   const [itemData, setItemData] = useState(null);

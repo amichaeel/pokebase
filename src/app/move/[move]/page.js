@@ -12,7 +12,6 @@ import {
   gameColors,
 } from "@/lib/utils";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
-import Image from "next/image";
 
 export default function MovePage({ params }) {
   const [moveData, setMoveData] = useState(null);

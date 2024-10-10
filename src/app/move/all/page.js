@@ -5,7 +5,6 @@ import React, { useEffect, useState, useMemo } from "react";
 import PikachuLoader from "@/components/Loaders/Pokeball";
 import { TableCellsIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import MovesTable from "@/components/Tables/Moves/All";
-import Image from "next/image";
 
 const MasterMovesPage = () => {
   const [moveData, setMovesData] = useState([]);

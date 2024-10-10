@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const EvolutionChart = ({ speciesData }) => {

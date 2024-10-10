@@ -3,7 +3,6 @@ import { capitalizeWords } from "@/lib/utils";
 import { ChevronUpDownIcon, NoSymbolIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
-import Image from "next/image";
 
 const MovesTable = ({ movesData }) => {
   const [sortConfig, setSortConfig] = useState({

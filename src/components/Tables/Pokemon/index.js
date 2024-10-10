@@ -1,7 +1,6 @@
 import React from "react";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
-import Image from "next/image";
 
 const PokemonTable = ({ filteredData, sortConfig, handleSort, router }) => {
   return (

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { capitalizeWords, gameColors } from "@/lib/utils";
-import Image from "next/image";
 
 const HeldItemsTable = ({ itemData }) => {
   const [pokemonData, setPokemonData] = useState([]);

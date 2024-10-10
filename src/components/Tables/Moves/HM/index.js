@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import { moveCatergories } from "@/lib/utils";
-import Image from "next/image";
 
 const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 

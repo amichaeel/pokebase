@@ -6,7 +6,6 @@ import {
 } from "@/lib/utils";
 import Link from "next/link";
 import CondensedTypeIcon from "@/components/TypeIcon/Condensed";
-import Image from "next/image";
 
 const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
   const [pokemon, setPokemon] = useState([]);

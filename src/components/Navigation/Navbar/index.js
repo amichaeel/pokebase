@@ -6,7 +6,6 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { capitalizeWords, regions, types } from "@/lib/utils";
 import ThemeSwitcher from "@/components/Theme";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
