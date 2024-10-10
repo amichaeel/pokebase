@@ -12,6 +12,7 @@ import {
   gameColors,
 } from "@/lib/utils";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
+import Image from "next/image";
 
 export default function MovePage({ params }) {
   const [moveData, setMoveData] = useState(null);
@@ -80,7 +81,7 @@ export default function MovePage({ params }) {
                   <th className="text-right pr-4">Category</th>
                   <td>
                     <div className="flex items-center gap-2">
-                      <img
+                      <Image
                         src={`/move-${moveData.damage_class.name}.png`}
                         className="w-8"
                         alt={moveData.damage_class.name}

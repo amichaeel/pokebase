@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NoSymbolIcon } from "@heroicons/react/24/outline";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
 import { capitalizeWords } from "@/lib/utils";
+import Image from "next/image";
 
 const PokemonCard = ({ pokemon }) => {
   const isVariety = pokemon.name !== pokemon.data.name;
@@ -15,7 +16,7 @@ const PokemonCard = ({ pokemon }) => {
       <div className="flex flex-col justify-between h-full w-full items-center rounded-lg hover:bg-base-100 p-4 hover:cursor-pointer">
         <div className="w-36 h-36 relative">
           {pokemon.data.sprites.home_default ? (
-            <img
+            <Image
               src={pokemon.data.sprites.home_default}
               alt={pokemon.name}
               className="w-full h-full object-contain"

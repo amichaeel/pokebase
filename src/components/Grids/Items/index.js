@@ -2,6 +2,7 @@ import React from "react";
 import { capitalizeWords } from "@/lib/utils";
 import { NoSymbolIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 const ItemsGrid = ({ itemsData }) => {
   return (
@@ -14,7 +15,7 @@ const ItemsGrid = ({ itemsData }) => {
           className="cursor-pointer p-3 rounded-lg hover:bg-base-200"
         >
           {item.sprite ? (
-            <img
+            <Image
               src={item.sprite}
               alt={item.name}
               className="w-20 h-20 mx-auto rendering-pixelated"

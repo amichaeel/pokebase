@@ -3,6 +3,7 @@ import { capitalizeWords } from "@/lib/utils";
 import { ChevronUpDownIcon, NoSymbolIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
+import Image from "next/image";
 
 const MovesTable = ({ movesData }) => {
   const [sortConfig, setSortConfig] = useState({
@@ -130,10 +131,10 @@ const MovesTable = ({ movesData }) => {
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-300">
+        <tbody>
           {sortedMoves.map((move, idx) => (
             <tr key={idx} className="hover:bg-base-100">
-              <td className="border-t border-base-100 p-1">
+              <td className=" p-1">
                 <Link
                   prefetch={false}
                   className="hover:text-blue-400"
@@ -142,13 +143,13 @@ const MovesTable = ({ movesData }) => {
                   {capitalizeWords(move.name)}
                 </Link>
               </td>
-              <td className="border-t border-base-100">
+              <td className="">
                 {move.type ? <WideTypeIcon type={move.type} /> : <span>—</span>}
               </td>
-              <td className="border-t border-base-100">
+              <td className="">
                 {move.category ? (
                   <div className="flex justify-center items-center">
-                    <img
+                    <Image
                       src={`/move-${move.category}.png`}
                       className="w-8"
                       alt={move.category}
@@ -158,23 +159,23 @@ const MovesTable = ({ movesData }) => {
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-base-100">
+              <td className="">
                 {move.power ? <span>{move.power}</span> : <span>—</span>}
               </td>
-              <td className="border-t border-base-100">
+              <td className="">
                 {move.accuracy ? <span>{move.accuracy}</span> : <span>—</span>}
               </td>
-              <td className="border-t border-base-100">
+              <td className="">
                 {move.pp ? <span>{move.pp}</span> : <span>—</span>}
               </td>
-              <td className="border-t border-base-100 max-w-md">
+              <td className=" max-w-md">
                 {move.short_effect ? (
                   <span>{move.short_effect}</span>
                 ) : (
                   <span>—</span>
                 )}
               </td>
-              <td className="border-t border-base-100 text-right p-1">
+              <td className=" text-right p-1">
                 {move.effect_chance > 0 ? (
                   <span>{move.effect_chance}</span>
                 ) : (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { capitalizeWords } from "@/lib/utils";
 import { ChevronUpDownIcon, NoSymbolIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 const ItemsTable = ({ itemsData }) => {
   const [sortConfig, setSortConfig] = useState({
@@ -37,7 +38,7 @@ const ItemsTable = ({ itemsData }) => {
         <thead>
           <tr>
             <th
-              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor("name")}`}
+              className={`p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor("name")}`}
               onClick={() => requestSort("name")}
             >
               <div className="flex items-center justify-between ">
@@ -48,7 +49,7 @@ const ItemsTable = ({ itemsData }) => {
               </div>
             </th>
             <th
-              className={`border-b border-base-100 p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor("category")}`}
+              className={`p-3 bg-base-200 hover:bg-base-100 cursor-pointer ${getClassNamesFor("category")}`}
               onClick={() => requestSort("category")}
             >
               <div className="flex items-center justify-between">
@@ -58,7 +59,7 @@ const ItemsTable = ({ itemsData }) => {
                 <ChevronUpDownIcon className="size-4" />
               </div>
             </th>
-            <th className="border-b border-base-100 p-3 bg-base-200">
+            <th className="p-3 bg-base-200">
               <div className="flex items-center justify-between">
                 <span className="uppercase text-left text-xs font-medium tracking-wider">
                   Effect
@@ -70,10 +71,10 @@ const ItemsTable = ({ itemsData }) => {
         <tbody>
           {sortedItems.map((item, idx) => (
             <tr key={idx} className="hover:bg-base-100">
-              <td className="border-t border-base-100 p-1">
+              <td className=" p-1">
                 <div className="flex items-center">
                   {item.sprite ? (
-                    <img
+                    <Image
                       src={item.sprite}
                       alt={item.name}
                       className="w-10 h-10 rendering-pixelated"
@@ -92,10 +93,8 @@ const ItemsTable = ({ itemsData }) => {
                   </Link>
                 </div>
               </td>
-              <td className="border-t border-base-100">
-                {capitalizeWords(item.category)}
-              </td>
-              <td className="border-t border-base-100 p-1">{item.effect}</td>
+              <td className="">{capitalizeWords(item.category)}</td>
+              <td className=" p-1">{item.effect}</td>
             </tr>
           ))}
         </tbody>

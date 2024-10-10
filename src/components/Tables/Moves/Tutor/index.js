@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import { moveCatergories } from "@/lib/utils";
+import Image from "next/image";
 
 const TutorMovesTable = ({ pokemonData }) => {
   const [moves, setMoves] = useState([]);
@@ -156,7 +157,7 @@ const TutorMovesTable = ({ pokemonData }) => {
                   </td>
                   <td className="py-2">
                     <div className="w-8 h-8">
-                      <img
+                      <Image
                         src={`${moveCatergories[move.category.toLowerCase()]}`}
                         alt={move.category}
                       />

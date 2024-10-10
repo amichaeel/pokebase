@@ -10,8 +10,8 @@ import {
 } from "@/lib/utils";
 import Error from "@/components/Errors";
 import ItemPageNavigator from "@/components/Navigation/Item";
-import Link from "next/link";
 import HeldItemsTable from "@/components/Tables/HeldItems";
+import Image from "next/image";
 
 export default function ItemPage({ params }) {
   const [itemData, setItemData] = useState(null);
@@ -51,7 +51,7 @@ export default function ItemPage({ params }) {
         <div className="w-full flex flex-col items-center justify-center">
           <div className="flex px-6 items-center justify-center">
             {itemData.sprites.default && (
-              <img
+              <Image
                 src={itemData.sprites.default}
                 className="size-16 rendering-pixelated"
                 alt={itemData.name}

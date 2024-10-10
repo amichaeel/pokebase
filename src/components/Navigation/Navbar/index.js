@@ -6,6 +6,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { capitalizeWords, regions, types } from "@/lib/utils";
 import ThemeSwitcher from "@/components/Theme";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -138,7 +139,7 @@ export default function Navbar() {
             className=" h-full hover:bg-base-300 hover:cursor-pointer px-3"
           >
             <div className="flex h-full items-center space-x-2">
-              <img
+              <Image
                 src="/pokeball.png"
                 alt="Pokeball Logo"
                 className={`w-5 h-5 ${theme == "dark" ? "invert" : ""}`}
@@ -233,7 +234,7 @@ export default function Navbar() {
           >
             <input
               type="text"
-              className="w-full p-2 px-4 bg-base-300 rounded-full focus:outline-none"
+              className="w-full input-sm focus:outline-1 outline-black p-2 px-4 bg-base-300 rounded-full focus:outline-none"
               placeholder="Search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -243,12 +244,12 @@ export default function Navbar() {
             </button>
           </form>
           {suggestions.length > 0 && (
-            <ul className="absolute top-[56px] md:top-[44px] shadow-lg z-50 right-0 w-full rounded-b-xl bg-base-100">
+            <ul className="absolute top-[56px] md:top-[40px] shadow-lg z-50 right-0 w-full rounded-b-xl bg-base-100">
               {suggestions.map((suggestion, index) => {
                 return (
                   <li
                     key={index}
-                    className="flex items-center justify-between w-full px-4 hover:bg-base-300 cursor-pointer font-bold"
+                    className="flex items-center justify-between w-full px-4 py-2 hover:bg-base-300 last:rounded-b-xl cursor-pointer font-bold"
                     onClick={() => handleSuggestionClick(suggestion)}
                   >
                     <span className="font-semibold text-md">

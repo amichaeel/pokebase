@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { capitalizeWords } from "@/lib/utils";
 import WideTypeIcon from "../TypeIcon/Wide";
 import Link from "next/link";
+import Image from "next/image";
 
 const PokemonOfTheDay = () => {
   const [pokemonOfTheDay, setPokemonOfTheDay] = useState(null);
@@ -96,7 +97,7 @@ const PokemonOfTheDay = () => {
               href={`/pokedex/${pokemonOfTheDay.name}`}
               className="flex flex-col items-center justify-center w-full p-3 cursor-pointer transition-all hover:bg-base-300 rounded-3xl "
             >
-              <img
+              <Image
                 src={pokemonOfTheDay.sprite}
                 alt={pokemonOfTheDay.name}
                 width={300}
@@ -121,11 +122,11 @@ const PokemonOfTheDay = () => {
               >
                 <thead>
                   <tr>
-                    <th className="py-2 px-4 border-b border-black/15"></th>
-                    <th className="py-2 px-4 border-b border-black/15"></th>
-                    <th className="py-2 px-4 border-b border-black/15"></th>
-                    <th className="py-2 px-4 border-b border-black/15"></th>
-                    <th className="py-2 px-4 border-b border-black/15"></th>
+                    <th className="py-2 px-4"></th>
+                    <th className="py-2 px-4"></th>
+                    <th className="py-2 px-4"></th>
+                    <th className="py-2 px-4"></th>
+                    <th className="py-2 px-4"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -136,38 +137,28 @@ const PokemonOfTheDay = () => {
                     );
                     return (
                       <tr key={stat.name}>
-                        <td className="py-2 px-4 border-b border-black/15">
-                          {stat.name}
-                        </td>
-                        <td className="py-2 px-4 border-b border-black/15">
-                          {stat.base}
-                        </td>
-                        <td className="py-2 px-4 w-full border-b border-black/15">
+                        <td className="py-2 px-4">{stat.name}</td>
+                        <td className="py-2 px-4">{stat.base}</td>
+                        <td className="py-2 px-4 w-full">
                           <progress
                             className={`progress progress-custom w-full h-3 ${getProgressBarClass(stat.base)}`}
                             value={stat.base}
                             max="255"
                           ></progress>
                         </td>
-                        <td className="py-2 px-4 border-b border-black/15">
-                          {min}
-                        </td>
-                        <td className="py-2 px-4 border-b border-black/15">
-                          {max}
-                        </td>
+                        <td className="py-2 px-4">{min}</td>
+                        <td className="py-2 px-4">{max}</td>
                       </tr>
                     );
                   })}
                   <tr>
-                    <td className="py-2 px-4 font-bold border-b border-black/15">
-                      Total
-                    </td>
-                    <td className="py-2 px-4 font-bold border-b border-black/15">
+                    <td className="py-2 px-4 font-bold">Total</td>
+                    <td className="py-2 px-4 font-bold">
                       {stats.reduce((sum, stat) => sum + stat.base, 0)}
                     </td>
-                    <td className="py-2 px-4 border-b border-black/15"></td>
-                    <th className="py-2 px-4 border-b border-black/15">Min</th>
-                    <th className="py-2 px-4 border-b border-black/15">Max</th>
+                    <td className="py-2 px-4"></td>
+                    <th className="py-2 px-4">Min</th>
+                    <th className="py-2 px-4">Max</th>
                   </tr>
                 </tbody>
               </table>

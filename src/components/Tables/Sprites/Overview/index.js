@@ -1,5 +1,6 @@
 import { capitalizeWords } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const SpritesOverviewTable = ({ pokemonData }) => {
   const [sprites, setSprites] = useState({ normal: [], shiny: [] });
@@ -79,7 +80,7 @@ const SpritesOverviewTable = ({ pokemonData }) => {
                   <td key={index} className="h-24" style={{ width: "200px" }}>
                     {sprite !== "-" ? (
                       <div className="flex items-center justify-center hover:bg-green-200/50 hover:cursor-pointer w-full h-full transition-all">
-                        <img
+                        <Image
                           src={sprite}
                           alt={`Normal Sprite ${generations[Object.keys(generations)[index]]}`}
                           className="h-full w-full p-1 rendering-pixelated"
@@ -103,7 +104,7 @@ const SpritesOverviewTable = ({ pokemonData }) => {
                   >
                     {sprite !== "-" ? (
                       <div className="flex items-center justify-center hover:bg-green-200/50 hover:cursor-pointer w-full h-full transition-all">
-                        <img
+                        <Image
                           src={sprite}
                           alt={`Shiny Sprite ${generations[Object.keys(generations)[index]]}`}
                           className="h-full w-full p-1 rendering-pixelated"

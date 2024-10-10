@@ -3,6 +3,7 @@ import { ChevronUpDownIcon, NoSymbolIcon } from "@heroicons/react/24/outline";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
 import { capitalizeWords } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 const PokedexTable = ({ pokemonData }) => {
   const [sortConfig, setSortConfig] = useState({
@@ -196,20 +197,20 @@ const PokedexTable = ({ pokemonData }) => {
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-300">
+        <tbody className="">
           {sortedPokemonData.map((pokemon) => (
             <React.Fragment key={pokemon.id}>
               {pokemon.varieties.map((variety, vIndex) => (
                 <tr key={vIndex} className="hover:bg-base-100">
-                  <td className="border-t border-base-100">
+                  <td className="">
                     <span className="flex justify-center">
                       {pokemon.id.toString().padStart(4, "0")}
                     </span>
                   </td>
-                  <td className="border-t border-base-100">
+                  <td className="">
                     <div className="flex items-center space-x-2">
                       {variety.sprites.front_default ? (
-                        <img
+                        <Image
                           src={variety.sprites.front_default}
                           alt={variety.name}
                           className="w-10 h-10 rendering-pixelated"
@@ -235,35 +236,35 @@ const PokedexTable = ({ pokemonData }) => {
                       </div>
                     </div>
                   </td>
-                  <td className="space-y-1 p-1 border-t border-base-100 align-middle">
+                  <td className="space-y-1 p-1  align-middle">
                     {variety.types.map((type) => (
                       <div key={type} className="mr-1">
                         <WideTypeIcon type={type} />
                       </div>
                     ))}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats.reduce(
                       (acc, stat) => acc + stat.base_stat,
                       0,
                     )}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats[0].base_stat}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats[1].base_stat}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats[2].base_stat}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats[3].base_stat}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats[4].base_stat}
                   </td>
-                  <td className="border-t border-base-100 align-middle">
+                  <td className=" align-middle">
                     {variety.stats[5].base_stat}
                   </td>
                 </tr>

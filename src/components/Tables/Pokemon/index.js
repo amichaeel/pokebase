@@ -1,6 +1,7 @@
 import React from "react";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import WideTypeIcon from "@/components/TypeIcon/Wide";
+import Image from "next/image";
 
 const PokemonTable = ({ filteredData, sortConfig, handleSort, router }) => {
   return (
@@ -98,7 +99,7 @@ const PokemonTable = ({ filteredData, sortConfig, handleSort, router }) => {
               <tr className="hover:bg-black/10" key={pokemon.id}>
                 <td>{pokemon.id}</td>
                 <td className="flex items-center space-x-2">
-                  <img
+                  <Image
                     src={pokemon.sprites.front_default}
                     alt={pokemon.name}
                     className="w-16 h-16"
