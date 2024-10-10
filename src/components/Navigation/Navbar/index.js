@@ -168,7 +168,7 @@ export default function Navbar() {
                 {regions.map((region, index) => (
                   <li
                     key={index}
-                    className="  flex w-full h-full hover:bg-base-300"
+                    className="last:rounded-b-xl flex w-full h-full hover:bg-base-300"
                   >
                     <Link
                       prefetch={false}
