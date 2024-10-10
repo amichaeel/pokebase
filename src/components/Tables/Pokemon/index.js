@@ -99,7 +99,7 @@ const PokemonTable = ({ filteredData, sortConfig, handleSort, router }) => {
               <tr className="hover:bg-black/10" key={pokemon.id}>
                 <td>{pokemon.id}</td>
                 <td className="flex items-center space-x-2">
-                  <Image
+                  <img
                     src={pokemon.sprites.front_default}
                     alt={pokemon.name}
                     className="w-16 h-16"

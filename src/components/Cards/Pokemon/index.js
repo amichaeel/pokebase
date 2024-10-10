@@ -16,7 +16,7 @@ const PokemonCard = ({ pokemon }) => {
       <div className="flex flex-col justify-between h-full w-full items-center rounded-lg hover:bg-base-100 p-4 hover:cursor-pointer">
         <div className="w-36 h-36 relative">
           {pokemon.data.sprites.home_default ? (
-            <Image
+            <img
               src={pokemon.data.sprites.home_default}
               alt={pokemon.name}
               className="w-full h-full object-contain"

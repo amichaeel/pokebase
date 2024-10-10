@@ -210,7 +210,7 @@ const PokedexTable = ({ pokemonData }) => {
                   <td className="">
                     <div className="flex items-center space-x-2">
                       {variety.sprites.front_default ? (
-                        <Image
+                        <img
                           src={variety.sprites.front_default}
                           alt={variety.name}
                           className="w-10 h-10 rendering-pixelated"

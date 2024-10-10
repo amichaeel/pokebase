@@ -112,7 +112,7 @@ const PokemonByMoveAndLearningMethod = ({ move, learningMethod }) => {
           return (
             <div key={pokemon.id} className="flex rounded-xl">
               <div>
-                <Image
+                <img
                   src={spriteUrl}
                   alt={pokemon.name}
                   className="mx-auto w-16 h-16"

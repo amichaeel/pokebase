@@ -29,7 +29,7 @@ export default function Error({ message }) {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen -mt-12">
-      <Image
+      <img
         src="/snorlax_sleeping.gif"
         alt="Error"
         className="w-28 h-28 rendering-pixelated"

@@ -157,7 +157,7 @@ const EggMovesTable = ({ pokemonData }) => {
                   </td>
                   <td className="py-2">
                     <div className="w-8 h-8">
-                      <Image
+                      <img
                         src={`${moveCatergories[move.category.toLowerCase()]}`}
                         alt={move.category}
                       />

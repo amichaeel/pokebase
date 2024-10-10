@@ -149,7 +149,7 @@ const MovesTable = ({ movesData }) => {
               <td className="">
                 {move.category ? (
                   <div className="flex justify-center items-center">
-                    <Image
+                    <img
                       src={`/move-${move.category}.png`}
                       className="w-8"
                       alt={move.category}

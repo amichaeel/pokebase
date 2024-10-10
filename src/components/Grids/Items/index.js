@@ -15,7 +15,7 @@ const ItemsGrid = ({ itemsData }) => {
           className="cursor-pointer p-3 rounded-lg hover:bg-base-200"
         >
           {item.sprite ? (
-            <Image
+            <img
               src={item.sprite}
               alt={item.name}
               className="w-20 h-20 mx-auto rendering-pixelated"

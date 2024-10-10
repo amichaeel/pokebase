@@ -208,7 +208,7 @@ export default function PokemonPage({ params }) {
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
             >
-              <Image
+              <img
                 src={
                   selectedPokemonData.sprites.other["official-artwork"]
                     .front_default

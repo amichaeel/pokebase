@@ -74,7 +74,7 @@ const ItemsTable = ({ itemsData }) => {
               <td className=" p-1">
                 <div className="flex items-center">
                   {item.sprite ? (
-                    <Image
+                    <img
                       src={item.sprite}
                       alt={item.name}
                       className="w-10 h-10 rendering-pixelated"

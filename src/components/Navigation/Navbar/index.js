@@ -139,7 +139,7 @@ export default function Navbar() {
             className=" h-full hover:bg-base-300 hover:cursor-pointer px-3"
           >
             <div className="flex h-full items-center space-x-2">
-              <Image
+              <img
                 src="/pokeball.png"
                 alt="Pokeball Logo"
                 className={`w-5 h-5 ${theme == "dark" ? "invert" : ""}`}

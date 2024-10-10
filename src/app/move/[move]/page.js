@@ -81,7 +81,7 @@ export default function MovePage({ params }) {
                   <th className="text-right pr-4">Category</th>
                   <td>
                     <div className="flex items-center gap-2">
-                      <Image
+                      <img
                         src={`/move-${moveData.damage_class.name}.png`}
                         className="w-8"
                         alt={moveData.damage_class.name}

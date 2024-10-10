@@ -60,7 +60,7 @@ const MasterMovesPage = () => {
           <span>Category key:</span>
           <div id="categories" className="flex items-center gap-2">
             <div className="flex items-center">
-              <Image
+              <img
                 src="/move-physical.png"
                 className="w-10"
                 alt="move-physical"
@@ -68,7 +68,7 @@ const MasterMovesPage = () => {
               <span>Physical</span>
             </div>
             <div className="flex items-center">
-              <Image
+              <img
                 src="/move-special.png"
                 className="w-10"
                 alt="move-special"
@@ -76,11 +76,7 @@ const MasterMovesPage = () => {
               <span>Special</span>
             </div>
             <div className="flex items-center">
-              <Image
-                src="/move-status.png"
-                className="w-10"
-                alt="move-status"
-              />
+              <img src="/move-status.png" className="w-10" alt="move-status" />
               <span>Status</span>
             </div>
           </div>

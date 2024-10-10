@@ -69,7 +69,7 @@ const EvolutionChart = ({ speciesData }) => {
             onClick={() => router.push(`/pokedex/${speciesName}`)}
             className="p-2 pokemon-info text-center flex flex-col items-center justify-center hover:bg-base-100 hover:cursor-pointer rounded-lg"
           >
-            <Image
+            <img
               className="pokemon-img"
               height={"100px"}
               width={"100px"}

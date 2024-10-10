@@ -105,7 +105,7 @@ const HeldItemsTable = ({ itemData }) => {
                         </td>
                         <td className="border-t border-base-100 py-2 pr-12">
                           <div className="flex items-center">
-                            <Image
+                            <img
                               src={pokemon.sprite}
                               alt={pokemon.name}
                               className="size-10 rendering-pixelated"

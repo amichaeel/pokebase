@@ -51,7 +51,7 @@ export default function ItemPage({ params }) {
         <div className="w-full flex flex-col items-center justify-center">
           <div className="flex px-6 items-center justify-center">
             {itemData.sprites.default && (
-              <Image
+              <img
                 src={itemData.sprites.default}
                 className="size-16 rendering-pixelated"
                 alt={itemData.name}
