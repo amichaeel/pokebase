@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Error({ message }) {
+  console.log(message);
   const displayMessage = (message) => {
     if (message && message.includes("fetch")) {
       return (
@@ -22,7 +23,7 @@ export default function Error({ message }) {
         </div>
       );
     } else {
-      return <span>An unexpected error occurred.</span>;
+      return <span>An unexpected error occurred: {message}</span>;
     }
   };
 

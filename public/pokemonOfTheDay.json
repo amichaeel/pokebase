@@ -1,10 +1,10 @@
 {
-  "name": "arrokuda",
-  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/846.png",
-  "id": 846,
+  "name": "gouging-fire",
+  "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1020.png",
+  "id": 1020,
   "stats": [
     {
-      "base_stat": 41,
+      "base_stat": 105,
       "effort": 0,
       "stat": {
         "name": "hp",
@@ -12,7 +12,7 @@
       }
     },
     {
-      "base_stat": 63,
+      "base_stat": 115,
       "effort": 0,
       "stat": {
         "name": "attack",
@@ -20,15 +20,15 @@
       }
     },
     {
-      "base_stat": 40,
-      "effort": 0,
+      "base_stat": 121,
+      "effort": 3,
       "stat": {
         "name": "defense",
         "url": "https://pokeapi.co/api/v2/stat/3/"
       }
     },
     {
-      "base_stat": 40,
+      "base_stat": 65,
       "effort": 0,
       "stat": {
         "name": "special-attack",
@@ -36,7 +36,7 @@
       }
     },
     {
-      "base_stat": 30,
+      "base_stat": 93,
       "effort": 0,
       "stat": {
         "name": "special-defense",
@@ -44,8 +44,8 @@
       }
     },
     {
-      "base_stat": 66,
-      "effort": 1,
+      "base_stat": 91,
+      "effort": 0,
       "stat": {
         "name": "speed",
         "url": "https://pokeapi.co/api/v2/stat/6/"
@@ -56,10 +56,17 @@
     {
       "slot": 1,
       "type": {
-        "name": "water",
-        "url": "https://pokeapi.co/api/v2/type/11/"
+        "name": "fire",
+        "url": "https://pokeapi.co/api/v2/type/10/"
+      }
+    },
+    {
+      "slot": 2,
+      "type": {
+        "name": "dragon",
+        "url": "https://pokeapi.co/api/v2/type/16/"
       }
     }
   ],
-  "date": "2024-10-09"
+  "date": "2024-10-10"
 }
